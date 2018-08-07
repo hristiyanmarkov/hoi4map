@@ -217,7 +217,7 @@ $(function () {
         	},
 
         },areas: {
-            "moridunon-resource-gold":{
+            "State_495-resource-gold":{
 				attrs:{
 					fill:"#493D31"
 				},
@@ -226,9 +226,9 @@ $(function () {
 				},
                 value: "Resources",
                 href: "#",
-                tooltip: {content: town_info("Moridunon","Britannia","gold")},
+                tooltip: {content: town_info("Something","Brazil","gold")},
             },
-            "nemossos-resource-gold":{
+            "State_280-resource-gold":{
 				attrs:{
 					fill:"#493D31"
 				},
