@@ -29,10 +29,67 @@
 <div id="mapsvg"></div>
 
 <script type="text/javascript">
-jQuery(document).ready(function(){
-<!--jQuery("#mapsvg").mapSvg({width: 1400,height: 600,regions: {'Dudinka': {id: "Dudinka",'id_no_spaces': "Dudinka",data: {},gaugeValue: 105},'State_305': {id: "State_305",'id_no_spaces': "State_305",data: {},gaugeValue: 3},'State_307': {id: "State_307",'id_no_spaces': "State_307",data: {},gaugeValue: 57},'State_489': {id: "State_489",'id_no_spaces': "State_489",data: {},gaugeValue: 98},'State_493': {id: "State_493",'id_no_spaces': "State_493",data: {},gaugeValue: 20},'State_510': {id: "State_510",'id_no_spaces': "State_510",data: {},gaugeValue: 12},'State_512': {id: "State_512",'id_no_spaces': "State_512",data: {},gaugeValue: 7}},viewBox: [0,0,5632,2048],zoom: {on: true,limit: [0,10],delta: 2,buttons: {on: true,location: "right"},mousewheel: true},scroll: {on: true,limit: true,background: false,spacebar: false},tooltips: {mode: "id",on: false,priority: "local",position: "bottom-right"},gauge: {on: true,labels: {low: "low",high: "high"},colors: {lowRGB: {r: 255,g: 0,b: 0,a: 1},highRGB: {r: 0,g: 255,b: 0,a: 1},low: "#ff0000",high: "#00ff00",diffRGB: {r: -255,g: 255,b: 0,a: 0}},min: 3,max: 98,maxAdjusted: 95},source: "./mapsvg/maps/Map.svg",title: "Oil Map HoI4",responsive: true});-->
-jQuery("#mapsvg").mapSvg({width: 1400,height: 600,regions: {'Dudinka': {id: "Dudinka", 'id_no_spaces': "Dudinka", value: "154", tooltip: {content: "<span style=\"font-weight:bold;\">Dudinka (text) </span><br />Population : 2617939"}},'State_305': {id: "State_305",'id_no_spaces': "State_305",data: {},gaugeValue: 3},'State_307': {id: "State_307",'id_no_spaces': "State_307",data: {},gaugeValue: 57},'State_489': {id: "State_489",'id_no_spaces': "State_489",data: {},gaugeValue: 98},'State_493': {id: "State_493",'id_no_spaces': "State_493",data: {},gaugeValue: 20},'State_510': {id: "State_510",'id_no_spaces': "State_510",data: {},gaugeValue: 12},'State_512': {id: "State_512",'id_no_spaces': "State_512",data: {},gaugeValue: 7}},viewBox: [0,0,1920,1080],zoom: {on: true,limit: [0,10],delta: 2,buttons: {on: true,location: "right"},mousewheel: true},scroll: {on: true,limit: true,background: false,spacebar: false},tooltips: {mode: "id",on: false,priority: "local",position: "bottom-right"},gauge: {on: true,labels: {low: "low",high: "high"},colors: {lowRGB: {r: 255,g: 0,b: 0,a: 1},highRGB: {r: 0,g: 255,b: 0,a: 1},low: "#ff0000",high: "#00ff00",diffRGB: {r: -255,g: 255,b: 0,a: 0}},min: 3,max: 98,maxAdjusted: 95},source: "./mapsvg/maps/Map.svg",title: "Oil Map HoI4",responsive: true});
-});
+        $(function () {
+            $(".mapcontainer").mapael({
+                map: {
+                    name: "hoi4map",
+                    defaultArea: {
+                        attrs: {
+                            stroke: "#fff",
+                            "stroke-width": 1
+                        },
+                        attrsHover: {
+                            "stroke-width": 2
+                        }
+                    }
+                },
+                legend: {
+                    area: {
+                        title: "Hearts of Iron IV Map",
+                        slices: [
+                            {
+                                max: 300000,
+                                attrs: {
+                                    fill: "#97e766"
+                                },
+                                label: "<300,000"
+                            },
+                            {
+                                min: 300000,
+                                max: 500000,
+                                attrs: {
+                                    fill: "#7fd34d"
+                                },
+                                label: "300-500k"
+                            },
+                            {
+                                min: 500000,
+                                max: 1000000,
+                                attrs: {
+                                    fill: "#5faa32"
+                                },
+                                label: "500k-1m"
+                            },
+                            {
+                                min: 1000000,
+                                attrs: {
+                                    fill: "#3f7d1a"
+                                },
+                                label: ">1m"
+                            }
+                        ]
+                    }
+                },
+                areas: {
+                    "Dudinka": {
+                        value: "2617939",
+                        href: "#",
+                        tooltip: {content: "<span style=\"font-weight:bold;\">Dudinka (text)</span><br />Population : text for pop"}
+					}
+                }
+            });
+        });
+    </script>
 </script>
 
 </div>
