@@ -103,6 +103,12 @@
             $(".mapcontainer").mapael({
                 map: {
                     name: "hoi4map",
+					// Enable zoom on the map
+                    zoom: {
+                        enabled: true,
+                        maxLevel: 10
+                    },
+					
                     defaultArea: {
                         attrs: {
                             stroke: "#fff",
