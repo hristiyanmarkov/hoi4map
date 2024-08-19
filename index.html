@@ -24,10 +24,12 @@
          * 'mapael' class is added by plugin
         */
 
-        .mapael .map {
+		.mapael .map {
+            background-color: #cddee0;
+            margin-bottom: 10px;
             position: relative;
         }
-
+		
         .mapael .mapTooltip {
             position: absolute;
             background-color: #fff;
@@ -112,24 +114,24 @@
                 },
                 legend: {
                     area: {
-                        title: "Population of France by department",
+                        title: "Population per State",
                         <!--exclusive: true,-->
                         slices: [
                             {
-                                max: 300000,
+                                max: 100000,
                                 attrs: {
                                     fill: "#97e766"
                                 },
-                                label: "Less than de 300 000 inhabitants",
+                                label: "<100k population",
                                 <!--clicked: true-->
                             },
                             {
-                                min: 300000,
+                                min: 100000,
                                 max: 500000,
                                 attrs: {
                                     fill: "#7fd34d"
                                 },
-                                label: "Between 100 000 and 500 000 inhabitants"
+                                label: "Between 100 000 and 500 000"
 								<!--clicked: true-->
                             },
                             {
@@ -138,7 +140,7 @@
                                 attrs: {
                                     fill: "#5faa32"
                                 },
-                                label: "Between 500 000 and 1 000 000 inhabitants",
+                                label: "Between 500 000 and 1 000 000",
                                 <!--clicked: true-->
                             },
                             {
@@ -146,7 +148,7 @@
                                 attrs: {
                                     fill: "#3f7d1a"
                                 },
-                                label: "More than 1 million inhabitants",
+                                label: "More than 1 million",
                                 <!--clicked: true-->
                             }
                         ]
@@ -168,7 +170,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Kabul</span><br />Populati
 value: "494470",
 tooltip: {content: "<span style=\"font-weight:bold;\">Albania</span><br />Population: 494470"}
 },
-"Northern Epirus":
+"Northern_Epirus":
 {
 value: "262520",
 tooltip: {content: "<span style=\"font-weight:bold;\">Northern Epirus</span><br />Population: 262520"}
@@ -178,12 +180,12 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Northern Epirus</span><br 
 value: "247234",
 tooltip: {content: "<span style=\"font-weight:bold;\">Shkodër</span><br />Population: 247234"}
 },
-"Buenos Aires":
+"Buenos_Aires":
 {
 value: "5603198",
 tooltip: {content: "<span style=\"font-weight:bold;\">Buenos Aires</span><br />Population: 5603198"}
 },
-"Chaco Austral":
+"Chaco_Austral":
 {
 value: "705101",
 tooltip: {content: "<span style=\"font-weight:bold;\">Chaco Austral</span><br />Population: 705101"}
@@ -198,7 +200,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Chubut</span><br />Populat
 value: "500610",
 tooltip: {content: "<span style=\"font-weight:bold;\">Formosa</span><br />Population: 500610"}
 },
-"Los Andes":
+"Los_Andes":
 {
 value: "782265",
 tooltip: {content: "<span style=\"font-weight:bold;\">Los Andes</span><br />Population: 782265"}
@@ -208,37 +210,37 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Los Andes</span><br />Popu
 value: "1091605",
 tooltip: {content: "<span style=\"font-weight:bold;\">Mendoza</span><br />Population: 1091605"}
 },
-"Región Mesopotámica":
+"Región_Mesopotámica":
 {
 value: "1498997",
 tooltip: {content: "<span style=\"font-weight:bold;\">Región Mesopotámica</span><br />Population: 1498997"}
 },
-"Río Negro":
+"Río_Negro":
 {
 value: "471575",
 tooltip: {content: "<span style=\"font-weight:bold;\">Río Negro</span><br />Population: 471575"}
 },
-"San Juan y La Rioja":
+"San_Juan_y_La_Rioja":
 {
 value: "882387",
 tooltip: {content: "<span style=\"font-weight:bold;\">San Juan y La Rioja</span><br />Population: 882387"}
 },
-"San Luis y La Pampa":
+"San_Luis_y_La_Pampa":
 {
 value: "603138",
 tooltip: {content: "<span style=\"font-weight:bold;\">San Luis y La Pampa</span><br />Population: 603138"}
 },
-"Santa Cruz":
+"Santa_Cruz":
 {
 value: "132161",
 tooltip: {content: "<span style=\"font-weight:bold;\">Santa Cruz</span><br />Population: 132161"}
 },
-"Santa Fe":
+"Santa_Fe":
 {
 value: "3000828",
 tooltip: {content: "<span style=\"font-weight:bold;\">Santa Fe</span><br />Population: 3000828"}
 },
-"Tierra del Fuego":
+"Tierra_del_Fuego":
 {
 value: "80864",
 tooltip: {content: "<span style=\"font-weight:bold;\">Tierra del Fuego</span><br />Population: 80864"}
@@ -253,27 +255,27 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Tucuman</span><br />Popula
 value: "346062",
 tooltip: {content: "<span style=\"font-weight:bold;\">Bismarck</span><br />Population: 346062"}
 },
-"Central Australia":
+"Central_Australia":
 {
 value: "30037",
 tooltip: {content: "<span style=\"font-weight:bold;\">Central Australia</span><br />Population: 30037"}
 },
-"New South Wales":
+"New_South_Wales":
 {
 value: "2566229",
 tooltip: {content: "<span style=\"font-weight:bold;\">New South Wales</span><br />Population: 2566229"}
 },
-"North Queensland":
+"North_Queensland":
 {
 value: "100122",
 tooltip: {content: "<span style=\"font-weight:bold;\">North Queensland</span><br />Population: 100122"}
 },
-"North West Australia":
+"North_West_Australia":
 {
 value: "1001",
 tooltip: {content: "<span style=\"font-weight:bold;\">North West Australia</span><br />Population: 1001"}
 },
-"Northern Territory":
+"Northern_Territory":
 {
 value: "13016",
 tooltip: {content: "<span style=\"font-weight:bold;\">Northern Territory</span><br />Population: 13016"}
@@ -288,22 +290,22 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Papua</span><br />Populati
 value: "817797",
 tooltip: {content: "<span style=\"font-weight:bold;\">Queensland</span><br />Population: 817797"}
 },
-"Solomon Islands":
+"Solomon_Islands":
 {
 value: "150183",
 tooltip: {content: "<span style=\"font-weight:bold;\">Solomon Islands</span><br />Population: 150183"}
 },
-"South Australia":
+"South_Australia":
 {
 value: "201045",
 tooltip: {content: "<span style=\"font-weight:bold;\">South Australia</span><br />Population: 201045"}
 },
-"South West Australia":
+"South_West_Australia":
 {
 value: "50061",
 tooltip: {content: "<span style=\"font-weight:bold;\">South West Australia</span><br />Population: 50061"}
 },
-"South West Queensland":
+"South_West_Queensland":
 {
 value: "10012",
 tooltip: {content: "<span style=\"font-weight:bold;\">South West Queensland</span><br />Population: 10012"}
@@ -318,12 +320,12 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Tasmania</span><br />Popul
 value: "2222209",
 tooltip: {content: "<span style=\"font-weight:bold;\">Victoria</span><br />Population: 2222209"}
 },
-"Western Australia":
+"Western_Australia":
 {
 value: "317587",
 tooltip: {content: "<span style=\"font-weight:bold;\">Western Australia</span><br />Population: 317587"}
 },
-"Lower Austria":
+"Lower_Austria":
 {
 value: "2599152",
 tooltip: {content: "<span style=\"font-weight:bold;\">Lower Austria</span><br />Population: 2599152"}
@@ -333,7 +335,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Lower Austria</span><br />
 value: "1502818",
 tooltip: {content: "<span style=\"font-weight:bold;\">Tyrol</span><br />Population: 1502818"}
 },
-"Upper Austria":
+"Upper_Austria":
 {
 value: "2278155",
 tooltip: {content: "<span style=\"font-weight:bold;\">Upper Austria</span><br />Population: 2278155"}
@@ -398,17 +400,17 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Wallonie</span><br />Popul
 value: "450549",
 tooltip: {content: "<span style=\"font-weight:bold;\">Bhutan</span><br />Population: 450549"}
 },
-"La Paz":
+"La_Paz":
 {
 value: "2046996",
 tooltip: {content: "<span style=\"font-weight:bold;\">La Paz</span><br />Population: 2046996"}
 },
-"Santa Cruz":
+"Santa_Cruz":
 {
 value: "334908",
 tooltip: {content: "<span style=\"font-weight:bold;\">Santa Cruz</span><br />Population: 334908"}
 },
-"North Borneo":
+"North_Borneo":
 {
 value: "890886",
 tooltip: {content: "<span style=\"font-weight:bold;\">North Borneo</span><br />Population: 890886"}
@@ -418,7 +420,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">North Borneo</span><br />P
 value: "2896732",
 tooltip: {content: "<span style=\"font-weight:bold;\">Singapore</span><br />Population: 2896732"}
 },
-"Arunachal Pradesh":
+"Arunachal_Pradesh":
 {
 value: "200244",
 tooltip: {content: "<span style=\"font-weight:bold;\">Arunachal Pradesh</span><br />Population: 200244"}
@@ -453,7 +455,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Burma</span><br />Populati
 value: "31174809",
 tooltip: {content: "<span style=\"font-weight:bold;\">Delhi</span><br />Population: 31174809"}
 },
-"East Bengal":
+"East_Bengal":
 {
 value: "32012330",
 tooltip: {content: "<span style=\"font-weight:bold;\">East Bengal</span><br />Population: 32012330"}
@@ -508,7 +510,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Mandalay</span><br />Popul
 value: "12363273",
 tooltip: {content: "<span style=\"font-weight:bold;\">Mysore</span><br />Population: 12363273"}
 },
-"Northern Kashmir":
+"Northern_Kashmir":
 {
 value: "1417528",
 tooltip: {content: "<span style=\"font-weight:bold;\">Northern Kashmir</span><br />Population: 1417528"}
@@ -543,7 +545,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Rajahsthan</span><br />Pop
 value: "3891745",
 tooltip: {content: "<span style=\"font-weight:bold;\">Sind</span><br />Population: 3891745"}
 },
-"West Bengal":
+"West_Bengal":
 {
 value: "18801022",
 tooltip: {content: "<span style=\"font-weight:bold;\">West Bengal</span><br />Population: 18801022"}
@@ -578,7 +580,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Antofagasta</span><br />Po
 value: "1301587",
 tooltip: {content: "<span style=\"font-weight:bold;\">Araucanía</span><br />Population: 1301587"}
 },
-"Arica y Tarapacá":
+"Arica_y_Tarapacá":
 {
 value: "340415",
 tooltip: {content: "<span style=\"font-weight:bold;\">Arica y Tarapacá</span><br />Population: 340415"}
@@ -593,7 +595,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Atacama</span><br />Popula
 value: "34389",
 tooltip: {content: "<span style=\"font-weight:bold;\">Aysén</span><br />Population: 34389"}
 },
-"Easter Island":
+"Easter_Island":
 {
 value: "6608",
 tooltip: {content: "<span style=\"font-weight:bold;\">Easter Island</span><br />Population: 6608"}
@@ -723,7 +725,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Zunyi</span><br />Populati
 value: "4959095",
 tooltip: {content: "<span style=\"font-weight:bold;\">Cundinamarca</span><br />Population: 4959095"}
 },
-"La Libertad":
+"La_Libertad":
 {
 value: "2830232",
 tooltip: {content: "<span style=\"font-weight:bold;\">La Libertad</span><br />Population: 2830232"}
@@ -738,7 +740,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Meta</span><br />Populatio
 value: "7014752",
 tooltip: {content: "<span style=\"font-weight:bold;\">Shaanxi</span><br />Population: 7014752"}
 },
-"Costa Rica":
+"Costa_Rica":
 {
 value: "504471",
 tooltip: {content: "<span style=\"font-weight:bold;\">Costa Rica</span><br />Population: 504471"}
@@ -753,17 +755,17 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Cuba</span><br />Populatio
 value: "4498084",
 tooltip: {content: "<span style=\"font-weight:bold;\">Bohemia</span><br />Population: 4498084"}
 },
-"Carpathian Ruthenia":
+"Carpathian_Ruthenia":
 {
 value: "855343",
 tooltip: {content: "<span style=\"font-weight:bold;\">Carpathian Ruthenia</span><br />Population: 855343"}
 },
-"Eastern Slovakia":
+"Eastern_Slovakia":
 {
 value: "1199262",
 tooltip: {content: "<span style=\"font-weight:bold;\">Eastern Slovakia</span><br />Population: 1199262"}
 },
-"Eastern Sudetenland":
+"Eastern_Sudetenland":
 {
 value: "821001",
 tooltip: {content: "<span style=\"font-weight:bold;\">Eastern Sudetenland</span><br />Population: 821001"}
@@ -773,7 +775,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Eastern Sudetenland</span>
 value: "2601572",
 tooltip: {content: "<span style=\"font-weight:bold;\">Moravia</span><br />Population: 2601572"}
 },
-"Southern Slovakia":
+"Southern_Slovakia":
 {
 value: "855343",
 tooltip: {content: "<span style=\"font-weight:bold;\">Southern Slovakia</span><br />Population: 855343"}
@@ -783,7 +785,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Southern Slovakia</span><b
 value: "2833455",
 tooltip: {content: "<span style=\"font-weight:bold;\">Sudetenland</span><br />Population: 2833455"}
 },
-"Western Slovakia":
+"Western_Slovakia":
 {
 value: "1232002",
 tooltip: {content: "<span style=\"font-weight:bold;\">Western Slovakia</span><br />Population: 1232002"}
@@ -798,7 +800,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Zaolzie</span><br />Popula
 value: "45875",
 tooltip: {content: "<span style=\"font-weight:bold;\">Bornholm</span><br />Population: 45875"}
 },
-"Faroe Islands":
+"Faroe_Islands":
 {
 value: "25932",
 tooltip: {content: "<span style=\"font-weight:bold;\">Faroe Islands</span><br />Population: 25932"}
@@ -828,7 +830,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Sjaelland</span><br />Popu
 value: "418568",
 tooltip: {content: "<span style=\"font-weight:bold;\">Sønderjylland</span><br />Population: 418568"}
 },
-"Dominican Republic":
+"Dominican_Republic":
 {
 value: "1257533",
 tooltip: {content: "<span style=\"font-weight:bold;\">Dominican Republic</span><br />Population: 1257533"}
@@ -838,7 +840,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Dominican Republic</span><
 value: "691643",
 tooltip: {content: "<span style=\"font-weight:bold;\">Alberta</span><br />Population: 691643"}
 },
-"British Columbia":
+"British_Columbia":
 {
 value: "638944",
 tooltip: {content: "<span style=\"font-weight:bold;\">British Columbia</span><br />Population: 638944"}
@@ -848,12 +850,12 @@ tooltip: {content: "<span style=\"font-weight:bold;\">British Columbia</span><br
 value: "110134",
 tooltip: {content: "<span style=\"font-weight:bold;\">Cote-Nord</span><br />Population: 110134"}
 },
-"Districts of Ontario":
+"Districts_of_Ontario":
 {
 value: "10012",
 tooltip: {content: "<span style=\"font-weight:bold;\">Districts of Ontario</span><br />Population: 10012"}
 },
-"Haida Gwaii":
+"Haida_Gwaii":
 {
 value: "12699",
 tooltip: {content: "<span style=\"font-weight:bold;\">Haida Gwaii</span><br />Population: 12699"}
@@ -868,37 +870,37 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Manitoba</span><br />Popul
 value: "70085",
 tooltip: {content: "<span style=\"font-weight:bold;\">Maurice</span><br />Population: 70085"}
 },
-"New Brunswick":
+"New_Brunswick":
 {
 value: "475600",
 tooltip: {content: "<span style=\"font-weight:bold;\">New Brunswick</span><br />Population: 475600"}
 },
-"Nord du Quebec":
+"Nord_du_Quebec":
 {
 value: "8871",
 tooltip: {content: "<span style=\"font-weight:bold;\">Nord du Quebec</span><br />Population: 8871"}
 },
-"Northern Manitoba":
+"Northern_Manitoba":
 {
 value: "10012",
 tooltip: {content: "<span style=\"font-weight:bold;\">Northern Manitoba</span><br />Population: 10012"}
 },
-"Northern Ontario":
+"Northern_Ontario":
 {
 value: "139229",
 tooltip: {content: "<span style=\"font-weight:bold;\">Northern Ontario</span><br />Population: 139229"}
 },
-"Northern Saskatchewan":
+"Northern_Saskatchewan":
 {
 value: "65685",
 tooltip: {content: "<span style=\"font-weight:bold;\">Northern Saskatchewan</span><br />Population: 65685"}
 },
-"Northwest Territories":
+"Northwest_Territories":
 {
 value: "27715",
 tooltip: {content: "<span style=\"font-weight:bold;\">Northwest Territories</span><br />Population: 27715"}
 },
-"Nova Scotia":
+"Nova_Scotia":
 {
 value: "491511",
 tooltip: {content: "<span style=\"font-weight:bold;\">Nova Scotia</span><br />Population: 491511"}
@@ -908,7 +910,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Nova Scotia</span><br />Po
 value: "46191",
 tooltip: {content: "<span style=\"font-weight:bold;\">Nunavut</span><br />Population: 46191"}
 },
-"Ouest du Quebec":
+"Ouest_du_Quebec":
 {
 value: "80098",
 tooltip: {content: "<span style=\"font-weight:bold;\">Ouest du Quebec</span><br />Population: 80098"}
@@ -918,7 +920,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Ouest du Quebec</span><br 
 value: "50061",
 tooltip: {content: "<span style=\"font-weight:bold;\">Saguenay</span><br />Population: 50061"}
 },
-"Saint Lawrence":
+"Saint_Lawrence":
 {
 value: "2435724",
 tooltip: {content: "<span style=\"font-weight:bold;\">Saint Lawrence</span><br />Population: 2435724"}
@@ -928,27 +930,27 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Saint Lawrence</span><br /
 value: "800977",
 tooltip: {content: "<span style=\"font-weight:bold;\">Saskatchewan</span><br />Population: 800977"}
 },
-"Southern Ontario":
+"Southern_Ontario":
 {
 value: "3120822",
 tooltip: {content: "<span style=\"font-weight:bold;\">Southern Ontario</span><br />Population: 3120822"}
 },
-"Upper British Columbia":
+"Upper_British_Columbia":
 {
 value: "27715",
 tooltip: {content: "<span style=\"font-weight:bold;\">Upper British Columbia</span><br />Population: 27715"}
 },
-"Vancouver Island":
+"Vancouver_Island":
 {
 value: "259929",
 tooltip: {content: "<span style=\"font-weight:bold;\">Vancouver Island</span><br />Population: 259929"}
 },
-"Yukon Territory":
+"Yukon_Territory":
 {
 value: "10",
 tooltip: {content: "<span style=\"font-weight:bold;\">Yukon Territory</span><br />Population: 10"}
 },
-"Aru Islands":
+"Aru_Islands":
 {
 value: "36190",
 tooltip: {content: "<span style=\"font-weight:bold;\">Aru Islands</span><br />Population: 36190"}
@@ -963,7 +965,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Java</span><br />Populatio
 value: "2171247",
 tooltip: {content: "<span style=\"font-weight:bold;\">Kalimantan</span><br />Population: 2171247"}
 },
-"Lesser Sunda Islands":
+"Lesser_Sunda_Islands":
 {
 value: "3464424",
 tooltip: {content: "<span style=\"font-weight:bold;\">Lesser Sunda Islands</span><br />Population: 3464424"}
@@ -978,12 +980,12 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Sulawesi</span><br />Popul
 value: "8264977",
 tooltip: {content: "<span style=\"font-weight:bold;\">Sumatra</span><br />Population: 8264977"}
 },
-"The Moluccas":
+"The_Moluccas":
 {
 value: "579807",
 tooltip: {content: "<span style=\"font-weight:bold;\">The Moluccas</span><br />Population: 579807"}
 },
-"West Papua":
+"West_Papua":
 {
 value: "314684",
 tooltip: {content: "<span style=\"font-weight:bold;\">West Papua</span><br />Population: 314684"}
@@ -993,7 +995,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">West Papua</span><br />Pop
 value: "2002441",
 tooltip: {content: "<span style=\"font-weight:bold;\">Ecuador</span><br />Population: 2002441"}
 },
-"Galapagos Islands":
+"Galapagos_Islands":
 {
 value: "11546",
 tooltip: {content: "<span style=\"font-weight:bold;\">Galapagos Islands</span><br />Population: 11546"}
@@ -1003,7 +1005,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Galapagos Islands</span><b
 value: "70105",
 tooltip: {content: "<span style=\"font-weight:bold;\">Pastaza</span><br />Population: 70105"}
 },
-"El Salvador":
+"El_Salvador":
 {
 value: "1439366",
 tooltip: {content: "<span style=\"font-weight:bold;\">El Salvador</span><br />Population: 1439366"}
@@ -1153,7 +1155,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Vaasa</span><br />Populati
 value: "1327212",
 tooltip: {content: "<span style=\"font-weight:bold;\">Aleppo</span><br />Population: 1327212"}
 },
-"Algerian Desert":
+"Algerian_Desert":
 {
 value: "207987",
 tooltip: {content: "<span style=\"font-weight:bold;\">Algerian Desert</span><br />Population: 207987"}
@@ -1243,7 +1245,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Chad</span><br />Populatio
 value: "1372473",
 tooltip: {content: "<span style=\"font-weight:bold;\">Champagne</span><br />Population: 1372473"}
 },
-"Comoro Islands":
+"Comoro_Islands":
 {
 value: "126858",
 tooltip: {content: "<span style=\"font-weight:bold;\">Comoro Islands</span><br />Population: 126858"}
@@ -1273,7 +1275,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Damascus</span><br />Popul
 value: "324506",
 tooltip: {content: "<span style=\"font-weight:bold;\">Deir-az-Zur</span><br />Population: 324506"}
 },
-"Equatorial Africa":
+"Equatorial_Africa":
 {
 value: "1138309",
 tooltip: {content: "<span style=\"font-weight:bold;\">Equatorial Africa</span><br />Population: 1138309"}
@@ -1283,22 +1285,22 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Equatorial Africa</span><b
 value: "1519352",
 tooltip: {content: "<span style=\"font-weight:bold;\">Franche-Comte</span><br />Population: 1519352"}
 },
-"French Caribbean":
+"French_Caribbean":
 {
 value: "444832",
 tooltip: {content: "<span style=\"font-weight:bold;\">French Caribbean</span><br />Population: 444832"}
 },
-"French Guiana":
+"French_Guiana":
 {
 value: "47399",
 tooltip: {content: "<span style=\"font-weight:bold;\">French Guiana</span><br />Population: 47399"}
 },
-"French India":
+"French_India":
 {
 value: "286760",
 tooltip: {content: "<span style=\"font-weight:bold;\">French India</span><br />Population: 286760"}
 },
-"French Somaliland":
+"French_Somaliland":
 {
 value: "85336",
 tooltip: {content: "<span style=\"font-weight:bold;\">French Somaliland</span><br />Population: 85336"}
@@ -1333,12 +1335,12 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Guinea</span><br />Populat
 value: "234665",
 tooltip: {content: "<span style=\"font-weight:bold;\">Hatay</span><br />Population: 234665"}
 },
-"Ile de France":
+"Ile_de_France":
 {
 value: "7047092",
 tooltip: {content: "<span style=\"font-weight:bold;\">Ile de France</span><br />Population: 7047092"}
 },
-"Ivory Coast":
+"Ivory_Coast":
 {
 value: "3855435",
 tooltip: {content: "<span style=\"font-weight:bold;\">Ivory Coast</span><br />Population: 3855435"}
@@ -1393,17 +1395,17 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Marrakech</span><br />Popu
 value: "225275",
 tooltip: {content: "<span style=\"font-weight:bold;\">Mauritania</span><br />Population: 225275"}
 },
-"Mauritanian Desert":
+"Mauritanian_Desert":
 {
 value: "124352",
 tooltip: {content: "<span style=\"font-weight:bold;\">Mauritanian Desert</span><br />Population: 124352"}
 },
-"Middle Congo":
+"Middle_Congo":
 {
 value: "747326",
 tooltip: {content: "<span style=\"font-weight:bold;\">Middle Congo</span><br />Population: 747326"}
 },
-"Midi Pyrenees":
+"Midi_Pyrenees":
 {
 value: "1827228",
 tooltip: {content: "<span style=\"font-weight:bold;\">Midi Pyrenees</span><br />Population: 1827228"}
@@ -1413,7 +1415,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Midi Pyrenees</span><br />
 value: "5173",
 tooltip: {content: "<span style=\"font-weight:bold;\">Nendo</span><br />Population: 5173"}
 },
-"New Caledonia":
+"New_Caledonia":
 {
 value: "51939",
 tooltip: {content: "<span style=\"font-weight:bold;\">New Caledonia</span><br />Population: 51939"}
@@ -1468,17 +1470,17 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Savoy</span><br />Populati
 value: "1640000",
 tooltip: {content: "<span style=\"font-weight:bold;\">Senegal</span><br />Population: 1640000"}
 },
-"Southern Indochina":
+"Southern_Indochina":
 {
 value: "5251403",
 tooltip: {content: "<span style=\"font-weight:bold;\">Southern Indochina</span><br />Population: 5251403"}
 },
-"Southern Sahara":
+"Southern_Sahara":
 {
 value: "1458134",
 tooltip: {content: "<span style=\"font-weight:bold;\">Southern Sahara</span><br />Population: 1458134"}
 },
-"St Pierre and Miquelon":
+"St_Pierre_and_Miquelon":
 {
 value: "3430",
 tooltip: {content: "<span style=\"font-weight:bold;\">St Pierre and Miquelon</span><br />Population: 3430"}
@@ -1513,7 +1515,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Tonkin</span><br />Populat
 value: "1985361",
 tooltip: {content: "<span style=\"font-weight:bold;\">Tunisia</span><br />Population: 1985361"}
 },
-"Upper Volta":
+"Upper_Volta":
 {
 value: "3190073",
 tooltip: {content: "<span style=\"font-weight:bold;\">Upper Volta</span><br />Population: 3190073"}
@@ -1743,7 +1745,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Tehran</span><br />Populat
 value: "1433462",
 tooltip: {content: "<span style=\"font-weight:bold;\">Tibriz</span><br />Population: 1433462"}
 },
-"Al Hajara":
+"Al_Hajara":
 {
 value: "122242",
 tooltip: {content: "<span style=\"font-weight:bold;\">Al Hajara</span><br />Population: 122242"}
@@ -1778,7 +1780,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Munster</span><br />Popula
 value: "2982972",
 tooltip: {content: "<span style=\"font-weight:bold;\">Abruzzo</span><br />Population: 2982972"}
 },
-"Alto Adige":
+"Alto_Adige":
 {
 value: "298654",
 tooltip: {content: "<span style=\"font-weight:bold;\">Alto Adige</span><br />Population: 298654"}
@@ -1813,12 +1815,12 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Derna</span><br />Populati
 value: "120146",
 tooltip: {content: "<span style=\"font-weight:bold;\">Dodecanese</span><br />Population: 120146"}
 },
-"El Agheila":
+"El_Agheila":
 {
 value: "40480",
 tooltip: {content: "<span style=\"font-weight:bold;\">El Agheila</span><br />Population: 40480"}
 },
-"Emilia Romagna":
+"Emilia_Romagna":
 {
 value: "3206310",
 tooltip: {content: "<span style=\"font-weight:bold;\">Emilia Romagna</span><br />Population: 3206310"}
@@ -1843,7 +1845,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Jubaland</span><br />Popul
 value: "2785367",
 tooltip: {content: "<span style=\"font-weight:bold;\">Lazio</span><br />Population: 2785367"}
 },
-"Libyan Desert":
+"Libyan_Desert":
 {
 value: "42685",
 tooltip: {content: "<span style=\"font-weight:bold;\">Libyan Desert</span><br />Population: 42685"}
@@ -1918,7 +1920,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Veneto</span><br />Populat
 value: "18022",
 tooltip: {content: "<span style=\"font-weight:bold;\">Zara</span><br />Population: 18022"}
 },
-"Caroline Islands":
+"Caroline_Islands":
 {
 value: "42409",
 tooltip: {content: "<span style=\"font-weight:bold;\">Caroline Islands</span><br />Population: 42409"}
@@ -1933,7 +1935,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Chugoku</span><br />Popula
 value: "1001221",
 tooltip: {content: "<span style=\"font-weight:bold;\">Dalian</span><br />Population: 1001221"}
 },
-"East Hebei":
+"East_Hebei":
 {
 value: "6407813",
 tooltip: {content: "<span style=\"font-weight:bold;\">East Hebei</span><br />Population: 6407813"}
@@ -1948,7 +1950,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Hokkaido</span><br />Popul
 value: "1935360",
 tooltip: {content: "<span style=\"font-weight:bold;\">Hokuriku</span><br />Population: 1935360"}
 },
-"Iwo Jima":
+"Iwo_Jima":
 {
 value: "1019",
 tooltip: {content: "<span style=\"font-weight:bold;\">Iwo Jima</span><br />Population: 1019"}
@@ -1968,7 +1970,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Kanto</span><br />Populati
 value: "3875725",
 tooltip: {content: "<span style=\"font-weight:bold;\">Koshinetsu</span><br />Population: 3875725"}
 },
-"Kuril Islands":
+"Kuril_Islands":
 {
 value: "15018",
 tooltip: {content: "<span style=\"font-weight:bold;\">Kuril Islands</span><br />Population: 15018"}
@@ -1978,17 +1980,17 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Kuril Islands</span><br />
 value: "9080071",
 tooltip: {content: "<span style=\"font-weight:bold;\">Kyushu</span><br />Population: 9080071"}
 },
-"Marcus Island":
+"Marcus_Island":
 {
 value: "42",
 tooltip: {content: "<span style=\"font-weight:bold;\">Marcus Island</span><br />Population: 42"}
 },
-"Marshall Islands":
+"Marshall_Islands":
 {
 value: "52581",
 tooltip: {content: "<span style=\"font-weight:bold;\">Marshall Islands</span><br />Population: 52581"}
 },
-"North Korea":
+"North_Korea":
 {
 value: "6782469",
 tooltip: {content: "<span style=\"font-weight:bold;\">North Korea</span><br />Population: 6782469"}
@@ -2013,12 +2015,12 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Saipan</span><br />Populat
 value: "3314041",
 tooltip: {content: "<span style=\"font-weight:bold;\">Shikoku</span><br />Population: 3314041"}
 },
-"South Korea":
+"South_Korea":
 {
 value: "14301542",
 tooltip: {content: "<span style=\"font-weight:bold;\">South Korea</span><br />Population: 14301542"}
 },
-"South Sakhalin":
+"South_Sakhalin":
 {
 value: "295556",
 tooltip: {content: "<span style=\"font-weight:bold;\">South Sakhalin</span><br />Population: 295556"}
@@ -2038,7 +2040,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Tohoku</span><br />Populat
 value: "6181537",
 tooltip: {content: "<span style=\"font-weight:bold;\">Tokai</span><br />Population: 6181537"}
 },
-"Aegean Islands":
+"Aegean_Islands":
 {
 value: "322994",
 tooltip: {content: "<span style=\"font-weight:bold;\">Aegean Islands</span><br />Population: 322994"}
@@ -2048,7 +2050,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Aegean Islands</span><br /
 value: "2315323",
 tooltip: {content: "<span style=\"font-weight:bold;\">Attica</span><br />Population: 2315323"}
 },
-"Central Macedonia":
+"Central_Macedonia":
 {
 value: "1157111",
 tooltip: {content: "<span style=\"font-weight:bold;\">Central Macedonia</span><br />Population: 1157111"}
@@ -2078,7 +2080,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Thrace</span><br />Populat
 value: "2738722",
 tooltip: {content: "<span style=\"font-weight:bold;\">Alföld</span><br />Population: 2738722"}
 },
-"Northern Hungary":
+"Northern_Hungary":
 {
 value: "3755331",
 tooltip: {content: "<span style=\"font-weight:bold;\">Northern Hungary</span><br />Population: 3755331"}
@@ -2188,12 +2190,12 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Sungkiang</span><br />Popu
 value: "566691",
 tooltip: {content: "<span style=\"font-weight:bold;\">Chahar</span><br />Population: 566691"}
 },
-"South Chahar":
+"South_Chahar":
 {
 value: "1471794",
 tooltip: {content: "<span style=\"font-weight:bold;\">South Chahar</span><br />Population: 1471794"}
 },
-"Baja California":
+"Baja_California":
 {
 value: "108974",
 tooltip: {content: "<span style=\"font-weight:bold;\">Baja California</span><br />Population: 108974"}
@@ -2228,7 +2230,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Guerrero</span><br />Popul
 value: "2473891",
 tooltip: {content: "<span style=\"font-weight:bold;\">Jalisco</span><br />Population: 2473891"}
 },
-"Mexico City":
+"Mexico_City":
 {
 value: "3428583",
 tooltip: {content: "<span style=\"font-weight:bold;\">Mexico City</span><br />Population: 3428583"}
@@ -2313,7 +2315,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Holland</span><br />Popula
 value: "152186",
 tooltip: {content: "<span style=\"font-weight:bold;\">Suriname</span><br />Population: 152186"}
 },
-"North Island":
+"North_Island":
 {
 value: "900934",
 tooltip: {content: "<span style=\"font-weight:bold;\">North Island</span><br />Population: 900934"}
@@ -2323,7 +2325,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">North Island</span><br />P
 value: "123364",
 tooltip: {content: "<span style=\"font-weight:bold;\">Samoa</span><br />Population: 123364"}
 },
-"South Island":
+"South_Island":
 {
 value: "547866",
 tooltip: {content: "<span style=\"font-weight:bold;\">South Island</span><br />Population: 547866"}
@@ -2348,7 +2350,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Finnmark</span><br />Popul
 value: "88920",
 tooltip: {content: "<span style=\"font-weight:bold;\">Helgeland</span><br />Population: 88920"}
 },
-"Jan Mayen":
+"Jan_Mayen":
 {
 value: "10",
 tooltip: {content: "<span style=\"font-weight:bold;\">Jan Mayen</span><br />Population: 10"}
@@ -2428,7 +2430,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Ucayali</span><br />Popula
 value: "3530019",
 tooltip: {content: "<span style=\"font-weight:bold;\">Cebu</span><br />Population: 3530019"}
 },
-"Central islands":
+"Central_islands":
 {
 value: "1292248",
 tooltip: {content: "<span style=\"font-weight:bold;\">Central islands</span><br />Population: 1292248"}
@@ -2558,7 +2560,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Azores</span><br />Populat
 value: "778845",
 tooltip: {content: "<span style=\"font-weight:bold;\">Beja</span><br />Population: 778845"}
 },
-"Cape Verde":
+"Cape_Verde":
 {
 value: "150784",
 tooltip: {content: "<span style=\"font-weight:bold;\">Cape Verde</span><br />Population: 150784"}
@@ -2578,7 +2580,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Guarda</span><br />Populat
 value: "1998236",
 tooltip: {content: "<span style=\"font-weight:bold;\">Lisbon</span><br />Population: 1998236"}
 },
-"Lourenço Marques":
+"Lourenço_Marques":
 {
 value: "1227497",
 tooltip: {content: "<span style=\"font-weight:bold;\">Lourenço Marques</span><br />Population: 1227497"}
@@ -2598,12 +2600,12 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Macau</span><br />Populati
 value: "211858",
 tooltip: {content: "<span style=\"font-weight:bold;\">Madeira</span><br />Population: 211858"}
 },
-"Manica e Sofala":
+"Manica_e_Sofala":
 {
 value: "188830",
 tooltip: {content: "<span style=\"font-weight:bold;\">Manica e Sofala</span><br />Population: 188830"}
 },
-"North Angola":
+"North_Angola":
 {
 value: "25031",
 tooltip: {content: "<span style=\"font-weight:bold;\">North Angola</span><br />Population: 25031"}
@@ -2613,12 +2615,12 @@ tooltip: {content: "<span style=\"font-weight:bold;\">North Angola</span><br />P
 value: "1906925",
 tooltip: {content: "<span style=\"font-weight:bold;\">Porto</span><br />Population: 1906925"}
 },
-"Portuguese Guinea":
+"Portuguese_Guinea":
 {
 value: "365345",
 tooltip: {content: "<span style=\"font-weight:bold;\">Portuguese Guinea</span><br />Population: 365345"}
 },
-"Portuguese Timor":
+"Portuguese_Timor":
 {
 value: "456160",
 tooltip: {content: "<span style=\"font-weight:bold;\">Portuguese Timor</span><br />Population: 456160"}
@@ -2628,12 +2630,12 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Portuguese Timor</span><br
 value: "730603",
 tooltip: {content: "<span style=\"font-weight:bold;\">Santarém</span><br />Population: 730603"}
 },
-"Sao Tome":
+"Sao_Tome":
 {
 value: "24755",
 tooltip: {content: "<span style=\"font-weight:bold;\">Sao Tome</span><br />Population: 24755"}
 },
-"South West Angola":
+"South_West_Angola":
 {
 value: "961172",
 tooltip: {content: "<span style=\"font-weight:bold;\">South West Angola</span><br />Population: 961172"}
@@ -2648,7 +2650,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Zambesi</span><br />Popula
 value: "1387692",
 tooltip: {content: "<span style=\"font-weight:bold;\">Zambezia-Moçambique</span><br />Population: 1387692"}
 },
-"Chaco Boreal":
+"Chaco_Boreal":
 {
 value: "45956",
 tooltip: {content: "<span style=\"font-weight:bold;\">Chaco Boreal</span><br />Population: 45956"}
@@ -2693,7 +2695,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Moldova</span><br />Popula
 value: "4466846",
 tooltip: {content: "<span style=\"font-weight:bold;\">Muntenia</span><br />Population: 4466846"}
 },
-"North Transylvania":
+"North_Transylvania":
 {
 value: "2355572",
 tooltip: {content: "<span style=\"font-weight:bold;\">North Transylvania</span><br />Population: 2355572"}
@@ -2703,7 +2705,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">North Transylvania</span><
 value: "1521155",
 tooltip: {content: "<span style=\"font-weight:bold;\">Oltenia</span><br />Population: 1521155"}
 },
-"Southern Bessarabia":
+"Southern_Bessarabia":
 {
 value: "567292",
 tooltip: {content: "<span style=\"font-weight:bold;\">Southern Bessarabia</span><br />Population: 567292"}
@@ -2748,7 +2750,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Najiran</span><br />Popula
 value: "1001221",
 tooltip: {content: "<span style=\"font-weight:bold;\">Nejd</span><br />Population: 1001221"}
 },
-"Rub al Khali":
+"Rub_al_Khali":
 {
 value: "42",
 tooltip: {content: "<span style=\"font-weight:bold;\">Rub al Khali</span><br />Population: 42"}
@@ -2768,42 +2770,42 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Acre</span><br />Populatio
 value: "350427",
 tooltip: {content: "<span style=\"font-weight:bold;\">Amapá</span><br />Population: 350427"}
 },
-"Amazon impassable 1":
+"Amazon_impassable_1":
 {
 value: "6761",
 tooltip: {content: "<span style=\"font-weight:bold;\">Amazon impassable 1</span><br />Population: 6761"}
 },
-"Amazon impassable 2":
+"Amazon_impassable_2":
 {
 value: "10361",
 tooltip: {content: "<span style=\"font-weight:bold;\">Amazon impassable 2</span><br />Population: 10361"}
 },
-"Amazon impassable 3":
+"Amazon_impassable_3":
 {
 value: "7692",
 tooltip: {content: "<span style=\"font-weight:bold;\">Amazon impassable 3</span><br />Population: 7692"}
 },
-"Amazon impassable 4":
+"Amazon_impassable_4":
 {
 value: "13558",
 tooltip: {content: "<span style=\"font-weight:bold;\">Amazon impassable 4</span><br />Population: 13558"}
 },
-"Amazon impassable 5":
+"Amazon_impassable_5":
 {
 value: "22014",
 tooltip: {content: "<span style=\"font-weight:bold;\">Amazon impassable 5</span><br />Population: 22014"}
 },
-"Amazon impassable 6":
+"Amazon_impassable_6":
 {
 value: "8973",
 tooltip: {content: "<span style=\"font-weight:bold;\">Amazon impassable 6</span><br />Population: 8973"}
 },
-"Amazon impassable 7":
+"Amazon_impassable_7":
 {
 value: "10355",
 tooltip: {content: "<span style=\"font-weight:bold;\">Amazon impassable 7</span><br />Population: 10355"}
 },
-"Amazon impassable 8":
+"Amazon_impassable_8":
 {
 value: "12315",
 tooltip: {content: "<span style=\"font-weight:bold;\">Amazon impassable 8</span><br />Population: 12315"}
@@ -2823,7 +2825,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Bahia</span><br />Populati
 value: "1633992",
 tooltip: {content: "<span style=\"font-weight:bold;\">Ceará</span><br />Population: 1633992"}
 },
-"Espírito Santo":
+"Espírito_Santo":
 {
 value: "4609220",
 tooltip: {content: "<span style=\"font-weight:bold;\">Espírito Santo</span><br />Population: 4609220"}
@@ -2843,12 +2845,12 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Guaporé</span><br />Popul
 value: "575752",
 tooltip: {content: "<span style=\"font-weight:bold;\">Maranhão</span><br />Population: 575752"}
 },
-"Mato Grosso":
+"Mato_Grosso":
 {
 value: "120146",
 tooltip: {content: "<span style=\"font-weight:bold;\">Mato Grosso</span><br />Population: 120146"}
 },
-"Minas Gerais":
+"Minas_Gerais":
 {
 value: "4609220",
 tooltip: {content: "<span style=\"font-weight:bold;\">Minas Gerais</span><br />Population: 4609220"}
@@ -2873,37 +2875,37 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Pernambuco</span><br />Pop
 value: "1802197",
 tooltip: {content: "<span style=\"font-weight:bold;\">Piauí</span><br />Population: 1802197"}
 },
-"Punta Porá":
+"Punta_Porá":
 {
 value: "230181",
 tooltip: {content: "<span style=\"font-weight:bold;\">Punta Porá</span><br />Population: 230181"}
 },
-"Rio Branco":
+"Rio_Branco":
 {
 value: "10012",
 tooltip: {content: "<span style=\"font-weight:bold;\">Rio Branco</span><br />Population: 10012"}
 },
-"Rio de Janeiro":
+"Rio_de_Janeiro":
 {
 value: "6673637",
 tooltip: {content: "<span style=\"font-weight:bold;\">Rio de Janeiro</span><br />Population: 6673637"}
 },
-"Rio Grande do Norte":
+"Rio_Grande_do_Norte":
 {
 value: "649792",
 tooltip: {content: "<span style=\"font-weight:bold;\">Rio Grande do Norte</span><br />Population: 649792"}
 },
-"Rio Grande do Sul":
+"Rio_Grande_do_Sul":
 {
 value: "2963213",
 tooltip: {content: "<span style=\"font-weight:bold;\">Rio Grande do Sul</span><br />Population: 2963213"}
 },
-"Santa Catarina":
+"Santa_Catarina":
 {
 value: "962524",
 tooltip: {content: "<span style=\"font-weight:bold;\">Santa Catarina</span><br />Population: 962524"}
 },
-"São Paulo":
+"São_Paulo":
 {
 value: "6206767",
 tooltip: {content: "<span style=\"font-weight:bold;\">São Paulo</span><br />Population: 6206767"}
@@ -2938,7 +2940,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Isan</span><br />Populatio
 value: "2002441",
 tooltip: {content: "<span style=\"font-weight:bold;\">Lanna</span><br />Population: 2002441"}
 },
-"Northern Malay":
+"Northern_Malay":
 {
 value: "2044192",
 tooltip: {content: "<span style=\"font-weight:bold;\">Northern Malay</span><br />Population: 2044192"}
@@ -2958,7 +2960,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Dabancheng</span><br />Pop
 value: "671619",
 tooltip: {content: "<span style=\"font-weight:bold;\">Dzungaria</span><br />Population: 671619"}
 },
-"Kunlun Shan":
+"Kunlun_Shan":
 {
 value: "70085",
 tooltip: {content: "<span style=\"font-weight:bold;\">Kunlun Shan</span><br />Population: 70085"}
@@ -3033,7 +3035,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Akmolinsk</span><br />Popu
 value: "2566533",
 tooltip: {content: "<span style=\"font-weight:bold;\">Alma-Ata</span><br />Population: 2566533"}
 },
-"Altai Krai":
+"Altai_Krai":
 {
 value: "2110024",
 tooltip: {content: "<span style=\"font-weight:bold;\">Altai Krai</span><br />Population: 2110024"}
@@ -3148,7 +3150,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Chernigov</span><br />Popu
 value: "1045585",
 tooltip: {content: "<span style=\"font-weight:bold;\">Chita</span><br />Population: 1045585"}
 },
-"Chukchi Peninsula":
+"Chukchi_Peninsula":
 {
 value: "30037",
 tooltip: {content: "<span style=\"font-weight:bold;\">Chukchi Peninsula</span><br />Population: 30037"}
@@ -3348,7 +3350,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Kursk</span><br />Populati
 value: "1393518",
 tooltip: {content: "<span style=\"font-weight:bold;\">Kuybyshev</span><br />Population: 1393518"}
 },
-"Kyzyl Orda":
+"Kyzyl_Orda":
 {
 value: "447566",
 tooltip: {content: "<span style=\"font-weight:bold;\">Kyzyl Orda</span><br />Population: 447566"}
@@ -3378,7 +3380,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Magadan</span><br />Popula
 value: "1046267",
 tooltip: {content: "<span style=\"font-weight:bold;\">Magnitogorsk</span><br />Population: 1046267"}
 },
-"Mari El":
+"Mari_El":
 {
 value: "786990",
 tooltip: {content: "<span style=\"font-weight:bold;\">Mari El</span><br />Population: 786990"}
@@ -3438,17 +3440,17 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Nevel</span><br />Populati
 value: "97782",
 tooltip: {content: "<span style=\"font-weight:bold;\">Nikolayevsk</span><br />Population: 97782"}
 },
-"North Ossetia":
+"North_Ossetia":
 {
 value: "388464",
 tooltip: {content: "<span style=\"font-weight:bold;\">North Ossetia</span><br />Population: 388464"}
 },
-"North Sakhalin":
+"North_Sakhalin":
 {
 value: "94875",
 tooltip: {content: "<span style=\"font-weight:bold;\">North Sakhalin</span><br />Population: 94875"}
 },
-"Northern Urals":
+"Northern_Urals":
 {
 value: "48891",
 tooltip: {content: "<span style=\"font-weight:bold;\">Northern Urals</span><br />Population: 48891"}
@@ -3498,7 +3500,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Orel</span><br />Populatio
 value: "1227366",
 tooltip: {content: "<span style=\"font-weight:bold;\">Orenburg</span><br />Population: 1227366"}
 },
-"Oyrot Region":
+"Oyrot_Region":
 {
 value: "153697",
 tooltip: {content: "<span style=\"font-weight:bold;\">Oyrot Region</span><br />Population: 153697"}
@@ -3688,7 +3690,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Ulyanovsky</span><br />Pop
 value: "268900",
 tooltip: {content: "<span style=\"font-weight:bold;\">Ural'sk</span><br />Population: 268900"}
 },
-"Ust Urt":
+"Ust_Urt":
 {
 value: "245432",
 tooltip: {content: "<span style=\"font-weight:bold;\">Ust Urt</span><br />Population: 245432"}
@@ -3788,7 +3790,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Burgos</span><br />Populat
 value: "3040244",
 tooltip: {content: "<span style=\"font-weight:bold;\">Cataluña</span><br />Population: 3040244"}
 },
-"Ciudad Real":
+"Ciudad_Real":
 {
 value: "527546",
 tooltip: {content: "<span style=\"font-weight:bold;\">Ciudad Real</span><br />Population: 527546"}
@@ -3798,12 +3800,12 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Ciudad Real</span><br />Po
 value: "1430257",
 tooltip: {content: "<span style=\"font-weight:bold;\">Córdoba</span><br />Population: 1430257"}
 },
-"Eastern Aragón":
+"Eastern_Aragón":
 {
 value: "387839",
 tooltip: {content: "<span style=\"font-weight:bold;\">Eastern Aragón</span><br />Population: 387839"}
 },
-"Equatorial Guinea":
+"Equatorial_Guinea":
 {
 value: "185226",
 tooltip: {content: "<span style=\"font-weight:bold;\">Equatorial Guinea</span><br />Population: 185226"}
@@ -3828,12 +3830,12 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Granada</span><br />Popula
 value: "528341",
 tooltip: {content: "<span style=\"font-weight:bold;\">Guadalajara</span><br />Population: 528341"}
 },
-"Islas Baleares":
+"Islas_Baleares":
 {
 value: "365946",
 tooltip: {content: "<span style=\"font-weight:bold;\">Islas Baleares</span><br />Population: 365946"}
 },
-"Islas Canarias":
+"Islas_Canarias":
 {
 value: "562032",
 tooltip: {content: "<span style=\"font-weight:bold;\">Islas Canarias</span><br />Population: 562032"}
@@ -3858,12 +3860,12 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Murcia</span><br />Populat
 value: "360319",
 tooltip: {content: "<span style=\"font-weight:bold;\">Navarra</span><br />Population: 360319"}
 },
-"País Vasco":
+"País_Vasco":
 {
 value: "929227",
 tooltip: {content: "<span style=\"font-weight:bold;\">País Vasco</span><br />Population: 929227"}
 },
-"Rio de Oro":
+"Rio_de_Oro":
 {
 value: "21082",
 tooltip: {content: "<span style=\"font-weight:bold;\">Rio de Oro</span><br />Population: 21082"}
@@ -3878,12 +3880,12 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Salamanca</span><br />Popu
 value: "1748782",
 tooltip: {content: "<span style=\"font-weight:bold;\">Sevilla</span><br />Population: 1748782"}
 },
-"Sidi Ifni":
+"Sidi_Ifni":
 {
 value: "11056",
 tooltip: {content: "<span style=\"font-weight:bold;\">Sidi Ifni</span><br />Population: 11056"}
 },
-"Spanish Africa":
+"Spanish_Africa":
 {
 value: "744908",
 tooltip: {content: "<span style=\"font-weight:bold;\">Spanish Africa</span><br />Population: 744908"}
@@ -3898,7 +3900,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Valencia</span><br />Popul
 value: "714499",
 tooltip: {content: "<span style=\"font-weight:bold;\">Valladolid</span><br />Population: 714499"}
 },
-"Western Aragón":
+"Western_Aragón":
 {
 value: "669181",
 tooltip: {content: "<span style=\"font-weight:bold;\">Western Aragón</span><br />Population: 669181"}
@@ -3973,17 +3975,17 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Västerbotten</span><br />
 value: "891048",
 tooltip: {content: "<span style=\"font-weight:bold;\">Västergötland</span><br />Population: 891048"}
 },
-"Eastern Swiss Alps":
+"Eastern_Swiss_Alps":
 {
 value: "599651",
 tooltip: {content: "<span style=\"font-weight:bold;\">Eastern Swiss Alps</span><br />Population: 599651"}
 },
-"Jura Mountains":
+"Jura_Mountains":
 {
 value: "2069820",
 tooltip: {content: "<span style=\"font-weight:bold;\">Jura Mountains</span><br />Population: 2069820"}
 },
-"Swiss Plateau":
+"Swiss_Plateau":
 {
 value: "1218323",
 tooltip: {content: "<span style=\"font-weight:bold;\">Swiss Plateau</span><br />Population: 1218323"}
@@ -3993,12 +3995,12 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Swiss Plateau</span><br />
 value: "160749",
 tooltip: {content: "<span style=\"font-weight:bold;\">Ticino</span><br />Population: 160749"}
 },
-"Western Swiss Alps":
+"Western_Swiss_Alps":
 {
 value: "178647",
 tooltip: {content: "<span style=\"font-weight:bold;\">Western Swiss Alps</span><br />Population: 178647"}
 },
-"Tannu Tuva":
+"Tannu_Tuva":
 {
 value: "85104",
 tooltip: {content: "<span style=\"font-weight:bold;\">Tannu Tuva</span><br />Population: 85104"}
@@ -4128,7 +4130,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Van</span><br />Population
 value: "746376",
 tooltip: {content: "<span style=\"font-weight:bold;\">Aberdeenshire</span><br />Population: 746376"}
 },
-"Abu Dhabi":
+"Abu_Dhabi":
 {
 value: "170408",
 tooltip: {content: "<span style=\"font-weight:bold;\">Abu Dhabi</span><br />Population: 170408"}
@@ -4158,7 +4160,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Ascension</span><br />Popu
 value: "4229673",
 tooltip: {content: "<span style=\"font-weight:bold;\">Aswan</span><br />Population: 4229673"}
 },
-"Bahr al Ghazal":
+"Bahr_al_Ghazal":
 {
 value: "550671",
 tooltip: {content: "<span style=\"font-weight:bold;\">Bahr al Ghazal</span><br />Population: 550671"}
@@ -4178,7 +4180,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Benue</span><br />Populati
 value: "37562",
 tooltip: {content: "<span style=\"font-weight:bold;\">Bermuda</span><br />Population: 37562"}
 },
-"Blue Nile":
+"Blue_Nile":
 {
 value: "661909",
 tooltip: {content: "<span style=\"font-weight:bold;\">Blue Nile</span><br />Population: 661909"}
@@ -4188,17 +4190,17 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Blue Nile</span><br />Popu
 value: "166443",
 tooltip: {content: "<span style=\"font-weight:bold;\">Borno</span><br />Population: 166443"}
 },
-"British Guyana":
+"British_Guyana":
 {
 value: "309377",
 tooltip: {content: "<span style=\"font-weight:bold;\">British Guyana</span><br />Population: 309377"}
 },
-"British Honduras":
+"British_Honduras":
 {
 value: "51062",
 tooltip: {content: "<span style=\"font-weight:bold;\">British Honduras</span><br />Population: 51062"}
 },
-"British Somaliland":
+"British_Somaliland":
 {
 value: "345121",
 tooltip: {content: "<span style=\"font-weight:bold;\">British Somaliland</span><br />Population: 345121"}
@@ -4213,12 +4215,12 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Cairo</span><br />Populati
 value: "5506714",
 tooltip: {content: "<span style=\"font-weight:bold;\">Ceylon</span><br />Population: 5506714"}
 },
-"Christmas Island":
+"Christmas_Island":
 {
 value: "1627",
 tooltip: {content: "<span style=\"font-weight:bold;\">Christmas Island</span><br />Population: 1627"}
 },
-"Cocos Islands":
+"Cocos_Islands":
 {
 value: "42",
 tooltip: {content: "<span style=\"font-weight:bold;\">Cocos Islands</span><br />Population: 42"}
@@ -4233,32 +4235,32 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Cumbria</span><br />Popula
 value: "348384",
 tooltip: {content: "<span style=\"font-weight:bold;\">Cyprus</span><br />Population: 348384"}
 },
-"Diego Garcia":
+"Diego_Garcia":
 {
 value: "2150",
 tooltip: {content: "<span style=\"font-weight:bold;\">Diego Garcia</span><br />Population: 2150"}
 },
-"East Anglia":
+"East_Anglia":
 {
 value: "1364838",
 tooltip: {content: "<span style=\"font-weight:bold;\">East Anglia</span><br />Population: 1364838"}
 },
-"East Midlands":
+"East_Midlands":
 {
 value: "2214721",
 tooltip: {content: "<span style=\"font-weight:bold;\">East Midlands</span><br />Population: 2214721"}
 },
-"Eastern Desert":
+"Eastern_Desert":
 {
 value: "2197",
 tooltip: {content: "<span style=\"font-weight:bold;\">Eastern Desert</span><br />Population: 2197"}
 },
-"Ellice Islands":
+"Ellice_Islands":
 {
 value: "494",
 tooltip: {content: "<span style=\"font-weight:bold;\">Ellice Islands</span><br />Population: 494"}
 },
-"Falkland Islands":
+"Falkland_Islands":
 {
 value: "2466",
 tooltip: {content: "<span style=\"font-weight:bold;\">Falkland Islands</span><br />Population: 2466"}
@@ -4288,7 +4290,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Ghana</span><br />Populati
 value: "21398",
 tooltip: {content: "<span style=\"font-weight:bold;\">Gibraltar</span><br />Population: 21398"}
 },
-"Gilbert Islands":
+"Gilbert_Islands":
 {
 value: "1036",
 tooltip: {content: "<span style=\"font-weight:bold;\">Gilbert Islands</span><br />Population: 1036"}
@@ -4298,17 +4300,17 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Gilbert Islands</span><br 
 value: "1802813",
 tooltip: {content: "<span style=\"font-weight:bold;\">Gloucestershire</span><br />Population: 1802813"}
 },
-"Greater London Area":
+"Greater_London_Area":
 {
 value: "9836289",
 tooltip: {content: "<span style=\"font-weight:bold;\">Greater London Area</span><br />Population: 9836289"}
 },
-"Hong Kong":
+"Hong_Kong":
 {
 value: "1144912",
 tooltip: {content: "<span style=\"font-weight:bold;\">Hong Kong</span><br />Population: 1144912"}
 },
-"Isle of Man":
+"Isle_of_Man":
 {
 value: "51062",
 tooltip: {content: "<span style=\"font-weight:bold;\">Isle of Man</span><br />Population: 51062"}
@@ -4363,7 +4365,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Lanark</span><br />Populat
 value: "5777498",
 tooltip: {content: "<span style=\"font-weight:bold;\">Lancashire</span><br />Population: 5777498"}
 },
-"Leeward Islands":
+"Leeward_Islands":
 {
 value: "25709",
 tooltip: {content: "<span style=\"font-weight:bold;\">Leeward Islands</span><br />Population: 25709"}
@@ -4418,17 +4420,17 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Nauru</span><br />Populati
 value: "255371",
 tooltip: {content: "<span style=\"font-weight:bold;\">Newfoundland</span><br />Population: 255371"}
 },
-"North Darfur":
+"North_Darfur":
 {
 value: "8153",
 tooltip: {content: "<span style=\"font-weight:bold;\">North Darfur</span><br />Population: 8153"}
 },
-"Northern Bahamas":
+"Northern_Bahamas":
 {
 value: "40049",
 tooltip: {content: "<span style=\"font-weight:bold;\">Northern Bahamas</span><br />Population: 40049"}
 },
-"Northern Ireland":
+"Northern_Ireland":
 {
 value: "1200000",
 tooltip: {content: "<span style=\"font-weight:bold;\">Northern Ireland</span><br />Population: 1200000"}
@@ -4438,7 +4440,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Northern Ireland</span><br
 value: "2131459",
 tooltip: {content: "<span style=\"font-weight:bold;\">Northumberland</span><br />Population: 2131459"}
 },
-"Nyanza-Rift Valley":
+"Nyanza-Rift_Valley":
 {
 value: "679228",
 tooltip: {content: "<span style=\"font-weight:bold;\">Nyanza-Rift Valley</span><br />Population: 679228"}
@@ -4448,7 +4450,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Nyanza-Rift Valley</span><
 value: "934281",
 tooltip: {content: "<span style=\"font-weight:bold;\">Palestine</span><br />Population: 934281"}
 },
-"Pitcairn Island":
+"Pitcairn_Island":
 {
 value: "40",
 tooltip: {content: "<span style=\"font-weight:bold;\">Pitcairn Island</span><br />Population: 40"}
@@ -4463,12 +4465,12 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Qatar</span><br />Populati
 value: "1172766",
 tooltip: {content: "<span style=\"font-weight:bold;\">Rhodesia</span><br />Population: 1172766"}
 },
-"Saint Helena":
+"Saint_Helena":
 {
 value: "2488",
 tooltip: {content: "<span style=\"font-weight:bold;\">Saint Helena</span><br />Population: 2488"}
 },
-"Scottish Highlands":
+"Scottish_Highlands":
 {
 value: "248176",
 tooltip: {content: "<span style=\"font-weight:bold;\">Scottish Highlands</span><br />Population: 248176"}
@@ -4478,12 +4480,12 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Scottish Highlands</span><
 value: "126858",
 tooltip: {content: "<span style=\"font-weight:bold;\">Seychelles</span><br />Population: 126858"}
 },
-"Shetland Islands":
+"Shetland_Islands":
 {
 value: "18022",
 tooltip: {content: "<span style=\"font-weight:bold;\">Shetland Islands</span><br />Population: 18022"}
 },
-"Sierra Leone":
+"Sierra_Leone":
 {
 value: "1770659",
 tooltip: {content: "<span style=\"font-weight:bold;\">Sierra Leone</span><br />Population: 1770659"}
@@ -4503,22 +4505,22 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Socotra</span><br />Popula
 value: "332885",
 tooltip: {content: "<span style=\"font-weight:bold;\">Sokoto</span><br />Population: 332885"}
 },
-"South Darfur":
+"South_Darfur":
 {
 value: "302389",
 tooltip: {content: "<span style=\"font-weight:bold;\">South Darfur</span><br />Population: 302389"}
 },
-"South Georgia":
+"South_Georgia":
 {
 value: "30",
 tooltip: {content: "<span style=\"font-weight:bold;\">South Georgia</span><br />Population: 30"}
 },
-"South-West England":
+"South-West_England":
 {
 value: "1222503",
 tooltip: {content: "<span style=\"font-weight:bold;\">South-West England</span><br />Population: 1222503"}
 },
-"Southern Bahamas":
+"Southern_Bahamas":
 {
 value: "15018",
 tooltip: {content: "<span style=\"font-weight:bold;\">Southern Bahamas</span><br />Population: 15018"}
@@ -4548,7 +4550,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Trinidad</span><br />Popul
 value: "3519917",
 tooltip: {content: "<span style=\"font-weight:bold;\">Uganda</span><br />Population: 3519917"}
 },
-"Upper Nile":
+"Upper_Nile":
 {
 value: "1041391",
 tooltip: {content: "<span style=\"font-weight:bold;\">Upper Nile</span><br />Population: 1041391"}
@@ -4558,17 +4560,17 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Upper Nile</span><br />Pop
 value: "2312049",
 tooltip: {content: "<span style=\"font-weight:bold;\">Wales</span><br />Population: 2312049"}
 },
-"West Midlands":
+"West_Midlands":
 {
 value: "3689734",
 tooltip: {content: "<span style=\"font-weight:bold;\">West Midlands</span><br />Population: 3689734"}
 },
-"Western Desert":
+"Western_Desert":
 {
 value: "18562",
 tooltip: {content: "<span style=\"font-weight:bold;\">Western Desert</span><br />Population: 18562"}
 },
-"Windward Islands":
+"Windward_Islands":
 {
 value: "76578",
 tooltip: {content: "<span style=\"font-weight:bold;\">Windward Islands</span><br />Population: 76578"}
@@ -4603,7 +4605,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Arizona</span><br />Popula
 value: "1856745",
 tooltip: {content: "<span style=\"font-weight:bold;\">Arkansas</span><br />Population: 1856745"}
 },
-"Attu Island":
+"Attu_Island":
 {
 value: "20",
 tooltip: {content: "<span style=\"font-weight:bold;\">Attu Island</span><br />Population: 20"}
@@ -4658,7 +4660,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Indiana</span><br />Popula
 value: "2473954",
 tooltip: {content: "<span style=\"font-weight:bold;\">Iowa</span><br />Population: 2473954"}
 },
-"Johnston Atoll":
+"Johnston_Atoll":
 {
 value: "100",
 tooltip: {content: "<span style=\"font-weight:bold;\">Johnston Atoll</span><br />Population: 100"}
@@ -4673,7 +4675,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Kansas</span><br />Populat
 value: "2617780",
 tooltip: {content: "<span style=\"font-weight:bold;\">Kentucky</span><br />Population: 2617780"}
 },
-"Line Islands":
+"Line_Islands":
 {
 value: "5374",
 tooltip: {content: "<span style=\"font-weight:bold;\">Line Islands</span><br />Population: 5374"}
@@ -4693,7 +4695,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Maryland</span><br />Popul
 value: "4848234",
 tooltip: {content: "<span style=\"font-weight:bold;\">Michigan</span><br />Population: 4848234"}
 },
-"Midway Island":
+"Midway_Island":
 {
 value: "2162",
 tooltip: {content: "<span style=\"font-weight:bold;\">Midway Island</span><br />Population: 2162"}
@@ -4728,32 +4730,32 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Nebraska</span><br />Popul
 value: "91168",
 tooltip: {content: "<span style=\"font-weight:bold;\">Nevada</span><br />Population: 91168"}
 },
-"New England":
+"New_England":
 {
 value: "8414973",
 tooltip: {content: "<span style=\"font-weight:bold;\">New England</span><br />Population: 8414973"}
 },
-"New Jersey":
+"New_Jersey":
 {
 value: "4046265",
 tooltip: {content: "<span style=\"font-weight:bold;\">New Jersey</span><br />Population: 4046265"}
 },
-"New Mexico":
+"New_Mexico":
 {
 value: "423833",
 tooltip: {content: "<span style=\"font-weight:bold;\">New Mexico</span><br />Population: 423833"}
 },
-"New York":
+"New_York":
 {
 value: "12603427",
 tooltip: {content: "<span style=\"font-weight:bold;\">New York</span><br />Population: 12603427"}
 },
-"North Carolina":
+"North_Carolina":
 {
 value: "3174144",
 tooltip: {content: "<span style=\"font-weight:bold;\">North Carolina</span><br />Population: 3174144"}
 },
-"North Dakota":
+"North_Dakota":
 {
 value: "681675",
 tooltip: {content: "<span style=\"font-weight:bold;\">North Dakota</span><br />Population: 681675"}
@@ -4773,7 +4775,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Oklahoma</span><br />Popul
 value: "954949",
 tooltip: {content: "<span style=\"font-weight:bold;\">Oregon</span><br />Population: 954949"}
 },
-"Panamá Canal":
+"Panamá_Canal":
 {
 value: "39515",
 tooltip: {content: "<span style=\"font-weight:bold;\">Panamá Canal</span><br />Population: 39515"}
@@ -4783,22 +4785,22 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Panamá Canal</span><br />
 value: "9643103",
 tooltip: {content: "<span style=\"font-weight:bold;\">Pennsylvania</span><br />Population: 9643103"}
 },
-"Phoenix Island":
+"Phoenix_Island":
 {
 value: "24",
 tooltip: {content: "<span style=\"font-weight:bold;\">Phoenix Island</span><br />Population: 24"}
 },
-"Puerto Rico":
+"Puerto_Rico":
 {
 value: "1545798",
 tooltip: {content: "<span style=\"font-weight:bold;\">Puerto Rico</span><br />Population: 1545798"}
 },
-"South Carolina":
+"South_Carolina":
 {
 value: "1740887",
 tooltip: {content: "<span style=\"font-weight:bold;\">South Carolina</span><br />Population: 1740887"}
 },
-"South Dakota":
+"South_Dakota":
 {
 value: "693695",
 tooltip: {content: "<span style=\"font-weight:bold;\">South Dakota</span><br />Population: 693695"}
@@ -4823,7 +4825,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Utah</span><br />Populatio
 value: "2251825",
 tooltip: {content: "<span style=\"font-weight:bold;\">Virginia</span><br />Population: 2251825"}
 },
-"Wake Island":
+"Wake_Island":
 {
 value: "150",
 tooltip: {content: "<span style=\"font-weight:bold;\">Wake Island</span><br />Population: 150"}
@@ -4833,7 +4835,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Wake Island</span><br />Po
 value: "1565303",
 tooltip: {content: "<span style=\"font-weight:bold;\">Washington</span><br />Population: 1565303"}
 },
-"West Virginia":
+"West_Virginia":
 {
 value: "1904296",
 tooltip: {content: "<span style=\"font-weight:bold;\">West Virginia</span><br />Population: 1904296"}
@@ -4848,7 +4850,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Wisconsin</span><br />Popu
 value: "225839",
 tooltip: {content: "<span style=\"font-weight:bold;\">Wyoming</span><br />Population: 225839"}
 },
-"Cerro Largo":
+"Cerro_Largo":
 {
 value: "500841",
 tooltip: {content: "<span style=\"font-weight:bold;\">Cerro Largo</span><br />Population: 500841"}
@@ -4963,7 +4965,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Montenegro</span><br />Pop
 value: "707863",
 tooltip: {content: "<span style=\"font-weight:bold;\">Morava</span><br />Population: 707863"}
 },
-"North Slovenia":
+"North_Slovenia":
 {
 value: "812040",
 tooltip: {content: "<span style=\"font-weight:bold;\">North Slovenia</span><br />Population: 812040"}
@@ -4973,7 +4975,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">North Slovenia</span><br /
 value: "1280682",
 tooltip: {content: "<span style=\"font-weight:bold;\">Serbia</span><br />Population: 1280682"}
 },
-"Southern Serbia":
+"Southern_Serbia":
 {
 value: "210256",
 tooltip: {content: "<span style=\"font-weight:bold;\">Southern Serbia</span><br />Population: 210256"}
@@ -4983,7 +4985,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Southern Serbia</span><br 
 value: "839645",
 tooltip: {content: "<span style=\"font-weight:bold;\">Vojvodina</span><br />Population: 839645"}
 },
-"West Banat":
+"West_Banat":
 {
 value: "586294",
 tooltip: {content: "<span style=\"font-weight:bold;\">West Banat</span><br />Population: 586294"}
@@ -5007,11 +5009,11 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan</span><br />Populat
 <body>
 
 <h1>Hello</h1>
-<p>This is what you could accomplish when you don't have $25 for a plugin, but find the source online.</p>
+<p></p>
 
 <p>
   <ul>
-    <li><b>v0.0.3</b> hey it works</li>
+    <li><b>v0.0.4</b> hey it works</li>
   </ul>
   </p>
   
