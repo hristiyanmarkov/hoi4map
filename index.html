@@ -16,7 +16,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: auto;
         }
 
@@ -41,6 +41,45 @@
             display: none;
             color: #343434;
         }
+		
+		/* For all zoom buttons */
+        .mapael .zoomButton {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            color: #000;
+            width: 15px;
+            height: 15px;
+            line-height: 15px;
+            text-align: center;
+            border-radius: 3px;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            font-weight: bold;
+            left: 10px;
+
+            -webkit-user-select: none;
+            -khtml-user-select : none;
+            -moz-user-select: none;
+            -o-user-select : none;
+            user-select: none;
+        }
+
+        /* Reset Zoom button first */
+        .mapael .zoomReset {
+            top: 10px;
+        }
+
+        /* Then Zoom In button */
+        .mapael .zoomIn {
+            top: 30px;
+        }
+
+        /* Then Zoom Out button */
+        .mapael .zoomOut {
+            top: 50px;
+        }
+
     </style>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
@@ -74,7 +113,7 @@
                 legend: {
                     area: {
                         title: "Population of France by department",
-                        exclusive: true,
+                        <!--exclusive: true,-->
                         slices: [
                             {
                                 max: 300000,
@@ -91,6 +130,7 @@
                                     fill: "#7fd34d"
                                 },
                                 label: "Between 100 000 and 500 000 inhabitants"
+								clicked: true
                             },
                             {
                                 min: 500000,
