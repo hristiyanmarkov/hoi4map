@@ -25,7 +25,7 @@
     $.extend(true, Mapael,
         {
             maps :  {
-                hoi4 : {
+                hoi4map : {
                     width : 1400.16,
                     height : 600,
                     getCoords : function (lat, lon) {
