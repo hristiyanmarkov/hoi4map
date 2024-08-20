@@ -20,7 +20,7 @@
 		.mapcontainer3 {
             width: 90%;
 			overflow: hidden;
-			max-width: 1600px;
+			max-width: 2000px;
             margin: auto;
 			float: left;
         }
@@ -36,10 +36,10 @@
 		.mapael .map {            
 			background-color: #cddee0;
 			overflow: hidden;
-            margin-right: 228px;
+            /*margin-right: 228px;*/
 			/*margin-bottom: 10px;*/
             position: relative;
-			stroke-width: 0.5;
+			stroke-width: 0.0;
 			border-radius: 5px;
         }
 		
@@ -73,12 +73,12 @@
 
         /* Then Zoom In button */
         .mapael .zoomIn {
-            top: 30px;
+            top: 35px;
         }
 
         /* Then Zoom Out button */
         .mapael .zoomOut {
-            top: 50px;
+            top: 60px;
         }		
 		
         .mapael .mapTooltip {
@@ -125,7 +125,7 @@
 				// Enable zoom on the map
                  zoom: {
                      enabled: true,
-                     maxLevel: 10
+                     maxLevel: 20
                  },
 				
                  defaultArea: {
@@ -141,15 +141,13 @@
              legend: {
                  area: {
                      title: "Population per State",
-                     <!--exclusive: true,-->
                      slices: [
                          {
                              max: 100000,
                              attrs: {
                                  fill: "#97e766"
                              },
-                             label: "<100k population",
-                             <!--clicked: true-->
+                             label: "<100k population"
                          },
                          {
                              min: 100000,
@@ -158,7 +156,6 @@
                                  fill: "#7fd34d"
                              },
                              label: "Between 100 000 and 500 000"
-							<!--clicked: true-->
                          },
                          {
                              min: 500000,
@@ -166,16 +163,14 @@
                              attrs: {
                                  fill: "#5faa32"
                              },
-                             label: "Between 500 000 and 1 000 000",
-                             <!--clicked: true-->
+                             label: "Between 500 000 and 1 000 000"
                          },
                          {
                              min: 1000000,
                              attrs: {
                                  fill: "#3f7d1a"
                              },
-                             label: "More than 1 million",
-                             <!--clicked: true-->
+                             label: "More than 1 million"
                          }
                      ]
                  }
@@ -5052,7 +5047,6 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan (Yunnan)</span><br 
              legend: {
                  area: {
                      title: "Oil per State",
-                     <!--exclusive: true,-->
                      slices: [
                          {
                              max: 0,
@@ -5060,7 +5054,6 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan (Yunnan)</span><br 
                                  fill: "#dad7cd"
                              },
                              label: "0 Oil",
-                             <!--clicked: true-->
                          },
                          {
                              min: 1,
@@ -5068,8 +5061,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan (Yunnan)</span><br 
                              attrs: {
                                  fill: "#a3b18a"
                              },
-                             label: "Between 1 and 10"
-							<!--clicked: true-->
+                             label: "Between 1 and 10",
                          },
                          {
                              min: 11,
@@ -5078,7 +5070,6 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan (Yunnan)</span><br 
                                  fill: "#588157"
                              },
                              label: "Between 11 and 50",
-                             <!--clicked: true-->
                          },
                          {
                              min: 51,
@@ -5086,7 +5077,6 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan (Yunnan)</span><br 
                                  fill: "#344e41"
                              },
                              label: "More than 50",
-                             <!--clicked: true-->
                          }
                      ]
                  }
@@ -9963,7 +9953,6 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan (Yunnan)</span><br 
              legend: {
                  area: {
                      title: "Alum per State",
-                     <!--exclusive: true,-->
                      slices: [
                          {
                              max: 0,
@@ -9971,7 +9960,6 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan (Yunnan)</span><br 
                                  fill: "#f8f9fa"
                              },
                              label: "0 Aluminium",
-                             <!--clicked: true-->
                          },
                          {
                              min: 1,
@@ -9979,8 +9967,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan (Yunnan)</span><br 
                              attrs: {
                                  fill: "#dee2e6"
                              },
-                             label: "Between 1 and 10"
-							<!--clicked: true-->
+                             label: "Between 1 and 10",
                          },
                          {
                              min: 11,
@@ -9989,7 +9976,6 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan (Yunnan)</span><br 
                                  fill: "#6c757d"
                              },
                              label: "Between 11 and 50",
-                             <!--clicked: true-->
                          },
                          {
                              min: 51,
@@ -9997,7 +9983,6 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan (Yunnan)</span><br 
                                  fill: "#343a40"
                              },
                              label: "More than 50",
-                             <!--clicked: true-->
                          }
                      ]
                  }
@@ -15837,6 +15822,8 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan (Yunnan)</span><br 
   
 <div class="container">
 	
+        <h1>Population and Victory Points</h1>
+
 		<div class="mapcontainer">
 			<div class="hoi4map">
 							
@@ -15847,8 +15834,9 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan (Yunnan)</span><br 
 			<div class="map"></div>		
 		</div>
 		
-		<p></p>
-		
+        <p></p>
+		<h1>Oil</h1>
+
 		<div class="mapcontainer2">
 			<div class="hoi4map">
 							
@@ -15859,8 +15847,9 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan (Yunnan)</span><br 
 			<div class="map"></div>		
 		</div>
 		
-		<p></p>
-		
+        <p></p>
+		<h1>Aluminum</h1>
+
 		<div class="mapcontainer3">
 			<div class="hoi4map">
 							
