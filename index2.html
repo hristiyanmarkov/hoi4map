@@ -1,0 +1,5041 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="./mapsvg/css/mapsvg.css" rel="stylesheet">
+<link href="./mapsvg/css/nanoscroller.css" rel="stylesheet">
+<style type="text/css">
+        body {
+            color: #5d5d5d;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        .container {
+            max-width: 2000px;
+            margin: auto;
+        }
+
+        /* Specific mapael css class are below
+         * 'mapael' class is added by plugin
+        */
+
+		.mapael .map {
+            background-color: #cddee0;
+            margin-bottom: 10px;
+            position: relative;
+			stroke-width: 1px;
+        }
+		
+		/* For all zoom buttons */
+        .mapael .zoomButton {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            color: #000;
+            width: 15px;
+            height: 15px;
+            line-height: 15px;
+            text-align: center;
+            border-radius: 3px;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            font-weight: bold;
+            left: 10px;
+
+            -webkit-user-select: none;
+            -khtml-user-select : none;
+            -moz-user-select: none;
+            -o-user-select : none;
+            user-select: none;
+        }
+
+        /* Reset Zoom button first */
+        .mapael .zoomReset {
+            top: 10px;
+        }
+
+        /* Then Zoom In button */
+        .mapael .zoomIn {
+            top: 30px;
+        }
+
+        /* Then Zoom Out button */
+        .mapael .zoomOut {
+            top: 50px;
+        }		
+		
+        .mapael .mapTooltip {
+            position: absolute;
+            background-color: #474c4b;
+            moz-opacity: 0.70;
+            opacity: 0.70;
+            filter: alpha(opacity=70);
+            border-radius: 7px;
+            padding: 10px;
+            z-index: 1000;
+            max-width: 200px;
+            display: none;
+            color: #fff;
+        }
+
+
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"
+            charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js" charset="utf-8"></script>
+
+	<script src="./mapsvg/js/jquery.mapael.js" charset="utf-8"></script>
+	<script src="./mapsvg/js/maps/hoi4map.js"></script>
+	<!--<script src="./mapsvg/js/jquery.js"></script>-->
+	<!--<script src="./mapsvg/js/jquery.mousewheel.min.js"></script>-->
+	<!--<script src="./mapsvg/js/jquery.nanoscroller.min.js"></script>-->
+	<script src="./mapsvg/js/mapsvg.min.js"></script>
+<title>Hearts of Iron IV map thing</title>
+
+<script type="text/javascript">
+        $(function () {
+            $(".mapcontainer").mapael({
+                map: {
+                    name: "hoi4map",
+					// Enable zoom on the map
+                    zoom: {
+                        enabled: true,
+                        maxLevel: 10
+                    },
+					
+                    defaultArea: {
+                        attrs: {
+                            stroke: "#fff",
+                            "stroke-width": 1
+                        },
+                        attrsHover: {
+                            "stroke-width": 2
+                        }
+                    }
+                },
+                legend: {
+                    area: {
+                        title: "Population per State",
+                        <!--exclusive: true,-->
+                        slices: [
+                            {
+                                max: 100000,
+                                attrs: {
+                                    fill: "#97e766"
+                                },
+                                label: "<100k population",
+                                <!--clicked: true-->
+                            },
+                            {
+                                min: 100000,
+                                max: 500000,
+                                attrs: {
+                                    fill: "#7fd34d"
+                                },
+                                label: "Between 100 000 and 500 000"
+								<!--clicked: true-->
+                            },
+                            {
+                                min: 500000,
+                                max: 1000000,
+                                attrs: {
+                                    fill: "#5faa32"
+                                },
+                                label: "Between 500 000 and 1 000 000",
+                                <!--clicked: true-->
+                            },
+                            {
+                                min: 1000000,
+                                attrs: {
+                                    fill: "#3f7d1a"
+                                },
+                                label: "More than 1 million",
+                                <!--clicked: true-->
+                            }
+                        ]
+                    }
+                },
+                areas: {
+"Herat":
+{
+value: "1634853",
+tooltip: {content: "<span style=\"font-weight:bold;\">Herat</span><br />Population: 1634853<br />VP: 2"}
+},
+"Kabul":
+{
+value: "4642801",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kabul</span><br />Population: 4642801<br />VP: 6"}
+},
+"Albania":
+{
+value: "494470",
+tooltip: {content: "<span style=\"font-weight:bold;\">Albania</span><br />Population: 494470<br />VP: 11"}
+},
+"Northern_Epirus":
+{
+value: "262520",
+tooltip: {content: "<span style=\"font-weight:bold;\">Northern Epirus</span><br />Population: 262520<br />VP: 1"}
+},
+"Shkodër":
+{
+value: "247234",
+tooltip: {content: "<span style=\"font-weight:bold;\">Shkodër</span><br />Population: 247234<br />VP: 3"}
+},
+"Buenos_Aires":
+{
+value: "5603198",
+tooltip: {content: "<span style=\"font-weight:bold;\">Buenos Aires</span><br />Population: 5603198<br />VP: 17"}
+},
+"Chaco_Austral":
+{
+value: "705101",
+tooltip: {content: "<span style=\"font-weight:bold;\">Chaco Austral</span><br />Population: 705101<br />VP: 1"}
+},
+"Chubut":
+{
+value: "395522",
+tooltip: {content: "<span style=\"font-weight:bold;\">Chubut</span><br />Population: 395522<br />VP: 6"}
+},
+"Formosa":
+{
+value: "500610",
+tooltip: {content: "<span style=\"font-weight:bold;\">Formosa</span><br />Population: 500610<br />VP: 1"}
+},
+"Los_Andes":
+{
+value: "782265",
+tooltip: {content: "<span style=\"font-weight:bold;\">Los Andes</span><br />Population: 782265<br />VP: 3"}
+},
+"Mendoza":
+{
+value: "1091605",
+tooltip: {content: "<span style=\"font-weight:bold;\">Mendoza</span><br />Population: 1091605<br />VP: 2"}
+},
+"Región_Mesopotámica":
+{
+value: "1498997",
+tooltip: {content: "<span style=\"font-weight:bold;\">Región Mesopotámica</span><br />Population: 1498997<br />VP: 6"}
+},
+"Río_Negro":
+{
+value: "471575",
+tooltip: {content: "<span style=\"font-weight:bold;\">Río Negro</span><br />Population: 471575<br />VP: 3"}
+},
+"San_Juan_y_La_Rioja":
+{
+value: "882387",
+tooltip: {content: "<span style=\"font-weight:bold;\">San Juan y La Rioja</span><br />Population: 882387<br />VP: 3"}
+},
+"San_Luis_y_La_Pampa":
+{
+value: "603138",
+tooltip: {content: "<span style=\"font-weight:bold;\">San Luis y La Pampa</span><br />Population: 603138<br />VP: 2"}
+},
+"Santa_Cruz_AR":
+{
+value: "132161",
+tooltip: {content: "<span style=\"font-weight:bold;\">Santa_Cruz_AR</span><br />Population: 132161<br />VP: 1"}
+},
+"Santa_Fe":
+{
+value: "3000828",
+tooltip: {content: "<span style=\"font-weight:bold;\">Santa Fe</span><br />Population: 3000828<br />VP: 3"}
+},
+"Tierra_del_Fuego":
+{
+value: "80864",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tierra del Fuego</span><br />Population: 80864<br />VP: 1"}
+},
+"Tucumán":
+{
+value: "1142704",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tucumán</span><br />Population: 1142704<br />VP: 7"}
+},
+"Bismarck":
+{
+value: "346062",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bismarck</span><br />Population: 346062<br />VP: 5"}
+},
+"Central_Australia":
+{
+value: "30037",
+tooltip: {content: "<span style=\"font-weight:bold;\">Central Australia</span><br />Population: 30037<br />VP: "}
+},
+"New_South_Wales":
+{
+value: "2566229",
+tooltip: {content: "<span style=\"font-weight:bold;\">New South Wales</span><br />Population: 2566229<br />VP: 51"}
+},
+"North_Queensland":
+{
+value: "100122",
+tooltip: {content: "<span style=\"font-weight:bold;\">North Queensland</span><br />Population: 100122<br />VP: "}
+},
+"North_West_Australia":
+{
+value: "1001",
+tooltip: {content: "<span style=\"font-weight:bold;\">North West Australia</span><br />Population: 1001<br />VP: "}
+},
+"Northern_Territory":
+{
+value: "13016",
+tooltip: {content: "<span style=\"font-weight:bold;\">Northern Territory</span><br />Population: 13016<br />VP: 5"}
+},
+"Papua":
+{
+value: "1078315",
+tooltip: {content: "<span style=\"font-weight:bold;\">Papua</span><br />Population: 1078315<br />VP: 4"}
+},
+"Queensland":
+{
+value: "817797",
+tooltip: {content: "<span style=\"font-weight:bold;\">Queensland</span><br />Population: 817797<br />VP: 16"}
+},
+"Solomon_Islands":
+{
+value: "150183",
+tooltip: {content: "<span style=\"font-weight:bold;\">Solomon Islands</span><br />Population: 150183<br />VP: 4"}
+},
+"South_Australia":
+{
+value: "201045",
+tooltip: {content: "<span style=\"font-weight:bold;\">South Australia</span><br />Population: 201045<br />VP: 15"}
+},
+"South_West_Australia":
+{
+value: "50061",
+tooltip: {content: "<span style=\"font-weight:bold;\">South West Australia</span><br />Population: 50061<br />VP: "}
+},
+"Southwest_Queensland":
+{
+value: "10012",
+tooltip: {content: "<span style=\"font-weight:bold;\">Southwest_Queensland</span><br />Population: 10012<br />VP: "}
+},
+"Tasmania":
+{
+value: "224273",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tasmania</span><br />Population: 224273<br />VP: 1"}
+},
+"Victoria":
+{
+value: "2222209",
+tooltip: {content: "<span style=\"font-weight:bold;\">Victoria</span><br />Population: 2222209<br />VP: 20"}
+},
+"Western_Australia":
+{
+value: "317587",
+tooltip: {content: "<span style=\"font-weight:bold;\">Western Australia</span><br />Population: 317587<br />VP: 10"}
+},
+"Lower_Austria":
+{
+value: "2599152",
+tooltip: {content: "<span style=\"font-weight:bold;\">Lower Austria</span><br />Population: 2599152<br />VP: 35"}
+},
+"Tyrol":
+{
+value: "1502818",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tyrol</span><br />Population: 1502818<br />VP: 5"}
+},
+"Upper_Austria":
+{
+value: "2278155",
+tooltip: {content: "<span style=\"font-weight:bold;\">Upper Austria</span><br />Population: 2278155<br />VP: 26"}
+},
+"Vorarlberg":
+{
+value: "154542",
+tooltip: {content: "<span style=\"font-weight:bold;\">Vorarlberg</span><br />Population: 154542<br />VP: "}
+},
+"Burundi":
+{
+value: "2148350",
+tooltip: {content: "<span style=\"font-weight:bold;\">Burundi</span><br />Population: 2148350<br />VP: 1"}
+},
+"Coquilhatville":
+{
+value: "1696042",
+tooltip: {content: "<span style=\"font-weight:bold;\">Coquilhatville</span><br />Population: 1696042<br />VP: "}
+},
+"Costermansville":
+{
+value: "710902",
+tooltip: {content: "<span style=\"font-weight:bold;\">Costermansville</span><br />Population: 710902<br />VP: "}
+},
+"Elisabethville":
+{
+value: "709054",
+tooltip: {content: "<span style=\"font-weight:bold;\">Elisabethville</span><br />Population: 709054<br />VP: 1"}
+},
+"Leopoldville":
+{
+value: "1949899",
+tooltip: {content: "<span style=\"font-weight:bold;\">Leopoldville</span><br />Population: 1949899<br />VP: 3"}
+},
+"Lusambo":
+{
+value: "886318",
+tooltip: {content: "<span style=\"font-weight:bold;\">Lusambo</span><br />Population: 886318<br />VP: "}
+},
+"Rwanda":
+{
+value: "1718659",
+tooltip: {content: "<span style=\"font-weight:bold;\">Rwanda</span><br />Population: 1718659<br />VP: 1"}
+},
+"Stanleyville":
+{
+value: "1658771",
+tooltip: {content: "<span style=\"font-weight:bold;\">Stanleyville</span><br />Population: 1658771<br />VP: "}
+},
+"Vlaanderen":
+{
+value: "4753496",
+tooltip: {content: "<span style=\"font-weight:bold;\">Vlaanderen</span><br />Population: 4753496<br />VP: 67"}
+},
+"Wallonie":
+{
+value: "3385428",
+tooltip: {content: "<span style=\"font-weight:bold;\">Wallonie</span><br />Population: 3385428<br />VP: 18"}
+},
+"Bhutan":
+{
+value: "450549",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bhutan</span><br />Population: 450549<br />VP: 3"}
+},
+"La_Paz":
+{
+value: "2046996",
+tooltip: {content: "<span style=\"font-weight:bold;\">La Paz</span><br />Population: 2046996<br />VP: 22"}
+},
+"Santa_Cruz":
+{
+value: "334908",
+tooltip: {content: "<span style=\"font-weight:bold;\">Santa Cruz</span><br />Population: 334908<br />VP: 5"}
+},
+"North_Borneo":
+{
+value: "890886",
+tooltip: {content: "<span style=\"font-weight:bold;\">North Borneo</span><br />Population: 890886<br />VP: 2"}
+},
+"Singapore":
+{
+value: "2896732",
+tooltip: {content: "<span style=\"font-weight:bold;\">Singapore</span><br />Population: 2896732<br />VP: 12"}
+},
+"Arunachal_Pradesh":
+{
+value: "200244",
+tooltip: {content: "<span style=\"font-weight:bold;\">Arunachal Pradesh</span><br />Population: 200244<br />VP: "}
+},
+"Assam":
+{
+value: "8988058",
+tooltip: {content: "<span style=\"font-weight:bold;\">Assam</span><br />Population: 8988058<br />VP: "}
+},
+"Baluchistan":
+{
+value: "464066",
+tooltip: {content: "<span style=\"font-weight:bold;\">Baluchistan</span><br />Population: 464066<br />VP: 1"}
+},
+"Bihar":
+{
+value: "36619147",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bihar</span><br />Population: 36619147<br />VP: 1"}
+},
+"Bombay":
+{
+value: "17376786",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bombay</span><br />Population: 17376786<br />VP: 10"}
+},
+"Burma":
+{
+value: "10735589",
+tooltip: {content: "<span style=\"font-weight:bold;\">Burma</span><br />Population: 10735589<br />VP: 5"}
+},
+"Delhi":
+{
+value: "31174809",
+tooltip: {content: "<span style=\"font-weight:bold;\">Delhi</span><br />Population: 31174809<br />VP: 15"}
+},
+"East_Bengal":
+{
+value: "32012330",
+tooltip: {content: "<span style=\"font-weight:bold;\">East Bengal</span><br />Population: 32012330<br />VP: 1"}
+},
+"Gujarat":
+{
+value: "10603127",
+tooltip: {content: "<span style=\"font-weight:bold;\">Gujarat</span><br />Population: 10603127<br />VP: 1"}
+},
+"Hyderabad":
+{
+value: "14030506",
+tooltip: {content: "<span style=\"font-weight:bold;\">Hyderabad</span><br />Population: 14030506<br />VP: 1"}
+},
+"Indore":
+{
+value: "8412757",
+tooltip: {content: "<span style=\"font-weight:bold;\">Indore</span><br />Population: 8412757<br />VP: "}
+},
+"Jabalpur":
+{
+value: "14140340",
+tooltip: {content: "<span style=\"font-weight:bold;\">Jabalpur</span><br />Population: 14140340<br />VP: "}
+},
+"Kashmir":
+{
+value: "2126292",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kashmir</span><br />Population: 2126292<br />VP: "}
+},
+"Lucknow":
+{
+value: "33531883",
+tooltip: {content: "<span style=\"font-weight:bold;\">Lucknow</span><br />Population: 33531883<br />VP: 1"}
+},
+"Madras":
+{
+value: "15810977",
+tooltip: {content: "<span style=\"font-weight:bold;\">Madras</span><br />Population: 15810977<br />VP: "}
+},
+"Madurai":
+{
+value: "29183080",
+tooltip: {content: "<span style=\"font-weight:bold;\">Madurai</span><br />Population: 29183080<br />VP: 1"}
+},
+"Mandalay":
+{
+value: "3949415",
+tooltip: {content: "<span style=\"font-weight:bold;\">Mandalay</span><br />Population: 3949415<br />VP: 2"}
+},
+"Mysore":
+{
+value: "12363273",
+tooltip: {content: "<span style=\"font-weight:bold;\">Mysore</span><br />Population: 12363273<br />VP: 1"}
+},
+"Northern_Kashmir":
+{
+value: "1417528",
+tooltip: {content: "<span style=\"font-weight:bold;\">Northern Kashmir</span><br />Population: 1417528<br />VP: 1"}
+},
+"Orissa":
+{
+value: "14537825",
+tooltip: {content: "<span style=\"font-weight:bold;\">Orissa</span><br />Population: 14537825<br />VP: "}
+},
+"Peshawar":
+{
+value: "4690118",
+tooltip: {content: "<span style=\"font-weight:bold;\">Peshawar</span><br />Population: 4690118<br />VP: 3"}
+},
+"Punjab":
+{
+value: "13681681",
+tooltip: {content: "<span style=\"font-weight:bold;\">Punjab</span><br />Population: 13681681<br />VP: 5"}
+},
+"Quetta":
+{
+value: "405595",
+tooltip: {content: "<span style=\"font-weight:bold;\">Quetta</span><br />Population: 405595<br />VP: 1"}
+},
+"Rajahsthan":
+{
+value: "11800387",
+tooltip: {content: "<span style=\"font-weight:bold;\">Rajahsthan</span><br />Population: 11800387<br />VP: 1"}
+},
+"Sind":
+{
+value: "3891745",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sind</span><br />Population: 3891745<br />VP: 3"}
+},
+"West_Bengal":
+{
+value: "18801022",
+tooltip: {content: "<span style=\"font-weight:bold;\">West Bengal</span><br />Population: 18801022<br />VP: 5"}
+},
+"Burgas":
+{
+value: "1360052",
+tooltip: {content: "<span style=\"font-weight:bold;\">Burgas</span><br />Population: 1360052<br />VP: 13"}
+},
+"Moesia":
+{
+value: "1220268",
+tooltip: {content: "<span style=\"font-weight:bold;\">Moesia</span><br />Population: 1220268<br />VP: 6"}
+},
+"Plovdiv":
+{
+value: "1817151",
+tooltip: {content: "<span style=\"font-weight:bold;\">Plovdiv</span><br />Population: 1817151<br />VP: 14"}
+},
+"Sofia":
+{
+value: "1688047",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sofia</span><br />Population: 1688047<br />VP: 16"}
+},
+"Antofagasta":
+{
+value: "424122",
+tooltip: {content: "<span style=\"font-weight:bold;\">Antofagasta</span><br />Population: 424122<br />VP: 10"}
+},
+"Araucanía":
+{
+value: "1301587",
+tooltip: {content: "<span style=\"font-weight:bold;\">Araucanía</span><br />Population: 1301587<br />VP: 3"}
+},
+"Arica_y_Tarapacá":
+{
+value: "340415",
+tooltip: {content: "<span style=\"font-weight:bold;\">Arica y Tarapacá</span><br />Population: 340415<br />VP: 3"}
+},
+"Atacama":
+{
+value: "283951",
+tooltip: {content: "<span style=\"font-weight:bold;\">Atacama</span><br />Population: 283951<br />VP: 2"}
+},
+"Aysén":
+{
+value: "34389",
+tooltip: {content: "<span style=\"font-weight:bold;\">Aysén</span><br />Population: 34389<br />VP: 2"}
+},
+"Easter_Island":
+{
+value: "6608",
+tooltip: {content: "<span style=\"font-weight:bold;\">Easter Island</span><br />Population: 6608<br />VP: 1"}
+},
+"Magallanes":
+{
+value: "34388",
+tooltip: {content: "<span style=\"font-weight:bold;\">Magallanes</span><br />Population: 34388<br />VP: 3"}
+},
+"Santiago":
+{
+value: "2638363",
+tooltip: {content: "<span style=\"font-weight:bold;\">Santiago</span><br />Population: 2638363<br />VP: 26"}
+},
+"Anhui":
+{
+value: "18287697",
+tooltip: {content: "<span style=\"font-weight:bold;\">Anhui</span><br />Population: 18287697<br />VP: 1"}
+},
+"Beijing":
+{
+value: "9660178",
+tooltip: {content: "<span style=\"font-weight:bold;\">Beijing</span><br />Population: 9660178<br />VP: 21"}
+},
+"Changde":
+{
+value: "8009766",
+tooltip: {content: "<span style=\"font-weight:bold;\">Changde</span><br />Population: 8009766<br />VP: 10"}
+},
+"Fujian":
+{
+value: "11769950",
+tooltip: {content: "<span style=\"font-weight:bold;\">Fujian</span><br />Population: 11769950<br />VP: 4"}
+},
+"Ganzi":
+{
+value: "300366",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ganzi</span><br />Population: 300366<br />VP: 1"}
+},
+"Guizhou":
+{
+value: "7552408",
+tooltip: {content: "<span style=\"font-weight:bold;\">Guizhou</span><br />Population: 7552408<br />VP: 3"}
+},
+"Hebei":
+{
+value: "18457404",
+tooltip: {content: "<span style=\"font-weight:bold;\">Hebei</span><br />Population: 18457404<br />VP: "}
+},
+"Henan":
+{
+value: "34331658",
+tooltip: {content: "<span style=\"font-weight:bold;\">Henan</span><br />Population: 34331658<br />VP: 1"}
+},
+"Huangshan":
+{
+value: "5006104",
+tooltip: {content: "<span style=\"font-weight:bold;\">Huangshan</span><br />Population: 5006104<br />VP: 1"}
+},
+"Hubei":
+{
+value: "25572779",
+tooltip: {content: "<span style=\"font-weight:bold;\">Hubei</span><br />Population: 25572779<br />VP: 5"}
+},
+"Hunan":
+{
+value: "20318473",
+tooltip: {content: "<span style=\"font-weight:bold;\">Hunan</span><br />Population: 20318473<br />VP: 5"}
+},
+"Jiangsu":
+{
+value: "23698193",
+tooltip: {content: "<span style=\"font-weight:bold;\">Jiangsu</span><br />Population: 23698193<br />VP: "}
+},
+"Jiangxi":
+{
+value: "15839712",
+tooltip: {content: "<span style=\"font-weight:bold;\">Jiangxi</span><br />Population: 15839712<br />VP: 3"}
+},
+"Liangshan":
+{
+value: "300366",
+tooltip: {content: "<span style=\"font-weight:bold;\">Liangshan</span><br />Population: 300366<br />VP: 4"}
+},
+"Qingdao":
+{
+value: "385470",
+tooltip: {content: "<span style=\"font-weight:bold;\">Qingdao</span><br />Population: 385470<br />VP: 5"}
+},
+"Shandong":
+{
+value: "38420042",
+tooltip: {content: "<span style=\"font-weight:bold;\">Shandong</span><br />Population: 38420042<br />VP: 3"}
+},
+"Shanghai":
+{
+value: "17326224",
+tooltip: {content: "<span style=\"font-weight:bold;\">Shanghai</span><br />Population: 17326224<br />VP: 28"}
+},
+"Sichuan":
+{
+value: "53027952",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sichuan</span><br />Population: 53027952<br />VP: 25"}
+},
+"Xian":
+{
+value: "9010986",
+tooltip: {content: "<span style=\"font-weight:bold;\">Xian</span><br />Population: 9010986<br />VP: 1"}
+},
+"Xikang":
+{
+value: "368649",
+tooltip: {content: "<span style=\"font-weight:bold;\">Xikang</span><br />Population: 368649<br />VP: 1"}
+},
+"Zhejiang":
+{
+value: "21256616",
+tooltip: {content: "<span style=\"font-weight:bold;\">Zhejiang</span><br />Population: 21256616<br />VP: 2"}
+},
+"Zunyi":
+{
+value: "1501831",
+tooltip: {content: "<span style=\"font-weight:bold;\">Zunyi</span><br />Population: 1501831<br />VP: 3"}
+},
+"Cundinamarca":
+{
+value: "4959095",
+tooltip: {content: "<span style=\"font-weight:bold;\">Cundinamarca</span><br />Population: 4959095<br />VP: 10"}
+},
+"La_Libertad":
+{
+value: "2830232",
+tooltip: {content: "<span style=\"font-weight:bold;\">La Libertad</span><br />Population: 2830232<br />VP: 6"}
+},
+"Meta":
+{
+value: "213420",
+tooltip: {content: "<span style=\"font-weight:bold;\">Meta</span><br />Population: 213420<br />VP: "}
+},
+"Shaanxi":
+{
+value: "7014752",
+tooltip: {content: "<span style=\"font-weight:bold;\">Shaanxi</span><br />Population: 7014752<br />VP: 3"}
+},
+"Costa_Rica":
+{
+value: "504471",
+tooltip: {content: "<span style=\"font-weight:bold;\">Costa Rica</span><br />Population: 504471<br />VP: 3"}
+},
+"Cuba":
+{
+value: "3612323",
+tooltip: {content: "<span style=\"font-weight:bold;\">Cuba</span><br />Population: 3612323<br />VP: 6"}
+},
+"Bohemia":
+{
+value: "4498084",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bohemia</span><br />Population: 4498084<br />VP: 40"}
+},
+"Carpathian_Ruthenia":
+{
+value: "855343",
+tooltip: {content: "<span style=\"font-weight:bold;\">Carpathian Ruthenia</span><br />Population: 855343<br />VP: 1"}
+},
+"Eastern_Slovakia":
+{
+value: "1199262",
+tooltip: {content: "<span style=\"font-weight:bold;\">Eastern Slovakia</span><br />Population: 1199262<br />VP: 3"}
+},
+"Eastern_Sudetenland":
+{
+value: "821001",
+tooltip: {content: "<span style=\"font-weight:bold;\">Eastern Sudetenland</span><br />Population: 821001<br />VP: 5"}
+},
+"Moravia":
+{
+value: "2601572",
+tooltip: {content: "<span style=\"font-weight:bold;\">Moravia</span><br />Population: 2601572<br />VP: 25"}
+},
+"Southern_Slovakia":
+{
+value: "855343",
+tooltip: {content: "<span style=\"font-weight:bold;\">Southern Slovakia</span><br />Population: 855343<br />VP: 1"}
+},
+"Sudetenland":
+{
+value: "2833455",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sudetenland</span><br />Population: 2833455<br />VP: 6"}
+},
+"Western_Slovakia":
+{
+value: "1232002",
+tooltip: {content: "<span style=\"font-weight:bold;\">Western Slovakia</span><br />Population: 1232002<br />VP: 15"}
+},
+"Zaolzie":
+{
+value: "152186",
+tooltip: {content: "<span style=\"font-weight:bold;\">Zaolzie</span><br />Population: 152186<br />VP: "}
+},
+"Bornholm":
+{
+value: "45875",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bornholm</span><br />Population: 45875<br />VP: "}
+},
+"Faroe_Islands":
+{
+value: "25932",
+tooltip: {content: "<span style=\"font-weight:bold;\">Faroe Islands</span><br />Population: 25932<br />VP: 1"}
+},
+"Fyn":
+{
+value: "497680",
+tooltip: {content: "<span style=\"font-weight:bold;\">Fyn</span><br />Population: 497680<br />VP: 5"}
+},
+"Greenland":
+{
+value: "18022",
+tooltip: {content: "<span style=\"font-weight:bold;\">Greenland</span><br />Population: 18022<br />VP: 1"}
+},
+"Jylland":
+{
+value: "1255708",
+tooltip: {content: "<span style=\"font-weight:bold;\">Jylland</span><br />Population: 1255708<br />VP: 9"}
+},
+"Sjaelland":
+{
+value: "1493042",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sjaelland</span><br />Population: 1493042<br />VP: 22"}
+},
+"Sønderjylland":
+{
+value: "418568",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sønderjylland</span><br />Population: 418568<br />VP: 1"}
+},
+"Dominican_Republic":
+{
+value: "1257533",
+tooltip: {content: "<span style=\"font-weight:bold;\">Dominican Republic</span><br />Population: 1257533<br />VP: 6"}
+},
+"Alberta":
+{
+value: "691643",
+tooltip: {content: "<span style=\"font-weight:bold;\">Alberta</span><br />Population: 691643<br />VP: 3"}
+},
+"British_Columbia":
+{
+value: "638944",
+tooltip: {content: "<span style=\"font-weight:bold;\">British Columbia</span><br />Population: 638944<br />VP: 15"}
+},
+"Cote_Nord":
+{
+value: "110134",
+tooltip: {content: "<span style=\"font-weight:bold;\">Cote_Nord</span><br />Population: 110134<br />VP: "}
+},
+"Districts_of_Ontario":
+{
+value: "10012",
+tooltip: {content: "<span style=\"font-weight:bold;\">Districts of Ontario</span><br />Population: 10012<br />VP: "}
+},
+"Haida_Gwaii":
+{
+value: "12699",
+tooltip: {content: "<span style=\"font-weight:bold;\">Haida Gwaii</span><br />Population: 12699<br />VP: "}
+},
+"Manitoba":
+{
+value: "641854",
+tooltip: {content: "<span style=\"font-weight:bold;\">Manitoba</span><br />Population: 641854<br />VP: 5"}
+},
+"Maurice":
+{
+value: "70085",
+tooltip: {content: "<span style=\"font-weight:bold;\">Maurice</span><br />Population: 70085<br />VP: "}
+},
+"New_Brunswick":
+{
+value: "475600",
+tooltip: {content: "<span style=\"font-weight:bold;\">New Brunswick</span><br />Population: 475600<br />VP: 2"}
+},
+"Nord_du_Quebec":
+{
+value: "8871",
+tooltip: {content: "<span style=\"font-weight:bold;\">Nord du Quebec</span><br />Population: 8871<br />VP: "}
+},
+"Northern_Manitoba":
+{
+value: "10012",
+tooltip: {content: "<span style=\"font-weight:bold;\">Northern Manitoba</span><br />Population: 10012<br />VP: "}
+},
+"Northern_Ontario":
+{
+value: "139229",
+tooltip: {content: "<span style=\"font-weight:bold;\">Northern Ontario</span><br />Population: 139229<br />VP: 1"}
+},
+"Northern_Saskatchewan":
+{
+value: "65685",
+tooltip: {content: "<span style=\"font-weight:bold;\">Northern Saskatchewan</span><br />Population: 65685<br />VP: "}
+},
+"Northwest_Territories":
+{
+value: "27715",
+tooltip: {content: "<span style=\"font-weight:bold;\">Northwest Territories</span><br />Population: 27715<br />VP: "}
+},
+"Nova_Scotia":
+{
+value: "491511",
+tooltip: {content: "<span style=\"font-weight:bold;\">Nova Scotia</span><br />Population: 491511<br />VP: 3"}
+},
+"Nunavut":
+{
+value: "46191",
+tooltip: {content: "<span style=\"font-weight:bold;\">Nunavut</span><br />Population: 46191<br />VP: "}
+},
+"Ouest_du_Quebec":
+{
+value: "80098",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ouest du Quebec</span><br />Population: 80098<br />VP: "}
+},
+"Saguenay":
+{
+value: "50061",
+tooltip: {content: "<span style=\"font-weight:bold;\">Saguenay</span><br />Population: 50061<br />VP: "}
+},
+"Saint_Lawrence":
+{
+value: "2435724",
+tooltip: {content: "<span style=\"font-weight:bold;\">Saint Lawrence</span><br />Population: 2435724<br />VP: 23"}
+},
+"Saskatchewan":
+{
+value: "800977",
+tooltip: {content: "<span style=\"font-weight:bold;\">Saskatchewan</span><br />Population: 800977<br />VP: 2"}
+},
+"Southern_Ontario":
+{
+value: "3120822",
+tooltip: {content: "<span style=\"font-weight:bold;\">Southern Ontario</span><br />Population: 3120822<br />VP: 30"}
+},
+"Upper_British_Columbia":
+{
+value: "27715",
+tooltip: {content: "<span style=\"font-weight:bold;\">Upper British Columbia</span><br />Population: 27715<br />VP: "}
+},
+"Vancouver_Island":
+{
+value: "259929",
+tooltip: {content: "<span style=\"font-weight:bold;\">Vancouver Island</span><br />Population: 259929<br />VP: 2"}
+},
+"Yukon_Territory":
+{
+value: "10",
+tooltip: {content: "<span style=\"font-weight:bold;\">Yukon Territory</span><br />Population: 10<br />VP: "}
+},
+"Aru_Islands":
+{
+value: "36190",
+tooltip: {content: "<span style=\"font-weight:bold;\">Aru Islands</span><br />Population: 36190<br />VP: "}
+},
+"Java":
+{
+value: "41769126",
+tooltip: {content: "<span style=\"font-weight:bold;\">Java</span><br />Population: 41769126<br />VP: 8"}
+},
+"Kalimantan":
+{
+value: "2171247",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kalimantan</span><br />Population: 2171247<br />VP: 1"}
+},
+"Lesser_Sunda_Islands":
+{
+value: "3464424",
+tooltip: {content: "<span style=\"font-weight:bold;\">Lesser Sunda Islands</span><br />Population: 3464424<br />VP: "}
+},
+"Sulawesi":
+{
+value: "4237166",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sulawesi</span><br />Population: 4237166<br />VP: 3"}
+},
+"Sumatra":
+{
+value: "8264977",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sumatra</span><br />Population: 8264977<br />VP: 2"}
+},
+"The_Moluccas":
+{
+value: "579807",
+tooltip: {content: "<span style=\"font-weight:bold;\">The Moluccas</span><br />Population: 579807<br />VP: "}
+},
+"West_Papua":
+{
+value: "314684",
+tooltip: {content: "<span style=\"font-weight:bold;\">West Papua</span><br />Population: 314684<br />VP: 1"}
+},
+"Ecuador":
+{
+value: "2002441",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ecuador</span><br />Population: 2002441<br />VP: 17"}
+},
+"Galapagos_Islands":
+{
+value: "11546",
+tooltip: {content: "<span style=\"font-weight:bold;\">Galapagos Islands</span><br />Population: 11546<br />VP: 1"}
+},
+"Pastaza":
+{
+value: "70105",
+tooltip: {content: "<span style=\"font-weight:bold;\">Pastaza</span><br />Population: 70105<br />VP: 2"}
+},
+"El_Salvador":
+{
+value: "1439366",
+tooltip: {content: "<span style=\"font-weight:bold;\">El Salvador</span><br />Population: 1439366<br />VP: 3"}
+},
+"Harju":
+{
+value: "275556",
+tooltip: {content: "<span style=\"font-weight:bold;\">Harju</span><br />Population: 275556<br />VP: 5"}
+},
+"Pärnu":
+{
+value: "423586",
+tooltip: {content: "<span style=\"font-weight:bold;\">Pärnu</span><br />Population: 423586<br />VP: 1"}
+},
+"Saaremaa":
+{
+value: "32410",
+tooltip: {content: "<span style=\"font-weight:bold;\">Saaremaa</span><br />Population: 32410<br />VP: 1"}
+},
+"Tartu":
+{
+value: "226116",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tartu</span><br />Population: 226116<br />VP: 2"}
+},
+"Virumaa":
+{
+value: "150744",
+tooltip: {content: "<span style=\"font-weight:bold;\">Virumaa</span><br />Population: 150744<br />VP: 2"}
+},
+"Bale":
+{
+value: "800977",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bale</span><br />Population: 800977<br />VP: 1"}
+},
+"Begemder":
+{
+value: "1101343",
+tooltip: {content: "<span style=\"font-weight:bold;\">Begemder</span><br />Population: 1101343<br />VP: 2"}
+},
+"Gojjam":
+{
+value: "901099",
+tooltip: {content: "<span style=\"font-weight:bold;\">Gojjam</span><br />Population: 901099<br />VP: 2"}
+},
+"Hararghe":
+{
+value: "1501831",
+tooltip: {content: "<span style=\"font-weight:bold;\">Hararghe</span><br />Population: 1501831<br />VP: 6"}
+},
+"Illubabor_Kaffa":
+{
+value: "600732",
+tooltip: {content: "<span style=\"font-weight:bold;\">Illubabor_Kaffa</span><br />Population: 600732<br />VP: 3"}
+},
+"Shewa":
+{
+value: "1802197",
+tooltip: {content: "<span style=\"font-weight:bold;\">Shewa</span><br />Population: 1802197<br />VP: 6"}
+},
+"Sidamo":
+{
+value: "951160",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sidamo</span><br />Population: 951160<br />VP: 4"}
+},
+"Tigray":
+{
+value: "1001221",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tigray</span><br />Population: 1001221<br />VP: 4"}
+},
+"Welega":
+{
+value: "600732",
+tooltip: {content: "<span style=\"font-weight:bold;\">Welega</span><br />Population: 600732<br />VP: 3"}
+},
+"Wello":
+{
+value: "650793",
+tooltip: {content: "<span style=\"font-weight:bold;\">Wello</span><br />Population: 650793<br />VP: 1"}
+},
+"Åland":
+{
+value: "28173",
+tooltip: {content: "<span style=\"font-weight:bold;\">Åland</span><br />Population: 28173<br />VP: 1"}
+},
+"Häme":
+{
+value: "404994",
+tooltip: {content: "<span style=\"font-weight:bold;\">Häme</span><br />Population: 404994<br />VP: 6"}
+},
+"Karjala":
+{
+value: "605165",
+tooltip: {content: "<span style=\"font-weight:bold;\">Karjala</span><br />Population: 605165<br />VP: 3"}
+},
+"Kuopio":
+{
+value: "392879",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kuopio</span><br />Population: 392879<br />VP: 5"}
+},
+"Kymi":
+{
+value: "43510",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kymi</span><br />Population: 43510<br />VP: 4"}
+},
+"Lappi":
+{
+value: "121886",
+tooltip: {content: "<span style=\"font-weight:bold;\">Lappi</span><br />Population: 121886<br />VP: 5"}
+},
+"Mikkeli":
+{
+value: "204449",
+tooltip: {content: "<span style=\"font-weight:bold;\">Mikkeli</span><br />Population: 204449<br />VP: 2"}
+},
+"Oulu":
+{
+value: "318388",
+tooltip: {content: "<span style=\"font-weight:bold;\">Oulu</span><br />Population: 318388<br />VP: 3"}
+},
+"Petsamo":
+{
+value: "2374",
+tooltip: {content: "<span style=\"font-weight:bold;\">Petsamo</span><br />Population: 2374<br />VP: 1"}
+},
+"Salla":
+{
+value: "4636",
+tooltip: {content: "<span style=\"font-weight:bold;\">Salla</span><br />Population: 4636<br />VP: 1"}
+},
+"Turku":
+{
+value: "529946",
+tooltip: {content: "<span style=\"font-weight:bold;\">Turku</span><br />Population: 529946<br />VP: 6"}
+},
+"Uusimaa":
+{
+value: "559682",
+tooltip: {content: "<span style=\"font-weight:bold;\">Uusimaa</span><br />Population: 559682<br />VP: 17"}
+},
+"Vaasa":
+{
+value: "595586",
+tooltip: {content: "<span style=\"font-weight:bold;\">Vaasa</span><br />Population: 595586<br />VP: 5"}
+},
+"Aleppo":
+{
+value: "1327212",
+tooltip: {content: "<span style=\"font-weight:bold;\">Aleppo</span><br />Population: 1327212<br />VP: 4"}
+},
+"Algerian_Desert":
+{
+value: "207987",
+tooltip: {content: "<span style=\"font-weight:bold;\">Algerian Desert</span><br />Population: 207987<br />VP: "}
+},
+"Algiers":
+{
+value: "3093716",
+tooltip: {content: "<span style=\"font-weight:bold;\">Algiers</span><br />Population: 3093716<br />VP: 10"}
+},
+"Alpes":
+{
+value: "1008730",
+tooltip: {content: "<span style=\"font-weight:bold;\">Alpes</span><br />Population: 1008730<br />VP: 1"}
+},
+"Alsace_Lorraine":
+{
+value: "1917938",
+tooltip: {content: "<span style=\"font-weight:bold;\">Alsace_Lorraine</span><br />Population: 1917938<br />VP: 20"}
+},
+"Aquitaine":
+{
+value: "1141792",
+tooltip: {content: "<span style=\"font-weight:bold;\">Aquitaine</span><br />Population: 1141792<br />VP: 20"}
+},
+"Auvergne":
+{
+value: "878872",
+tooltip: {content: "<span style=\"font-weight:bold;\">Auvergne</span><br />Population: 878872<br />VP: 3"}
+},
+"Borkou_Ennedi_Tibesti":
+{
+value: "18767",
+tooltip: {content: "<span style=\"font-weight:bold;\">Borkou_Ennedi_Tibesti</span><br />Population: 18767<br />VP: "}
+},
+"Bamako":
+{
+value: "1664420",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bamako</span><br />Population: 1664420<br />VP: 1"}
+},
+"Bouches_du_Rhone":
+{
+value: "1672349",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bouches_du_Rhone</span><br />Population: 1672349<br />VP: 10"}
+},
+"Bourgogne":
+{
+value: "1372473",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bourgogne</span><br />Population: 1372473<br />VP: 5"}
+},
+"Brittany":
+{
+value: "2399526",
+tooltip: {content: "<span style=\"font-weight:bold;\">Brittany</span><br />Population: 2399526<br />VP: 26"}
+},
+"Cambodia":
+{
+value: "5251403",
+tooltip: {content: "<span style=\"font-weight:bold;\">Cambodia</span><br />Population: 5251403<br />VP: 1"}
+},
+"Cameroon":
+{
+value: "2949378",
+tooltip: {content: "<span style=\"font-weight:bold;\">Cameroon</span><br />Population: 2949378<br />VP: 1"}
+},
+"Casablanca":
+{
+value: "3201622",
+tooltip: {content: "<span style=\"font-weight:bold;\">Casablanca</span><br />Population: 3201622<br />VP: 10"}
+},
+"Centre":
+{
+value: "1548188",
+tooltip: {content: "<span style=\"font-weight:bold;\">Centre</span><br />Population: 1548188<br />VP: 25"}
+},
+"Centre_Sud":
+{
+value: "637177",
+tooltip: {content: "<span style=\"font-weight:bold;\">Centre_Sud</span><br />Population: 637177<br />VP: 1"}
+},
+"Chad":
+{
+value: "1444217",
+tooltip: {content: "<span style=\"font-weight:bold;\">Chad</span><br />Population: 1444217<br />VP: 1"}
+},
+"Champagne":
+{
+value: "1372473",
+tooltip: {content: "<span style=\"font-weight:bold;\">Champagne</span><br />Population: 1372473<br />VP: 11"}
+},
+"Comoro_Islands":
+{
+value: "126858",
+tooltip: {content: "<span style=\"font-weight:bold;\">Comoro Islands</span><br />Population: 126858<br />VP: "}
+},
+"Constantine":
+{
+value: "2346698",
+tooltip: {content: "<span style=\"font-weight:bold;\">Constantine</span><br />Population: 2346698<br />VP: 4"}
+},
+"Corsica":
+{
+value: "323294",
+tooltip: {content: "<span style=\"font-weight:bold;\">Corsica</span><br />Population: 323294<br />VP: 1"}
+},
+"Dahomey":
+{
+value: "1353213",
+tooltip: {content: "<span style=\"font-weight:bold;\">Dahomey</span><br />Population: 1353213<br />VP: 1"}
+},
+"Damascus":
+{
+value: "548466",
+tooltip: {content: "<span style=\"font-weight:bold;\">Damascus</span><br />Population: 548466<br />VP: 5"}
+},
+"Deir_az_Zur":
+{
+value: "324506",
+tooltip: {content: "<span style=\"font-weight:bold;\">Deir_az_Zur</span><br />Population: 324506<br />VP: 3"}
+},
+"Equatorial_Africa":
+{
+value: "1138309",
+tooltip: {content: "<span style=\"font-weight:bold;\">Equatorial Africa</span><br />Population: 1138309<br />VP: 1"}
+},
+"Franche_Comte":
+{
+value: "1519352",
+tooltip: {content: "<span style=\"font-weight:bold;\">Franche_Comte</span><br />Population: 1519352<br />VP: 10"}
+},
+"French_Caribbean":
+{
+value: "444832",
+tooltip: {content: "<span style=\"font-weight:bold;\">French Caribbean</span><br />Population: 444832<br />VP: 1"}
+},
+"French_Guiana":
+{
+value: "47399",
+tooltip: {content: "<span style=\"font-weight:bold;\">French Guiana</span><br />Population: 47399<br />VP: 1"}
+},
+"French_India":
+{
+value: "286760",
+tooltip: {content: "<span style=\"font-weight:bold;\">French India</span><br />Population: 286760<br />VP: "}
+},
+"French_Somaliland":
+{
+value: "85336",
+tooltip: {content: "<span style=\"font-weight:bold;\">French Somaliland</span><br />Population: 85336<br />VP: 1"}
+},
+"Gabès":
+{
+value: "428346",
+tooltip: {content: "<span style=\"font-weight:bold;\">Gabès</span><br />Population: 428346<br />VP: 1"}
+},
+"Gabon":
+{
+value: "410252",
+tooltip: {content: "<span style=\"font-weight:bold;\">Gabon</span><br />Population: 410252<br />VP: 1"}
+},
+"Gao":
+{
+value: "499327",
+tooltip: {content: "<span style=\"font-weight:bold;\">Gao</span><br />Population: 499327<br />VP: "}
+},
+"Guangzhouwan":
+{
+value: "200244",
+tooltip: {content: "<span style=\"font-weight:bold;\">Guangzhouwan</span><br />Population: 200244<br />VP: "}
+},
+"Guinea":
+{
+value: "195279",
+tooltip: {content: "<span style=\"font-weight:bold;\">Guinea</span><br />Population: 195279<br />VP: 1"}
+},
+"Hatay":
+{
+value: "234665",
+tooltip: {content: "<span style=\"font-weight:bold;\">Hatay</span><br />Population: 234665<br />VP: 1"}
+},
+"Ile_de_France":
+{
+value: "7047092",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ile de France</span><br />Population: 7047092<br />VP: 50"}
+},
+"Ivory_Coast":
+{
+value: "3855435",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ivory Coast</span><br />Population: 3855435<br />VP: 1"}
+},
+"Kayes_Koulikoro":
+{
+value: "1165095",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kayes_Koulikoro</span><br />Population: 1165095<br />VP: "}
+},
+"Kerguelen":
+{
+value: "96",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kerguelen</span><br />Population: 96<br />VP: "}
+},
+"Languedoc":
+{
+value: "1693264",
+tooltip: {content: "<span style=\"font-weight:bold;\">Languedoc</span><br />Population: 1693264<br />VP: 1"}
+},
+"Laos":
+{
+value: "1185445",
+tooltip: {content: "<span style=\"font-weight:bold;\">Laos</span><br />Population: 1185445<br />VP: 1"}
+},
+"Lebanon":
+{
+value: "1105348",
+tooltip: {content: "<span style=\"font-weight:bold;\">Lebanon</span><br />Population: 1105348<br />VP: 5"}
+},
+"Limousin":
+{
+value: "1345340",
+tooltip: {content: "<span style=\"font-weight:bold;\">Limousin</span><br />Population: 1345340<br />VP: 5"}
+},
+"Loire":
+{
+value: "1390095",
+tooltip: {content: "<span style=\"font-weight:bold;\">Loire</span><br />Population: 1390095<br />VP: 5"}
+},
+"Madagascar":
+{
+value: "3699121",
+tooltip: {content: "<span style=\"font-weight:bold;\">Madagascar</span><br />Population: 3699121<br />VP: 1"}
+},
+"Marrakech":
+{
+value: "1867829",
+tooltip: {content: "<span style=\"font-weight:bold;\">Marrakech</span><br />Population: 1867829<br />VP: 1"}
+},
+"Mauritania":
+{
+value: "225275",
+tooltip: {content: "<span style=\"font-weight:bold;\">Mauritania</span><br />Population: 225275<br />VP: 1"}
+},
+"Mauritanian_Desert":
+{
+value: "124352",
+tooltip: {content: "<span style=\"font-weight:bold;\">Mauritanian Desert</span><br />Population: 124352<br />VP: "}
+},
+"Middle_Congo":
+{
+value: "747326",
+tooltip: {content: "<span style=\"font-weight:bold;\">Middle Congo</span><br />Population: 747326<br />VP: 2"}
+},
+"Midi_Pyrenees":
+{
+value: "1827228",
+tooltip: {content: "<span style=\"font-weight:bold;\">Midi Pyrenees</span><br />Population: 1827228<br />VP: 5"}
+},
+"Nendo":
+{
+value: "5173",
+tooltip: {content: "<span style=\"font-weight:bold;\">Nendo</span><br />Population: 5173<br />VP: "}
+},
+"New_Caledonia":
+{
+value: "51939",
+tooltip: {content: "<span style=\"font-weight:bold;\">New Caledonia</span><br />Population: 51939<br />VP: 2"}
+},
+"Niger":
+{
+value: "544481",
+tooltip: {content: "<span style=\"font-weight:bold;\">Niger</span><br />Population: 544481<br />VP: 1"}
+},
+"Nord_Pas_de_Calais":
+{
+value: "2980033",
+tooltip: {content: "<span style=\"font-weight:bold;\">Nord_Pas_de_Calais</span><br />Population: 2980033<br />VP: 30"}
+},
+"Normandy":
+{
+value: "2334947",
+tooltip: {content: "<span style=\"font-weight:bold;\">Normandy</span><br />Population: 2334947<br />VP: 21"}
+},
+"Picardy":
+{
+value: "1581929",
+tooltip: {content: "<span style=\"font-weight:bold;\">Picardy</span><br />Population: 1581929<br />VP: 5"}
+},
+"Poitou":
+{
+value: "1605057",
+tooltip: {content: "<span style=\"font-weight:bold;\">Poitou</span><br />Population: 1605057<br />VP: 5"}
+},
+"Pyrénées_Atlantiques":
+{
+value: "281066",
+tooltip: {content: "<span style=\"font-weight:bold;\">Pyrénées_Atlantiques</span><br />Population: 281066<br />VP: 3"}
+},
+"Reunion":
+{
+value: "186865",
+tooltip: {content: "<span style=\"font-weight:bold;\">Reunion</span><br />Population: 186865<br />VP: "}
+},
+"Rhone":
+{
+value: "2976829",
+tooltip: {content: "<span style=\"font-weight:bold;\">Rhone</span><br />Population: 2976829<br />VP: 10"}
+},
+"Savoy":
+{
+value: "908608",
+tooltip: {content: "<span style=\"font-weight:bold;\">Savoy</span><br />Population: 908608<br />VP: 6"}
+},
+"Senegal":
+{
+value: "1640000",
+tooltip: {content: "<span style=\"font-weight:bold;\">Senegal</span><br />Population: 1640000<br />VP: 5"}
+},
+"Southern_Indochina":
+{
+value: "5251403",
+tooltip: {content: "<span style=\"font-weight:bold;\">Southern Indochina</span><br />Population: 5251403<br />VP: 3"}
+},
+"Southern_Sahara":
+{
+value: "1458134",
+tooltip: {content: "<span style=\"font-weight:bold;\">Southern Sahara</span><br />Population: 1458134<br />VP: "}
+},
+"St_Pierre_and_Miquelon":
+{
+value: "3430",
+tooltip: {content: "<span style=\"font-weight:bold;\">St Pierre and Miquelon</span><br />Population: 3430<br />VP: "}
+},
+"Tahiti":
+{
+value: "105915",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tahiti</span><br />Population: 105915<br />VP: 1"}
+},
+"Tlemcen":
+{
+value: "812477",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tlemcen</span><br />Population: 812477<br />VP: 1"}
+},
+"Togo":
+{
+value: "1102690",
+tooltip: {content: "<span style=\"font-weight:bold;\">Togo</span><br />Population: 1102690<br />VP: 1"}
+},
+"Tombouctou":
+{
+value: "79340",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tombouctou</span><br />Population: 79340<br />VP: "}
+},
+"Tonkin":
+{
+value: "11542072",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tonkin</span><br />Population: 11542072<br />VP: 1"}
+},
+"Tunisia":
+{
+value: "1985361",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tunisia</span><br />Population: 1985361<br />VP: 12"}
+},
+"Upper_Volta":
+{
+value: "3190073",
+tooltip: {content: "<span style=\"font-weight:bold;\">Upper Volta</span><br />Population: 3190073<br />VP: 1"}
+},
+"Var":
+{
+value: "485592",
+tooltip: {content: "<span style=\"font-weight:bold;\">Var</span><br />Population: 485592<br />VP: 1"}
+},
+"Brandenburg":
+{
+value: "7273897",
+tooltip: {content: "<span style=\"font-weight:bold;\">Brandenburg</span><br />Population: 7273897<br />VP: 55"}
+},
+"Ermland_Masuren":
+{
+value: "1239619",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ermland_Masuren</span><br />Population: 1239619<br />VP: 3"}
+},
+"Franken":
+{
+value: "2511221",
+tooltip: {content: "<span style=\"font-weight:bold;\">Franken</span><br />Population: 2511221<br />VP: 10"}
+},
+"Hannover":
+{
+value: "2441262",
+tooltip: {content: "<span style=\"font-weight:bold;\">Hannover</span><br />Population: 2441262<br />VP: 15"}
+},
+"Hessen":
+{
+value: "3802872",
+tooltip: {content: "<span style=\"font-weight:bold;\">Hessen</span><br />Population: 3802872<br />VP: 23"}
+},
+"Hinterpommern":
+{
+value: "1125790",
+tooltip: {content: "<span style=\"font-weight:bold;\">Hinterpommern</span><br />Population: 1125790<br />VP: 8"}
+},
+"Holstein":
+{
+value: "3099409",
+tooltip: {content: "<span style=\"font-weight:bold;\">Holstein</span><br />Population: 3099409<br />VP: 30"}
+},
+"Königsberg":
+{
+value: "2142847",
+tooltip: {content: "<span style=\"font-weight:bold;\">Königsberg</span><br />Population: 2142847<br />VP: 10"}
+},
+"Mecklenburg":
+{
+value: "837374",
+tooltip: {content: "<span style=\"font-weight:bold;\">Mecklenburg</span><br />Population: 837374<br />VP: 8"}
+},
+"Moselland":
+{
+value: "3031435",
+tooltip: {content: "<span style=\"font-weight:bold;\">Moselland</span><br />Population: 3031435<br />VP: 6"}
+},
+"Niederbayern":
+{
+value: "1455139",
+tooltip: {content: "<span style=\"font-weight:bold;\">Niederbayern</span><br />Population: 1455139<br />VP: 3"}
+},
+"Niederschlesien":
+{
+value: "3056452",
+tooltip: {content: "<span style=\"font-weight:bold;\">Niederschlesien</span><br />Population: 3056452<br />VP: 10"}
+},
+"Oberbayern":
+{
+value: "2682684",
+tooltip: {content: "<span style=\"font-weight:bold;\">Oberbayern</span><br />Population: 2682684<br />VP: 23"}
+},
+"Oberschlesien":
+{
+value: "1404303",
+tooltip: {content: "<span style=\"font-weight:bold;\">Oberschlesien</span><br />Population: 1404303<br />VP: 8"}
+},
+"Ostmark":
+{
+value: "1252367",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ostmark</span><br />Population: 1252367<br />VP: 1"}
+},
+"Rhineland":
+{
+value: "6152244",
+tooltip: {content: "<span style=\"font-weight:bold;\">Rhineland</span><br />Population: 6152244<br />VP: 15"}
+},
+"Sachsen":
+{
+value: "5599403",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sachsen</span><br />Population: 5599403<br />VP: 10"}
+},
+"Schleswig":
+{
+value: "152706",
+tooltip: {content: "<span style=\"font-weight:bold;\">Schleswig</span><br />Population: 152706<br />VP: 3"}
+},
+"Thüringen":
+{
+value: "3008882",
+tooltip: {content: "<span style=\"font-weight:bold;\">Thüringen</span><br />Population: 3008882<br />VP: 8"}
+},
+"Vorpommern":
+{
+value: "1007449",
+tooltip: {content: "<span style=\"font-weight:bold;\">Vorpommern</span><br />Population: 1007449<br />VP: 1"}
+},
+"Weser_Ems":
+{
+value: "2060980",
+tooltip: {content: "<span style=\"font-weight:bold;\">Weser_Ems</span><br />Population: 2060980<br />VP: 11"}
+},
+"Westfalen":
+{
+value: "5115570",
+tooltip: {content: "<span style=\"font-weight:bold;\">Westfalen</span><br />Population: 5115570<br />VP: 5"}
+},
+"Württemberg":
+{
+value: "5093064",
+tooltip: {content: "<span style=\"font-weight:bold;\">Württemberg</span><br />Population: 5093064<br />VP: 23"}
+},
+"Guangdong":
+{
+value: "12715503",
+tooltip: {content: "<span style=\"font-weight:bold;\">Guangdong</span><br />Population: 12715503<br />VP: "}
+},
+"Guangxi":
+{
+value: "8695802",
+tooltip: {content: "<span style=\"font-weight:bold;\">Guangxi</span><br />Population: 8695802<br />VP: 3"}
+},
+"Guangzhou":
+{
+value: "17856971",
+tooltip: {content: "<span style=\"font-weight:bold;\">Guangzhou</span><br />Population: 17856971<br />VP: 5"}
+},
+"Hainan":
+{
+value: "4355310",
+tooltip: {content: "<span style=\"font-weight:bold;\">Hainan</span><br />Population: 4355310<br />VP: 1"}
+},
+"Nanning":
+{
+value: "6557996",
+tooltip: {content: "<span style=\"font-weight:bold;\">Nanning</span><br />Population: 6557996<br />VP: 10"}
+},
+"Guatemala":
+{
+value: "1773162",
+tooltip: {content: "<span style=\"font-weight:bold;\">Guatemala</span><br />Population: 1773162<br />VP: 3"}
+},
+"Haiti":
+{
+value: "2382905",
+tooltip: {content: "<span style=\"font-weight:bold;\">Haiti</span><br />Population: 2382905<br />VP: 5"}
+},
+"Honduras":
+{
+value: "860811",
+tooltip: {content: "<span style=\"font-weight:bold;\">Honduras</span><br />Population: 860811<br />VP: 3"}
+},
+"Iceland":
+{
+value: "116011",
+tooltip: {content: "<span style=\"font-weight:bold;\">Iceland</span><br />Population: 116011<br />VP: 1"}
+},
+"Fars":
+{
+value: "919740",
+tooltip: {content: "<span style=\"font-weight:bold;\">Fars</span><br />Population: 919740<br />VP: 7"}
+},
+"Gilan":
+{
+value: "1316553",
+tooltip: {content: "<span style=\"font-weight:bold;\">Gilan</span><br />Population: 1316553<br />VP: 8"}
+},
+"Hamadan":
+{
+value: "797368",
+tooltip: {content: "<span style=\"font-weight:bold;\">Hamadan</span><br />Population: 797368<br />VP: 4"}
+},
+"Isfahan":
+{
+value: "886353",
+tooltip: {content: "<span style=\"font-weight:bold;\">Isfahan</span><br />Population: 886353<br />VP: 3"}
+},
+"Kerman":
+{
+value: "486606",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kerman</span><br />Population: 486606<br />VP: 2"}
+},
+"Khorasan":
+{
+value: "1061033",
+tooltip: {content: "<span style=\"font-weight:bold;\">Khorasan</span><br />Population: 1061033<br />VP: 1"}
+},
+"Khuzestan":
+{
+value: "798329",
+tooltip: {content: "<span style=\"font-weight:bold;\">Khuzestan</span><br />Population: 798329<br />VP: 1"}
+},
+"Kurdistan":
+{
+value: "781230",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kurdistan</span><br />Population: 781230<br />VP: 8"}
+},
+"Semnan":
+{
+value: "332768",
+tooltip: {content: "<span style=\"font-weight:bold;\">Semnan</span><br />Population: 332768<br />VP: 1"}
+},
+"Sistan":
+{
+value: "341469",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sistan</span><br />Population: 341469<br />VP: 1"}
+},
+"Tehran":
+{
+value: "3450457",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tehran</span><br />Population: 3450457<br />VP: 10"}
+},
+"Tibriz":
+{
+value: "1433462",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tibriz</span><br />Population: 1433462<br />VP: 5"}
+},
+"Al_Hajara":
+{
+value: "122242",
+tooltip: {content: "<span style=\"font-weight:bold;\">Al Hajara</span><br />Population: 122242<br />VP: 1"}
+},
+"Baghdad":
+{
+value: "2046660",
+tooltip: {content: "<span style=\"font-weight:bold;\">Baghdad</span><br />Population: 2046660<br />VP: 19"}
+},
+"Mosul":
+{
+value: "1184185",
+tooltip: {content: "<span style=\"font-weight:bold;\">Mosul</span><br />Population: 1184185<br />VP: 9"}
+},
+"Connaught":
+{
+value: "667914",
+tooltip: {content: "<span style=\"font-weight:bold;\">Connaught</span><br />Population: 667914<br />VP: 4"}
+},
+"Leinster":
+{
+value: "1359257",
+tooltip: {content: "<span style=\"font-weight:bold;\">Leinster</span><br />Population: 1359257<br />VP: 12"}
+},
+"Munster":
+{
+value: "942549",
+tooltip: {content: "<span style=\"font-weight:bold;\">Munster</span><br />Population: 942549<br />VP: 6"}
+},
+"Abruzzo":
+{
+value: "2982972",
+tooltip: {content: "<span style=\"font-weight:bold;\">Abruzzo</span><br />Population: 2982972<br />VP: 1"}
+},
+"Alto_Adige":
+{
+value: "298654",
+tooltip: {content: "<span style=\"font-weight:bold;\">Alto Adige</span><br />Population: 298654<br />VP: 1"}
+},
+"Benghasi":
+{
+value: "82636",
+tooltip: {content: "<span style=\"font-weight:bold;\">Benghasi</span><br />Population: 82636<br />VP: 3"}
+},
+"Calabria":
+{
+value: "1774163",
+tooltip: {content: "<span style=\"font-weight:bold;\">Calabria</span><br />Population: 1774163<br />VP: 1"}
+},
+"Campania":
+{
+value: "4245176",
+tooltip: {content: "<span style=\"font-weight:bold;\">Campania</span><br />Population: 4245176<br />VP: 20"}
+},
+"Cyrenaica":
+{
+value: "8819",
+tooltip: {content: "<span style=\"font-weight:bold;\">Cyrenaica</span><br />Population: 8819<br />VP: "}
+},
+"Derna":
+{
+value: "45684",
+tooltip: {content: "<span style=\"font-weight:bold;\">Derna</span><br />Population: 45684<br />VP: 5"}
+},
+"Dodecanese":
+{
+value: "120146",
+tooltip: {content: "<span style=\"font-weight:bold;\">Dodecanese</span><br />Population: 120146<br />VP: 1"}
+},
+"El_Agheila":
+{
+value: "40480",
+tooltip: {content: "<span style=\"font-weight:bold;\">El Agheila</span><br />Population: 40480<br />VP: "}
+},
+"Emilia_Romagna":
+{
+value: "3206310",
+tooltip: {content: "<span style=\"font-weight:bold;\">Emilia Romagna</span><br />Population: 3206310<br />VP: 9"}
+},
+"Eritrea":
+{
+value: "601333",
+tooltip: {content: "<span style=\"font-weight:bold;\">Eritrea</span><br />Population: 601333<br />VP: 5"}
+},
+"Istria":
+{
+value: "126004",
+tooltip: {content: "<span style=\"font-weight:bold;\">Istria</span><br />Population: 126004<br />VP: 1"}
+},
+"Jubaland":
+{
+value: "1030151",
+tooltip: {content: "<span style=\"font-weight:bold;\">Jubaland</span><br />Population: 1030151<br />VP: 1"}
+},
+"Lazio":
+{
+value: "2785367",
+tooltip: {content: "<span style=\"font-weight:bold;\">Lazio</span><br />Population: 2785367<br />VP: 41"}
+},
+"Libyan_Desert":
+{
+value: "42685",
+tooltip: {content: "<span style=\"font-weight:bold;\">Libyan Desert</span><br />Population: 42685<br />VP: "}
+},
+"Litorale":
+{
+value: "1039426",
+tooltip: {content: "<span style=\"font-weight:bold;\">Litorale</span><br />Population: 1039426<br />VP: 3"}
+},
+"Lombardia":
+{
+value: "5604537",
+tooltip: {content: "<span style=\"font-weight:bold;\">Lombardia</span><br />Population: 5604537<br />VP: 18"}
+},
+"Piemonte":
+{
+value: "4771293",
+tooltip: {content: "<span style=\"font-weight:bold;\">Piemonte</span><br />Population: 4771293<br />VP: 15"}
+},
+"Puglia":
+{
+value: "2645225",
+tooltip: {content: "<span style=\"font-weight:bold;\">Puglia</span><br />Population: 2645225<br />VP: 24"}
+},
+"Sardegna":
+{
+value: "993132",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sardegna</span><br />Population: 993132<br />VP: 5"}
+},
+"Sicilia":
+{
+value: "3841254",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sicilia</span><br />Population: 3841254<br />VP: 31"}
+},
+"Sirte":
+{
+value: "13229",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sirte</span><br />Population: 13229<br />VP: "}
+},
+"Somaliland":
+{
+value: "772613",
+tooltip: {content: "<span style=\"font-weight:bold;\">Somaliland</span><br />Population: 772613<br />VP: 3"}
+},
+"Toscana":
+{
+value: "3088699",
+tooltip: {content: "<span style=\"font-weight:bold;\">Toscana</span><br />Population: 3088699<br />VP: 6"}
+},
+"Trentino":
+{
+value: "371192",
+tooltip: {content: "<span style=\"font-weight:bold;\">Trentino</span><br />Population: 371192<br />VP: 1"}
+},
+"Tripoli":
+{
+value: "469709",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tripoli</span><br />Population: 469709<br />VP: 10"}
+},
+"Tripolitania":
+{
+value: "17639",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tripolitania</span><br />Population: 17639<br />VP: "}
+},
+"Veneto":
+{
+value: "3967989",
+tooltip: {content: "<span style=\"font-weight:bold;\">Veneto</span><br />Population: 3967989<br />VP: 14"}
+},
+"Zara":
+{
+value: "18022",
+tooltip: {content: "<span style=\"font-weight:bold;\">Zara</span><br />Population: 18022<br />VP: 5"}
+},
+"Caroline_Islands":
+{
+value: "42409",
+tooltip: {content: "<span style=\"font-weight:bold;\">Caroline Islands</span><br />Population: 42409<br />VP: 6"}
+},
+"Chugoku":
+{
+value: "5347520",
+tooltip: {content: "<span style=\"font-weight:bold;\">Chugoku</span><br />Population: 5347520<br />VP: 30"}
+},
+"Dalian":
+{
+value: "1001221",
+tooltip: {content: "<span style=\"font-weight:bold;\">Dalian</span><br />Population: 1001221<br />VP: 1"}
+},
+"East_Hebei":
+{
+value: "6407813",
+tooltip: {content: "<span style=\"font-weight:bold;\">East Hebei</span><br />Population: 6407813<br />VP: "}
+},
+"Hokkaido":
+{
+value: "2815433",
+tooltip: {content: "<span style=\"font-weight:bold;\">Hokkaido</span><br />Population: 2815433<br />VP: 22"}
+},
+"Hokuriku":
+{
+value: "1935360",
+tooltip: {content: "<span style=\"font-weight:bold;\">Hokuriku</span><br />Population: 1935360<br />VP: 10"}
+},
+"Iwo_Jima":
+{
+value: "1019",
+tooltip: {content: "<span style=\"font-weight:bold;\">Iwo Jima</span><br />Population: 1019<br />VP: 5"}
+},
+"Kansai":
+{
+value: "11028446",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kansai</span><br />Population: 11028446<br />VP: 60"}
+},
+"Kanto":
+{
+value: "13789813",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kanto</span><br />Population: 13789813<br />VP: 90"}
+},
+"Koshinetsu":
+{
+value: "3875725",
+tooltip: {content: "<span style=\"font-weight:bold;\">Koshinetsu</span><br />Population: 3875725<br />VP: 15"}
+},
+"Kuril_Islands":
+{
+value: "15018",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kuril Islands</span><br />Population: 15018<br />VP: "}
+},
+"Kyushu":
+{
+value: "9080071",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kyushu</span><br />Population: 9080071<br />VP: 55"}
+},
+"Marcus_Island":
+{
+value: "42",
+tooltip: {content: "<span style=\"font-weight:bold;\">Marcus Island</span><br />Population: 42<br />VP: "}
+},
+"Marshall_Islands":
+{
+value: "52581",
+tooltip: {content: "<span style=\"font-weight:bold;\">Marshall Islands</span><br />Population: 52581<br />VP: 4"}
+},
+"North_Korea":
+{
+value: "6782469",
+tooltip: {content: "<span style=\"font-weight:bold;\">North Korea</span><br />Population: 6782469<br />VP: 1"}
+},
+"Okinawa":
+{
+value: "578706",
+tooltip: {content: "<span style=\"font-weight:bold;\">Okinawa</span><br />Population: 578706<br />VP: 10"}
+},
+"Palau":
+{
+value: "12115",
+tooltip: {content: "<span style=\"font-weight:bold;\">Palau</span><br />Population: 12115<br />VP: 1"}
+},
+"Saipan":
+{
+value: "21683",
+tooltip: {content: "<span style=\"font-weight:bold;\">Saipan</span><br />Population: 21683<br />VP: 1"}
+},
+"Shikoku":
+{
+value: "3314041",
+tooltip: {content: "<span style=\"font-weight:bold;\">Shikoku</span><br />Population: 3314041<br />VP: 10"}
+},
+"South_Korea":
+{
+value: "14301542",
+tooltip: {content: "<span style=\"font-weight:bold;\">South Korea</span><br />Population: 14301542<br />VP: 4"}
+},
+"South_Sakhalin":
+{
+value: "295556",
+tooltip: {content: "<span style=\"font-weight:bold;\">South Sakhalin</span><br />Population: 295556<br />VP: 1"}
+},
+"Taiwan":
+{
+value: "4598143",
+tooltip: {content: "<span style=\"font-weight:bold;\">Taiwan</span><br />Population: 4598143<br />VP: 6"}
+},
+"Tohoku":
+{
+value: "6583026",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tohoku</span><br />Population: 6583026<br />VP: 20"}
+},
+"Tokai":
+{
+value: "6181537",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tokai</span><br />Population: 6181537<br />VP: 28"}
+},
+"Aegean_Islands":
+{
+value: "322994",
+tooltip: {content: "<span style=\"font-weight:bold;\">Aegean Islands</span><br />Population: 322994<br />VP: 2"}
+},
+"Attica":
+{
+value: "2315323",
+tooltip: {content: "<span style=\"font-weight:bold;\">Attica</span><br />Population: 2315323<br />VP: 27"}
+},
+"Central_Macedonia":
+{
+value: "1157111",
+tooltip: {content: "<span style=\"font-weight:bold;\">Central Macedonia</span><br />Population: 1157111<br />VP: 5"}
+},
+"Crete":
+{
+value: "388374",
+tooltip: {content: "<span style=\"font-weight:bold;\">Crete</span><br />Population: 388374<br />VP: 8"}
+},
+"Epirus":
+{
+value: "761829",
+tooltip: {content: "<span style=\"font-weight:bold;\">Epirus</span><br />Population: 761829<br />VP: 5"}
+},
+"Peloponnese":
+{
+value: "946154",
+tooltip: {content: "<span style=\"font-weight:bold;\">Peloponnese</span><br />Population: 946154<br />VP: 7"}
+},
+"Thrace":
+{
+value: "382967",
+tooltip: {content: "<span style=\"font-weight:bold;\">Thrace</span><br />Population: 382967<br />VP: 1"}
+},
+"Alföld":
+{
+value: "2738722",
+tooltip: {content: "<span style=\"font-weight:bold;\">Alföld</span><br />Population: 2738722<br />VP: 1"}
+},
+"Northern_Hungary":
+{
+value: "3755331",
+tooltip: {content: "<span style=\"font-weight:bold;\">Northern Hungary</span><br />Population: 3755331<br />VP: 20"}
+},
+"Transdanubia":
+{
+value: "2200288",
+tooltip: {content: "<span style=\"font-weight:bold;\">Transdanubia</span><br />Population: 2200288<br />VP: 5"}
+},
+"Kurzeme":
+{
+value: "315885",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kurzeme</span><br />Population: 315885<br />VP: 4"}
+},
+"Latgale":
+{
+value: "600983",
+tooltip: {content: "<span style=\"font-weight:bold;\">Latgale</span><br />Population: 600983<br />VP: 4"}
+},
+"Rīga":
+{
+value: "420763",
+tooltip: {content: "<span style=\"font-weight:bold;\">Rīga</span><br />Population: 420763<br />VP: 5"}
+},
+"Vidzeme":
+{
+value: "408999",
+tooltip: {content: "<span style=\"font-weight:bold;\">Vidzeme</span><br />Population: 408999<br />VP: 1"}
+},
+"Zemgale":
+{
+value: "215763",
+tooltip: {content: "<span style=\"font-weight:bold;\">Zemgale</span><br />Population: 215763<br />VP: 4"}
+},
+"Liberia":
+{
+value: "745909",
+tooltip: {content: "<span style=\"font-weight:bold;\">Liberia</span><br />Population: 745909<br />VP: 3"}
+},
+"Aukštaitija":
+{
+value: "161647",
+tooltip: {content: "<span style=\"font-weight:bold;\">Aukštaitija</span><br />Population: 161647<br />VP: 1"}
+},
+"Kaunas":
+{
+value: "973126",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kaunas</span><br />Population: 973126<br />VP: 6"}
+},
+"Memel":
+{
+value: "150183",
+tooltip: {content: "<span style=\"font-weight:bold;\">Memel</span><br />Population: 150183<br />VP: 3"}
+},
+"Sūduva":
+{
+value: "220008",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sūduva</span><br />Population: 220008<br />VP: 1"}
+},
+"Žemaitija":
+{
+value: "697951",
+tooltip: {content: "<span style=\"font-weight:bold;\">Žemaitija</span><br />Population: 697951<br />VP: 4"}
+},
+"Luxemburg":
+{
+value: "295108",
+tooltip: {content: "<span style=\"font-weight:bold;\">Luxemburg</span><br />Population: 295108<br />VP: 5"}
+},
+"Heilungkiang":
+{
+value: "3698701",
+tooltip: {content: "<span style=\"font-weight:bold;\">Heilungkiang</span><br />Population: 3698701<br />VP: "}
+},
+"Hulunbuir":
+{
+value: "2002441",
+tooltip: {content: "<span style=\"font-weight:bold;\">Hulunbuir</span><br />Population: 2002441<br />VP: "}
+},
+"Jehol":
+{
+value: "1977788",
+tooltip: {content: "<span style=\"font-weight:bold;\">Jehol</span><br />Population: 1977788<br />VP: "}
+},
+"Kirin":
+{
+value: "7545466",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kirin</span><br />Population: 7545466<br />VP: 2"}
+},
+"Liaoning":
+{
+value: "3647820",
+tooltip: {content: "<span style=\"font-weight:bold;\">Liaoning</span><br />Population: 3647820<br />VP: "}
+},
+"Liaotung":
+{
+value: "10277150",
+tooltip: {content: "<span style=\"font-weight:bold;\">Liaotung</span><br />Population: 10277150<br />VP: 3"}
+},
+"Sungkiang":
+{
+value: "5230551",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sungkiang</span><br />Population: 5230551<br />VP: "}
+},
+"Chahar":
+{
+value: "566691",
+tooltip: {content: "<span style=\"font-weight:bold;\">Chahar</span><br />Population: 566691<br />VP: "}
+},
+"South_Chahar":
+{
+value: "1471794",
+tooltip: {content: "<span style=\"font-weight:bold;\">South Chahar</span><br />Population: 1471794<br />VP: 4"}
+},
+"Baja_California":
+{
+value: "108974",
+tooltip: {content: "<span style=\"font-weight:bold;\">Baja California</span><br />Population: 108974<br />VP: 10"}
+},
+"Chiapas":
+{
+value: "806858",
+tooltip: {content: "<span style=\"font-weight:bold;\">Chiapas</span><br />Population: 806858<br />VP: 3"}
+},
+"Chihuahua":
+{
+value: "521387",
+tooltip: {content: "<span style=\"font-weight:bold;\">Chihuahua</span><br />Population: 521387<br />VP: 20"}
+},
+"Coahuila":
+{
+value: "828837",
+tooltip: {content: "<span style=\"font-weight:bold;\">Coahuila</span><br />Population: 828837<br />VP: 16"}
+},
+"Durango":
+{
+value: "1256626",
+tooltip: {content: "<span style=\"font-weight:bold;\">Durango</span><br />Population: 1256626<br />VP: 10"}
+},
+"Guerrero":
+{
+value: "1600262",
+tooltip: {content: "<span style=\"font-weight:bold;\">Guerrero</span><br />Population: 1600262<br />VP: 9"}
+},
+"Jalisco":
+{
+value: "2473891",
+tooltip: {content: "<span style=\"font-weight:bold;\">Jalisco</span><br />Population: 2473891<br />VP: 16"}
+},
+"Mexico_City":
+{
+value: "3428583",
+tooltip: {content: "<span style=\"font-weight:bold;\">Mexico City</span><br />Population: 3428583<br />VP: 35"}
+},
+"Oaxaca":
+{
+value: "1665361",
+tooltip: {content: "<span style=\"font-weight:bold;\">Oaxaca</span><br />Population: 1665361<br />VP: 4"}
+},
+"Sonora":
+{
+value: "304358",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sonora</span><br />Population: 304358<br />VP: 5"}
+},
+"Tamaulipas":
+{
+value: "1034249",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tamaulipas</span><br />Population: 1034249<br />VP: 15"}
+},
+"Veracruz":
+{
+value: "1953842",
+tooltip: {content: "<span style=\"font-weight:bold;\">Veracruz</span><br />Population: 1953842<br />VP: 15"}
+},
+"Yucatan":
+{
+value: "440826",
+tooltip: {content: "<span style=\"font-weight:bold;\">Yucatan</span><br />Population: 440826<br />VP: 4"}
+},
+"Dornod":
+{
+value: "88358",
+tooltip: {content: "<span style=\"font-weight:bold;\">Dornod</span><br />Population: 88358<br />VP: 1"}
+},
+"Gobi":
+{
+value: "11013",
+tooltip: {content: "<span style=\"font-weight:bold;\">Gobi</span><br />Population: 11013<br />VP: 1"}
+},
+"Khovd":
+{
+value: "149182",
+tooltip: {content: "<span style=\"font-weight:bold;\">Khovd</span><br />Population: 149182<br />VP: 1"}
+},
+"Khövsgöl":
+{
+value: "88308",
+tooltip: {content: "<span style=\"font-weight:bold;\">Khövsgöl</span><br />Population: 88308<br />VP: 3"}
+},
+"Ulaanbaatar":
+{
+value: "436082",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ulaanbaatar</span><br />Population: 436082<br />VP: 11"}
+},
+"Nepal":
+{
+value: "5580595",
+tooltip: {content: "<span style=\"font-weight:bold;\">Nepal</span><br />Population: 5580595<br />VP: 3"}
+},
+"Brabant":
+{
+value: "1450769",
+tooltip: {content: "<span style=\"font-weight:bold;\">Brabant</span><br />Population: 1450769<br />VP: 9"}
+},
+"Curaçao":
+{
+value: "76392",
+tooltip: {content: "<span style=\"font-weight:bold;\">Curaçao</span><br />Population: 76392<br />VP: 1"}
+},
+"Friesland":
+{
+value: "2366886",
+tooltip: {content: "<span style=\"font-weight:bold;\">Friesland</span><br />Population: 2366886<br />VP: 10"}
+},
+"Holland":
+{
+value: "4128033",
+tooltip: {content: "<span style=\"font-weight:bold;\">Holland</span><br />Population: 4128033<br />VP: 70"}
+},
+"Suriname":
+{
+value: "152186",
+tooltip: {content: "<span style=\"font-weight:bold;\">Suriname</span><br />Population: 152186<br />VP: 1"}
+},
+"North_Island":
+{
+value: "900934",
+tooltip: {content: "<span style=\"font-weight:bold;\">North Island</span><br />Population: 900934<br />VP: 15"}
+},
+"Samoa":
+{
+value: "123364",
+tooltip: {content: "<span style=\"font-weight:bold;\">Samoa</span><br />Population: 123364<br />VP: 1"}
+},
+"South_Island":
+{
+value: "547866",
+tooltip: {content: "<span style=\"font-weight:bold;\">South Island</span><br />Population: 547866<br />VP: 2"}
+},
+"Nicaragua":
+{
+value: "683834",
+tooltip: {content: "<span style=\"font-weight:bold;\">Nicaragua</span><br />Population: 683834<br />VP: 4"}
+},
+"Agder":
+{
+value: "396909",
+tooltip: {content: "<span style=\"font-weight:bold;\">Agder</span><br />Population: 396909<br />VP: 3"}
+},
+"Finnmark":
+{
+value: "142273",
+tooltip: {content: "<span style=\"font-weight:bold;\">Finnmark</span><br />Population: 142273<br />VP: 1"}
+},
+"Helgeland":
+{
+value: "88920",
+tooltip: {content: "<span style=\"font-weight:bold;\">Helgeland</span><br />Population: 88920<br />VP: 1"}
+},
+"Jan_Mayen":
+{
+value: "10",
+tooltip: {content: "<span style=\"font-weight:bold;\">Jan Mayen</span><br />Population: 10<br />VP: "}
+},
+"Nordland":
+{
+value: "142273",
+tooltip: {content: "<span style=\"font-weight:bold;\">Nordland</span><br />Population: 142273<br />VP: 6"}
+},
+"Opplandene":
+{
+value: "211790",
+tooltip: {content: "<span style=\"font-weight:bold;\">Opplandene</span><br />Population: 211790<br />VP: 3"}
+},
+"Oslofjord":
+{
+value: "1058476",
+tooltip: {content: "<span style=\"font-weight:bold;\">Oslofjord</span><br />Population: 1058476<br />VP: 15"}
+},
+"Telemark":
+{
+value: "141675",
+tooltip: {content: "<span style=\"font-weight:bold;\">Telemark</span><br />Population: 141675<br />VP: 1"}
+},
+"Troms":
+{
+value: "142273",
+tooltip: {content: "<span style=\"font-weight:bold;\">Troms</span><br />Population: 142273<br />VP: 1"}
+},
+"Trøndelag":
+{
+value: "280613",
+tooltip: {content: "<span style=\"font-weight:bold;\">Trøndelag</span><br />Population: 280613<br />VP: 5"}
+},
+"Vestlandet":
+{
+value: "485111",
+tooltip: {content: "<span style=\"font-weight:bold;\">Vestlandet</span><br />Population: 485111<br />VP: 8"}
+},
+"Oman":
+{
+value: "369450",
+tooltip: {content: "<span style=\"font-weight:bold;\">Oman</span><br />Population: 369450<br />VP: 3"}
+},
+"Panamá":
+{
+value: "468030",
+tooltip: {content: "<span style=\"font-weight:bold;\">Panamá</span><br />Population: 468030<br />VP: 6"}
+},
+"Arequipa":
+{
+value: "1603233",
+tooltip: {content: "<span style=\"font-weight:bold;\">Arequipa</span><br />Population: 1603233<br />VP: 7"}
+},
+"Lima":
+{
+value: "3567599",
+tooltip: {content: "<span style=\"font-weight:bold;\">Lima</span><br />Population: 3567599<br />VP: 12"}
+},
+"Loreto":
+{
+value: "176842",
+tooltip: {content: "<span style=\"font-weight:bold;\">Loreto</span><br />Population: 176842<br />VP: 1"}
+},
+"Tacna_Moquegua":
+{
+value: "130159",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tacna_Moquegua</span><br />Population: 130159<br />VP: 2"}
+},
+"Ucayali":
+{
+value: "736724",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ucayali</span><br />Population: 736724<br />VP: 6"}
+},
+"Cebu":
+{
+value: "3530019",
+tooltip: {content: "<span style=\"font-weight:bold;\">Cebu</span><br />Population: 3530019<br />VP: 1"}
+},
+"Central_islands":
+{
+value: "1292248",
+tooltip: {content: "<span style=\"font-weight:bold;\">Central islands</span><br />Population: 1292248<br />VP: 1"}
+},
+"Luzon":
+{
+value: "2013110",
+tooltip: {content: "<span style=\"font-weight:bold;\">Luzon</span><br />Population: 2013110<br />VP: 2"}
+},
+"Manila":
+{
+value: "3553016",
+tooltip: {content: "<span style=\"font-weight:bold;\">Manila</span><br />Population: 3553016<br />VP: 16"}
+},
+"Mindanao":
+{
+value: "1498335",
+tooltip: {content: "<span style=\"font-weight:bold;\">Mindanao</span><br />Population: 1498335<br />VP: 3"}
+},
+"Palawan":
+{
+value: "83142",
+tooltip: {content: "<span style=\"font-weight:bold;\">Palawan</span><br />Population: 83142<br />VP: "}
+},
+"Samar":
+{
+value: "1140114",
+tooltip: {content: "<span style=\"font-weight:bold;\">Samar</span><br />Population: 1140114<br />VP: "}
+},
+"Białystok":
+{
+value: "1158613",
+tooltip: {content: "<span style=\"font-weight:bold;\">Białystok</span><br />Population: 1158613<br />VP: 4"}
+},
+"Danzig":
+{
+value: "367178",
+tooltip: {content: "<span style=\"font-weight:bold;\">Danzig</span><br />Population: 367178<br />VP: 10"}
+},
+"Gdynia":
+{
+value: "714241",
+tooltip: {content: "<span style=\"font-weight:bold;\">Gdynia</span><br />Population: 714241<br />VP: 11"}
+},
+"Katowice":
+{
+value: "1001221",
+tooltip: {content: "<span style=\"font-weight:bold;\">Katowice</span><br />Population: 1001221<br />VP: 5"}
+},
+"Kielce":
+{
+value: "1837941",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kielce</span><br />Population: 1837941<br />VP: 10"}
+},
+"Kraków":
+{
+value: "3697308",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kraków</span><br />Population: 3697308<br />VP: 24"}
+},
+"Lodz":
+{
+value: "2635213",
+tooltip: {content: "<span style=\"font-weight:bold;\">Lodz</span><br />Population: 2635213<br />VP: 10"}
+},
+"Lublin":
+{
+value: "2467609",
+tooltip: {content: "<span style=\"font-weight:bold;\">Lublin</span><br />Population: 2467609<br />VP: 1"}
+},
+"Lwów":
+{
+value: "3231740",
+tooltip: {content: "<span style=\"font-weight:bold;\">Lwów</span><br />Population: 3231740<br />VP: 3"}
+},
+"Nowogródek":
+{
+value: "1600852",
+tooltip: {content: "<span style=\"font-weight:bold;\">Nowogródek</span><br />Population: 1600852<br />VP: 4"}
+},
+"Płock":
+{
+value: "1413824",
+tooltip: {content: "<span style=\"font-weight:bold;\">Płock</span><br />Population: 1413824<br />VP: 5"}
+},
+"Polesie":
+{
+value: "1233704",
+tooltip: {content: "<span style=\"font-weight:bold;\">Polesie</span><br />Population: 1233704<br />VP: 2"}
+},
+"Poznan":
+{
+value: "2109071",
+tooltip: {content: "<span style=\"font-weight:bold;\">Poznan</span><br />Population: 2109071<br />VP: 10"}
+},
+"Stanisławów":
+{
+value: "2182961",
+tooltip: {content: "<span style=\"font-weight:bold;\">Stanisławów</span><br />Population: 2182961<br />VP: 1"}
+},
+"Warszawa":
+{
+value: "3092771",
+tooltip: {content: "<span style=\"font-weight:bold;\">Warszawa</span><br />Population: 3092771<br />VP: 26"}
+},
+"Wilejka":
+{
+value: "726886",
+tooltip: {content: "<span style=\"font-weight:bold;\">Wilejka</span><br />Population: 726886<br />VP: 1"}
+},
+"Wilno":
+{
+value: "517712",
+tooltip: {content: "<span style=\"font-weight:bold;\">Wilno</span><br />Population: 517712<br />VP: 3"}
+},
+"Wołyn":
+{
+value: "1988024",
+tooltip: {content: "<span style=\"font-weight:bold;\">Wołyn</span><br />Population: 1988024<br />VP: 4"}
+},
+"Azores":
+{
+value: "212271",
+tooltip: {content: "<span style=\"font-weight:bold;\">Azores</span><br />Population: 212271<br />VP: 3"}
+},
+"Beja":
+{
+value: "778845",
+tooltip: {content: "<span style=\"font-weight:bold;\">Beja</span><br />Population: 778845<br />VP: 4"}
+},
+"Cape_Verde":
+{
+value: "150784",
+tooltip: {content: "<span style=\"font-weight:bold;\">Cape Verde</span><br />Population: 150784<br />VP: "}
+},
+"Goa":
+{
+value: "534604",
+tooltip: {content: "<span style=\"font-weight:bold;\">Goa</span><br />Population: 534604<br />VP: 1"}
+},
+"Guarda":
+{
+value: "965878",
+tooltip: {content: "<span style=\"font-weight:bold;\">Guarda</span><br />Population: 965878<br />VP: 2"}
+},
+"Lisbon":
+{
+value: "1998236",
+tooltip: {content: "<span style=\"font-weight:bold;\">Lisbon</span><br />Population: 1998236<br />VP: 21"}
+},
+"Lourenço_Marques":
+{
+value: "1227497",
+tooltip: {content: "<span style=\"font-weight:bold;\">Lourenço Marques</span><br />Population: 1227497<br />VP: 1"}
+},
+"Luanda":
+{
+value: "1601953",
+tooltip: {content: "<span style=\"font-weight:bold;\">Luanda</span><br />Population: 1601953<br />VP: 1"}
+},
+"Macau":
+{
+value: "157998",
+tooltip: {content: "<span style=\"font-weight:bold;\">Macau</span><br />Population: 157998<br />VP: 1"}
+},
+"Madeira":
+{
+value: "211858",
+tooltip: {content: "<span style=\"font-weight:bold;\">Madeira</span><br />Population: 211858<br />VP: 1"}
+},
+"Manica_e_Sofala":
+{
+value: "188830",
+tooltip: {content: "<span style=\"font-weight:bold;\">Manica e Sofala</span><br />Population: 188830<br />VP: "}
+},
+"North_Angola":
+{
+value: "25031",
+tooltip: {content: "<span style=\"font-weight:bold;\">North Angola</span><br />Population: 25031<br />VP: 1"}
+},
+"Porto":
+{
+value: "1906925",
+tooltip: {content: "<span style=\"font-weight:bold;\">Porto</span><br />Population: 1906925<br />VP: 15"}
+},
+"Portuguese_Guinea":
+{
+value: "365345",
+tooltip: {content: "<span style=\"font-weight:bold;\">Portuguese Guinea</span><br />Population: 365345<br />VP: 1"}
+},
+"Portuguese_Timor":
+{
+value: "456160",
+tooltip: {content: "<span style=\"font-weight:bold;\">Portuguese Timor</span><br />Population: 456160<br />VP: "}
+},
+"Santarém":
+{
+value: "730603",
+tooltip: {content: "<span style=\"font-weight:bold;\">Santarém</span><br />Population: 730603<br />VP: 2"}
+},
+"Sao_Tome":
+{
+value: "24755",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sao Tome</span><br />Population: 24755<br />VP: "}
+},
+"South_West_Angola":
+{
+value: "961172",
+tooltip: {content: "<span style=\"font-weight:bold;\">South West Angola</span><br />Population: 961172<br />VP: 1"}
+},
+"Zambesi":
+{
+value: "640781",
+tooltip: {content: "<span style=\"font-weight:bold;\">Zambesi</span><br />Population: 640781<br />VP: "}
+},
+"Zambezia_Mosambique":
+{
+value: "1387692",
+tooltip: {content: "<span style=\"font-weight:bold;\">Zambezia_Mosambique</span><br />Population: 1387692<br />VP: "}
+},
+"Chaco_Boreal":
+{
+value: "45956",
+tooltip: {content: "<span style=\"font-weight:bold;\">Chaco Boreal</span><br />Population: 45956<br />VP: 2"}
+},
+"Paraguay":
+{
+value: "891187",
+tooltip: {content: "<span style=\"font-weight:bold;\">Paraguay</span><br />Population: 891187<br />VP: 16"}
+},
+"Banat":
+{
+value: "942649",
+tooltip: {content: "<span style=\"font-weight:bold;\">Banat</span><br />Population: 942649<br />VP: 3"}
+},
+"Bessarabia":
+{
+value: "2299604",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bessarabia</span><br />Population: 2299604<br />VP: 1"}
+},
+"Bucovina":
+{
+value: "475179",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bucovina</span><br />Population: 475179<br />VP: 1"}
+},
+"Crisana":
+{
+value: "633673",
+tooltip: {content: "<span style=\"font-weight:bold;\">Crisana</span><br />Population: 633673<br />VP: 1"}
+},
+"Dobrudja":
+{
+value: "378461",
+tooltip: {content: "<span style=\"font-weight:bold;\">Dobrudja</span><br />Population: 378461<br />VP: 1"}
+},
+"Moldova":
+{
+value: "2809826",
+tooltip: {content: "<span style=\"font-weight:bold;\">Moldova</span><br />Population: 2809826<br />VP: 2"}
+},
+"Muntenia":
+{
+value: "4466846",
+tooltip: {content: "<span style=\"font-weight:bold;\">Muntenia</span><br />Population: 4466846<br />VP: 28"}
+},
+"North_Transylvania":
+{
+value: "2355572",
+tooltip: {content: "<span style=\"font-weight:bold;\">North Transylvania</span><br />Population: 2355572<br />VP: 5"}
+},
+"Oltenia":
+{
+value: "1521155",
+tooltip: {content: "<span style=\"font-weight:bold;\">Oltenia</span><br />Population: 1521155<br />VP: 1"}
+},
+"Southern_Bessarabia":
+{
+value: "567292",
+tooltip: {content: "<span style=\"font-weight:bold;\">Southern Bessarabia</span><br />Population: 567292<br />VP: 1"}
+},
+"Transylvania":
+{
+value: "1624280",
+tooltip: {content: "<span style=\"font-weight:bold;\">Transylvania</span><br />Population: 1624280<br />VP: 1"}
+},
+"Al_Qassim":
+{
+value: "5006",
+tooltip: {content: "<span style=\"font-weight:bold;\">Al_Qassim</span><br />Population: 5006<br />VP: "}
+},
+"Asir_Makkah":
+{
+value: "500610",
+tooltip: {content: "<span style=\"font-weight:bold;\">Asir_Makkah</span><br />Population: 500610<br />VP: 6"}
+},
+"Dammam":
+{
+value: "440537",
+tooltip: {content: "<span style=\"font-weight:bold;\">Dammam</span><br />Population: 440537<br />VP: 1"}
+},
+"Jawf":
+{
+value: "5006",
+tooltip: {content: "<span style=\"font-weight:bold;\">Jawf</span><br />Population: 5006<br />VP: "}
+},
+"Madinah":
+{
+value: "511624",
+tooltip: {content: "<span style=\"font-weight:bold;\">Madinah</span><br />Population: 511624<br />VP: 2"}
+},
+"Najiran":
+{
+value: "69",
+tooltip: {content: "<span style=\"font-weight:bold;\">Najiran</span><br />Population: 69<br />VP: "}
+},
+"Nejd":
+{
+value: "1001221",
+tooltip: {content: "<span style=\"font-weight:bold;\">Nejd</span><br />Population: 1001221<br />VP: 5"}
+},
+"Rub_al_Khali":
+{
+value: "42",
+tooltip: {content: "<span style=\"font-weight:bold;\">Rub al Khali</span><br />Population: 42<br />VP: "}
+},
+"Tabuk":
+{
+value: "500610",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tabuk</span><br />Population: 500610<br />VP: "}
+},
+"Acre":
+{
+value: "464125",
+tooltip: {content: "<span style=\"font-weight:bold;\">Acre</span><br />Population: 464125<br />VP: 2"}
+},
+"Amapá":
+{
+value: "350427",
+tooltip: {content: "<span style=\"font-weight:bold;\">Amapá</span><br />Population: 350427<br />VP: 2"}
+},
+"Amazon_impassable_1":
+{
+value: "6761",
+tooltip: {content: "<span style=\"font-weight:bold;\">Amazon impassable 1</span><br />Population: 6761<br />VP: "}
+},
+"Amazon_impassable_2":
+{
+value: "10361",
+tooltip: {content: "<span style=\"font-weight:bold;\">Amazon impassable 2</span><br />Population: 10361<br />VP: "}
+},
+"Amazon_impassable_3":
+{
+value: "7692",
+tooltip: {content: "<span style=\"font-weight:bold;\">Amazon impassable 3</span><br />Population: 7692<br />VP: "}
+},
+"Amazon_impassable_4":
+{
+value: "13558",
+tooltip: {content: "<span style=\"font-weight:bold;\">Amazon impassable 4</span><br />Population: 13558<br />VP: "}
+},
+"Amazon_impassable_5":
+{
+value: "22014",
+tooltip: {content: "<span style=\"font-weight:bold;\">Amazon impassable 5</span><br />Population: 22014<br />VP: "}
+},
+"Amazon_impassable_6":
+{
+value: "8973",
+tooltip: {content: "<span style=\"font-weight:bold;\">Amazon impassable 6</span><br />Population: 8973<br />VP: "}
+},
+"Amazon_impassable_7":
+{
+value: "10355",
+tooltip: {content: "<span style=\"font-weight:bold;\">Amazon impassable 7</span><br />Population: 10355<br />VP: "}
+},
+"Amazon_impassable_8":
+{
+value: "12315",
+tooltip: {content: "<span style=\"font-weight:bold;\">Amazon impassable 8</span><br />Population: 12315<br />VP: "}
+},
+"Amazonas":
+{
+value: "160095",
+tooltip: {content: "<span style=\"font-weight:bold;\">Amazonas</span><br />Population: 160095<br />VP: 1"}
+},
+"Bahia":
+{
+value: "4239068",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bahia</span><br />Population: 4239068<br />VP: 1"}
+},
+"Ceará":
+{
+value: "1633992",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ceará</span><br />Population: 1633992<br />VP: 2"}
+},
+"Espírito_Santo":
+{
+value: "4609220",
+tooltip: {content: "<span style=\"font-weight:bold;\">Espírito Santo</span><br />Population: 4609220<br />VP: 5"}
+},
+"Goiás":
+{
+value: "1664229",
+tooltip: {content: "<span style=\"font-weight:bold;\">Goiás</span><br />Population: 1664229<br />VP: 3"}
+},
+"Guaporé":
+{
+value: "120146",
+tooltip: {content: "<span style=\"font-weight:bold;\">Guaporé</span><br />Population: 120146<br />VP: 2"}
+},
+"Maranhão":
+{
+value: "575752",
+tooltip: {content: "<span style=\"font-weight:bold;\">Maranhão</span><br />Population: 575752<br />VP: 2"}
+},
+"Mato_Grosso":
+{
+value: "120146",
+tooltip: {content: "<span style=\"font-weight:bold;\">Mato Grosso</span><br />Population: 120146<br />VP: 2"}
+},
+"Minas_Gerais":
+{
+value: "4609220",
+tooltip: {content: "<span style=\"font-weight:bold;\">Minas Gerais</span><br />Population: 4609220<br />VP: 3"}
+},
+"Pará":
+{
+value: "976240",
+tooltip: {content: "<span style=\"font-weight:bold;\">Pará</span><br />Population: 976240<br />VP: 3"}
+},
+"Paraná":
+{
+value: "962524",
+tooltip: {content: "<span style=\"font-weight:bold;\">Paraná</span><br />Population: 962524<br />VP: 2"}
+},
+"Pernambuco":
+{
+value: "2284786",
+tooltip: {content: "<span style=\"font-weight:bold;\">Pernambuco</span><br />Population: 2284786<br />VP: 5"}
+},
+"Piauí":
+{
+value: "1802197",
+tooltip: {content: "<span style=\"font-weight:bold;\">Piauí</span><br />Population: 1802197<br />VP: 1"}
+},
+"Punta_Porá":
+{
+value: "230181",
+tooltip: {content: "<span style=\"font-weight:bold;\">Punta Porá</span><br />Population: 230181<br />VP: 2"}
+},
+"Rio_Branco":
+{
+value: "10012",
+tooltip: {content: "<span style=\"font-weight:bold;\">Rio Branco</span><br />Population: 10012<br />VP: 1"}
+},
+"Rio_de_Janeiro":
+{
+value: "6673637",
+tooltip: {content: "<span style=\"font-weight:bold;\">Rio de Janeiro</span><br />Population: 6673637<br />VP: 10"}
+},
+"Rio_Grande_do_Norte":
+{
+value: "649792",
+tooltip: {content: "<span style=\"font-weight:bold;\">Rio Grande do Norte</span><br />Population: 649792<br />VP: 3"}
+},
+"Rio_Grande_do_Sul":
+{
+value: "2963213",
+tooltip: {content: "<span style=\"font-weight:bold;\">Rio Grande do Sul</span><br />Population: 2963213<br />VP: 3"}
+},
+"Santa_Catarina":
+{
+value: "962524",
+tooltip: {content: "<span style=\"font-weight:bold;\">Santa Catarina</span><br />Population: 962524<br />VP: 3"}
+},
+"São_Paulo":
+{
+value: "6206767",
+tooltip: {content: "<span style=\"font-weight:bold;\">São Paulo</span><br />Population: 6206767<br />VP: 21"}
+},
+"Tocantins":
+{
+value: "1664229",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tocantins</span><br />Population: 1664229<br />VP: 1"}
+},
+"Ordos":
+{
+value: "500610",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ordos</span><br />Population: 500610<br />VP: "}
+},
+"Shanxi":
+{
+value: "11615161",
+tooltip: {content: "<span style=\"font-weight:bold;\">Shanxi</span><br />Population: 11615161<br />VP: 3"}
+},
+"Suiyuan":
+{
+value: "1585633",
+tooltip: {content: "<span style=\"font-weight:bold;\">Suiyuan</span><br />Population: 1585633<br />VP: "}
+},
+"Isan":
+{
+value: "2002441",
+tooltip: {content: "<span style=\"font-weight:bold;\">Isan</span><br />Population: 2002441<br />VP: 1"}
+},
+"Lanna":
+{
+value: "2002441",
+tooltip: {content: "<span style=\"font-weight:bold;\">Lanna</span><br />Population: 2002441<br />VP: 1"}
+},
+"Northern_Malay":
+{
+value: "2044192",
+tooltip: {content: "<span style=\"font-weight:bold;\">Northern Malay</span><br />Population: 2044192<br />VP: 1"}
+},
+"Siam":
+{
+value: "8432681",
+tooltip: {content: "<span style=\"font-weight:bold;\">Siam</span><br />Population: 8432681<br />VP: 10"}
+},
+"Dabancheng":
+{
+value: "700854",
+tooltip: {content: "<span style=\"font-weight:bold;\">Dabancheng</span><br />Population: 700854<br />VP: "}
+},
+"Dzungaria":
+{
+value: "671619",
+tooltip: {content: "<span style=\"font-weight:bold;\">Dzungaria</span><br />Population: 671619<br />VP: 2"}
+},
+"Kunlun_Shan":
+{
+value: "70085",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kunlun Shan</span><br />Population: 70085<br />VP: "}
+},
+"Taklamakan":
+{
+value: "408498",
+tooltip: {content: "<span style=\"font-weight:bold;\">Taklamakan</span><br />Population: 408498<br />VP: 1"}
+},
+"Urumqi":
+{
+value: "1081819",
+tooltip: {content: "<span style=\"font-weight:bold;\">Urumqi</span><br />Population: 1081819<br />VP: 5"}
+},
+"Yarkand":
+{
+value: "1432446",
+tooltip: {content: "<span style=\"font-weight:bold;\">Yarkand</span><br />Population: 1432446<br />VP: 2"}
+},
+"Cape":
+{
+value: "1639177",
+tooltip: {content: "<span style=\"font-weight:bold;\">Cape</span><br />Population: 1639177<br />VP: 10"}
+},
+"Karas":
+{
+value: "46256",
+tooltip: {content: "<span style=\"font-weight:bold;\">Karas</span><br />Population: 46256<br />VP: "}
+},
+"Khomas":
+{
+value: "254410",
+tooltip: {content: "<span style=\"font-weight:bold;\">Khomas</span><br />Population: 254410<br />VP: 1"}
+},
+"Kunene":
+{
+value: "69385",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kunene</span><br />Population: 69385<br />VP: "}
+},
+"Natal":
+{
+value: "3966994",
+tooltip: {content: "<span style=\"font-weight:bold;\">Natal</span><br />Population: 3966994<br />VP: 4"}
+},
+"Otjozondjupa":
+{
+value: "92513",
+tooltip: {content: "<span style=\"font-weight:bold;\">Otjozondjupa</span><br />Population: 92513<br />VP: "}
+},
+"Transvaal":
+{
+value: "3684856",
+tooltip: {content: "<span style=\"font-weight:bold;\">Transvaal</span><br />Population: 3684856<br />VP: 10"}
+},
+"Abkhazia":
+{
+value: "492169",
+tooltip: {content: "<span style=\"font-weight:bold;\">Abkhazia</span><br />Population: 492169<br />VP: 1"}
+},
+"Akhtubinsk":
+{
+value: "282590",
+tooltip: {content: "<span style=\"font-weight:bold;\">Akhtubinsk</span><br />Population: 282590<br />VP: 1"}
+},
+"Akmolinsk":
+{
+value: "981730",
+tooltip: {content: "<span style=\"font-weight:bold;\">Akmolinsk</span><br />Population: 981730<br />VP: 1"}
+},
+"Alma_Ata":
+{
+value: "2566533",
+tooltip: {content: "<span style=\"font-weight:bold;\">Alma_Ata</span><br />Population: 2566533<br />VP: 3"}
+},
+"Altai_Krai":
+{
+value: "2110024",
+tooltip: {content: "<span style=\"font-weight:bold;\">Altai Krai</span><br />Population: 2110024<br />VP: 1"}
+},
+"Amur":
+{
+value: "454836",
+tooltip: {content: "<span style=\"font-weight:bold;\">Amur</span><br />Population: 454836<br />VP: "}
+},
+"Arkhangelsk":
+{
+value: "578691",
+tooltip: {content: "<span style=\"font-weight:bold;\">Arkhangelsk</span><br />Population: 578691<br />VP: 5"}
+},
+"Armenia":
+{
+value: "1251608",
+tooltip: {content: "<span style=\"font-weight:bold;\">Armenia</span><br />Population: 1251608<br />VP: 4"}
+},
+"Ashkhabad":
+{
+value: "932595",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ashkhabad</span><br />Population: 932595<br />VP: 2"}
+},
+"Astrakhan":
+{
+value: "647998",
+tooltip: {content: "<span style=\"font-weight:bold;\">Astrakhan</span><br />Population: 647998<br />VP: 3"}
+},
+"Ayaguz":
+{
+value: "535844",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ayaguz</span><br />Population: 535844<br />VP: 1"}
+},
+"Azerbaijan":
+{
+value: "2884566",
+tooltip: {content: "<span style=\"font-weight:bold;\">Azerbaijan</span><br />Population: 2884566<br />VP: 11"}
+},
+"Balakovo":
+{
+value: "309908",
+tooltip: {content: "<span style=\"font-weight:bold;\">Balakovo</span><br />Population: 309908<br />VP: 1"}
+},
+"Balta_Tiraspol":
+{
+value: "183972",
+tooltip: {content: "<span style=\"font-weight:bold;\">Balta_Tiraspol</span><br />Population: 183972<br />VP: 3"}
+},
+"Belgorod":
+{
+value: "1366203",
+tooltip: {content: "<span style=\"font-weight:bold;\">Belgorod</span><br />Population: 1366203<br />VP: 1"}
+},
+"Birobidzhan":
+{
+value: "308756",
+tooltip: {content: "<span style=\"font-weight:bold;\">Birobidzhan</span><br />Population: 308756<br />VP: "}
+},
+"Bobruysk":
+{
+value: "1042355",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bobruysk</span><br />Population: 1042355<br />VP: 3"}
+},
+"Bodaybo":
+{
+value: "195563",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bodaybo</span><br />Population: 195563<br />VP: "}
+},
+"Bratsk":
+{
+value: "410684",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bratsk</span><br />Population: 410684<br />VP: "}
+},
+"Bryansk":
+{
+value: "1709651",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bryansk</span><br />Population: 1709651<br />VP: 10"}
+},
+"Bukhara":
+{
+value: "2192269",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bukhara</span><br />Population: 2192269<br />VP: 3"}
+},
+"Buryatia":
+{
+value: "371346",
+tooltip: {content: "<span style=\"font-weight:bold;\">Buryatia</span><br />Population: 371346<br />VP: 3"}
+},
+"Chechnya_Ingushetia":
+{
+value: "732879",
+tooltip: {content: "<span style=\"font-weight:bold;\">Chechnya_Ingushetia</span><br />Population: 732879<br />VP: 5"}
+},
+"Chelyabinsk":
+{
+value: "2077465",
+tooltip: {content: "<span style=\"font-weight:bold;\">Chelyabinsk</span><br />Population: 2077465<br />VP: 5"}
+},
+"Cherkasy":
+{
+value: "2408126",
+tooltip: {content: "<span style=\"font-weight:bold;\">Cherkasy</span><br />Population: 2408126<br />VP: 5"}
+},
+"Chernigov":
+{
+value: "1375314",
+tooltip: {content: "<span style=\"font-weight:bold;\">Chernigov</span><br />Population: 1375314<br />VP: 3"}
+},
+"Chita":
+{
+value: "1045585",
+tooltip: {content: "<span style=\"font-weight:bold;\">Chita</span><br />Population: 1045585<br />VP: 1"}
+},
+"Chukchi_Peninsula":
+{
+value: "30037",
+tooltip: {content: "<span style=\"font-weight:bold;\">Chukchi Peninsula</span><br />Population: 30037<br />VP: 1"}
+},
+"Chukotka":
+{
+value: "31220",
+tooltip: {content: "<span style=\"font-weight:bold;\">Chukotka</span><br />Population: 31220<br />VP: 1"}
+},
+"Chuvashia":
+{
+value: "786990",
+tooltip: {content: "<span style=\"font-weight:bold;\">Chuvashia</span><br />Population: 786990<br />VP: 1"}
+},
+"Crimea":
+{
+value: "1062903",
+tooltip: {content: "<span style=\"font-weight:bold;\">Crimea</span><br />Population: 1062903<br />VP: 22"}
+},
+"Dagestan":
+{
+value: "1359950",
+tooltip: {content: "<span style=\"font-weight:bold;\">Dagestan</span><br />Population: 1359950<br />VP: 3"}
+},
+"Dnipropetrovsk":
+{
+value: "2393966",
+tooltip: {content: "<span style=\"font-weight:bold;\">Dnipropetrovsk</span><br />Population: 2393966<br />VP: 11"}
+},
+"Dudinka":
+{
+value: "6011",
+tooltip: {content: "<span style=\"font-weight:bold;\">Dudinka</span><br />Population: 6011<br />VP: 1"}
+},
+"Engels_Marxstadt":
+{
+value: "619285",
+tooltip: {content: "<span style=\"font-weight:bold;\">Engels_Marxstadt</span><br />Population: 619285<br />VP: 3"}
+},
+"Georgia_US":
+{
+value: "2460844",
+tooltip: {content: "<span style=\"font-weight:bold;\">Georgia_US</span><br />Population: 2460844<br />VP: 8"}
+},
+"Gomel":
+{
+value: "944574",
+tooltip: {content: "<span style=\"font-weight:bold;\">Gomel</span><br />Population: 944574<br />VP: 10"}
+},
+"Gorky":
+{
+value: "3382300",
+tooltip: {content: "<span style=\"font-weight:bold;\">Gorky</span><br />Population: 3382300<br />VP: 10"}
+},
+"Guryev":
+{
+value: "146673",
+tooltip: {content: "<span style=\"font-weight:bold;\">Guryev</span><br />Population: 146673<br />VP: 1"}
+},
+"Irkutsk":
+{
+value: "756159",
+tooltip: {content: "<span style=\"font-weight:bold;\">Irkutsk</span><br />Population: 756159<br />VP: 3"}
+},
+"Ivanovo":
+{
+value: "2589144",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ivanovo</span><br />Population: 2589144<br />VP: 3"}
+},
+"Kabardino_Balkaria":
+{
+value: "388464",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kabardino_Balkaria</span><br />Population: 388464<br />VP: 1"}
+},
+"Kalinin":
+{
+value: "1332836",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kalinin</span><br />Population: 1332836<br />VP: 10"}
+},
+"Kalmykia":
+{
+value: "169827",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kalmykia</span><br />Population: 169827<br />VP: 1"}
+},
+"Kaluga":
+{
+value: "1122372",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kaluga</span><br />Population: 1122372<br />VP: 1"}
+},
+"Kamchatka":
+{
+value: "48891",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kamchatka</span><br />Population: 48891<br />VP: "}
+},
+"Karagandy":
+{
+value: "227293",
+tooltip: {content: "<span style=\"font-weight:bold;\">Karagandy</span><br />Population: 227293<br />VP: "}
+},
+"Karakalpakstan":
+{
+value: "258745",
+tooltip: {content: "<span style=\"font-weight:bold;\">Karakalpakstan</span><br />Population: 258745<br />VP: 1"}
+},
+"Kargopol":
+{
+value: "210434",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kargopol</span><br />Population: 210434<br />VP: 1"}
+},
+"Kazan":
+{
+value: "2764662",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kazan</span><br />Population: 2764662<br />VP: 10"}
+},
+"Khabarovsk":
+{
+value: "295966",
+tooltip: {content: "<span style=\"font-weight:bold;\">Khabarovsk</span><br />Population: 295966<br />VP: 1"}
+},
+"Khakassia":
+{
+value: "1569235",
+tooltip: {content: "<span style=\"font-weight:bold;\">Khakassia</span><br />Population: 1569235<br />VP: 4"}
+},
+"Kharkov":
+{
+value: "2230239",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kharkov</span><br />Population: 2230239<br />VP: 10"}
+},
+"Khatangsky":
+{
+value: "15993",
+tooltip: {content: "<span style=\"font-weight:bold;\">Khatangsky</span><br />Population: 15993<br />VP: "}
+},
+"Kherson":
+{
+value: "729252",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kherson</span><br />Population: 729252<br />VP: 1"}
+},
+"Khiva":
+{
+value: "258745",
+tooltip: {content: "<span style=\"font-weight:bold;\">Khiva</span><br />Population: 258745<br />VP: 1"}
+},
+"Khmelnytskyi":
+{
+value: "1425760",
+tooltip: {content: "<span style=\"font-weight:bold;\">Khmelnytskyi</span><br />Population: 1425760<br />VP: 3"}
+},
+"Kyiv":
+{
+value: "2498398",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kyiv</span><br />Population: 2498398<br />VP: 25"}
+},
+"Kirensk":
+{
+value: "146673",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kirensk</span><br />Population: 146673<br />VP: "}
+},
+"Kirov":
+{
+value: "2118057",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kirov</span><br />Population: 2118057<br />VP: 1"}
+},
+"Kolyma":
+{
+value: "13106",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kolyma</span><br />Population: 13106<br />VP: 1"}
+},
+"Kostanay":
+{
+value: "315835",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kostanay</span><br />Population: 315835<br />VP: 1"}
+},
+"Kotlas":
+{
+value: "263042",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kotlas</span><br />Population: 263042<br />VP: 1"}
+},
+"Krasnodar":
+{
+value: "2906915",
+tooltip: {content: "<span style=\"font-weight:bold;\">Krasnodar</span><br />Population: 2906915<br />VP: 9"}
+},
+"Krasnoyarsk":
+{
+value: "1728534",
+tooltip: {content: "<span style=\"font-weight:bold;\">Krasnoyarsk</span><br />Population: 1728534<br />VP: 1"}
+},
+"Kursk":
+{
+value: "1682137",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kursk</span><br />Population: 1682137<br />VP: 5"}
+},
+"Kuybyshev":
+{
+value: "1393518",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kuybyshev</span><br />Population: 1393518<br />VP: 3"}
+},
+"Kyzyl_Orda":
+{
+value: "447566",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kyzyl Orda</span><br />Population: 447566<br />VP: 1"}
+},
+"Leningrad":
+{
+value: "3754736",
+tooltip: {content: "<span style=\"font-weight:bold;\">Leningrad</span><br />Population: 3754736<br />VP: 30"}
+},
+"Lipetsk":
+{
+value: "1283661",
+tooltip: {content: "<span style=\"font-weight:bold;\">Lipetsk</span><br />Population: 1283661<br />VP: 1"}
+},
+"Luga":
+{
+value: "342236",
+tooltip: {content: "<span style=\"font-weight:bold;\">Luga</span><br />Population: 342236<br />VP: 1"}
+},
+"Magadan":
+{
+value: "63558",
+tooltip: {content: "<span style=\"font-weight:bold;\">Magadan</span><br />Population: 63558<br />VP: 1"}
+},
+"Magnitogorsk":
+{
+value: "1046267",
+tooltip: {content: "<span style=\"font-weight:bold;\">Magnitogorsk</span><br />Population: 1046267<br />VP: 3"}
+},
+"Mari_El":
+{
+value: "786990",
+tooltip: {content: "<span style=\"font-weight:bold;\">Mari El</span><br />Population: 786990<br />VP: 1"}
+},
+"Mikhaylovka":
+{
+value: "469353",
+tooltip: {content: "<span style=\"font-weight:bold;\">Mikhaylovka</span><br />Population: 469353<br />VP: 1"}
+},
+"Millerovo":
+{
+value: "762699",
+tooltip: {content: "<span style=\"font-weight:bold;\">Millerovo</span><br />Population: 762699<br />VP: 1"}
+},
+"Minsk":
+{
+value: "1164583",
+tooltip: {content: "<span style=\"font-weight:bold;\">Minsk</span><br />Population: 1164583<br />VP: 25"}
+},
+"Moscow":
+{
+value: "8346168",
+tooltip: {content: "<span style=\"font-weight:bold;\">Moscow</span><br />Population: 8346168<br />VP: 50"}
+},
+"Mozyr":
+{
+value: "935773",
+tooltip: {content: "<span style=\"font-weight:bold;\">Mozyr</span><br />Population: 935773<br />VP: 1"}
+},
+"Murmansk":
+{
+value: "276088",
+tooltip: {content: "<span style=\"font-weight:bold;\">Murmansk</span><br />Population: 276088<br />VP: 6"}
+},
+"Mykolaiv":
+{
+value: "897405",
+tooltip: {content: "<span style=\"font-weight:bold;\">Mykolaiv</span><br />Population: 897405<br />VP: 3"}
+},
+"Navoi":
+{
+value: "465742",
+tooltip: {content: "<span style=\"font-weight:bold;\">Navoi</span><br />Population: 465742<br />VP: 1"}
+},
+"Nenets":
+{
+value: "21822",
+tooltip: {content: "<span style=\"font-weight:bold;\">Nenets</span><br />Population: 21822<br />VP: 1"}
+},
+"Nevel":
+{
+value: "831146",
+tooltip: {content: "<span style=\"font-weight:bold;\">Nevel</span><br />Population: 831146<br />VP: 1"}
+},
+"Nikolayevsk":
+{
+value: "97782",
+tooltip: {content: "<span style=\"font-weight:bold;\">Nikolayevsk</span><br />Population: 97782<br />VP: "}
+},
+"North_Ossetia":
+{
+value: "388464",
+tooltip: {content: "<span style=\"font-weight:bold;\">North Ossetia</span><br />Population: 388464<br />VP: 3"}
+},
+"North_Sakhalin":
+{
+value: "94875",
+tooltip: {content: "<span style=\"font-weight:bold;\">North Sakhalin</span><br />Population: 94875<br />VP: "}
+},
+"Northern_Urals":
+{
+value: "48891",
+tooltip: {content: "<span style=\"font-weight:bold;\">Northern Urals</span><br />Population: 48891<br />VP: "}
+},
+"Novgorod":
+{
+value: "1093911",
+tooltip: {content: "<span style=\"font-weight:bold;\">Novgorod</span><br />Population: 1093911<br />VP: 5"}
+},
+"Novosibirsk":
+{
+value: "1767524",
+tooltip: {content: "<span style=\"font-weight:bold;\">Novosibirsk</span><br />Population: 1767524<br />VP: 3"}
+},
+"Odessa":
+{
+value: "1287808",
+tooltip: {content: "<span style=\"font-weight:bold;\">Odessa</span><br />Population: 1287808<br />VP: 10"}
+},
+"Okhotsk":
+{
+value: "63557",
+tooltip: {content: "<span style=\"font-weight:bold;\">Okhotsk</span><br />Population: 63557<br />VP: "}
+},
+"Olonets":
+{
+value: "229844",
+tooltip: {content: "<span style=\"font-weight:bold;\">Olonets</span><br />Population: 229844<br />VP: 1"}
+},
+"Omsk":
+{
+value: "1318765",
+tooltip: {content: "<span style=\"font-weight:bold;\">Omsk</span><br />Population: 1318765<br />VP: 3"}
+},
+"Onega":
+{
+value: "215120",
+tooltip: {content: "<span style=\"font-weight:bold;\">Onega</span><br />Population: 215120<br />VP: "}
+},
+"Orel":
+{
+value: "1220095",
+tooltip: {content: "<span style=\"font-weight:bold;\">Orel</span><br />Population: 1220095<br />VP: 10"}
+},
+"Orenburg":
+{
+value: "1227366",
+tooltip: {content: "<span style=\"font-weight:bold;\">Orenburg</span><br />Population: 1227366<br />VP: "}
+},
+"Oyrot_Region":
+{
+value: "153697",
+tooltip: {content: "<span style=\"font-weight:bold;\">Oyrot Region</span><br />Population: 153697<br />VP: 1"}
+},
+"Pamir":
+{
+value: "230281",
+tooltip: {content: "<span style=\"font-weight:bold;\">Pamir</span><br />Population: 230281<br />VP: 1"}
+},
+"Pavlodar":
+{
+value: "230491",
+tooltip: {content: "<span style=\"font-weight:bold;\">Pavlodar</span><br />Population: 230491<br />VP: 1"}
+},
+"Pechora":
+{
+value: "21822",
+tooltip: {content: "<span style=\"font-weight:bold;\">Pechora</span><br />Population: 21822<br />VP: "}
+},
+"Penza":
+{
+value: "2345797",
+tooltip: {content: "<span style=\"font-weight:bold;\">Penza</span><br />Population: 2345797<br />VP: 3"}
+},
+"Perm":
+{
+value: "2138486",
+tooltip: {content: "<span style=\"font-weight:bold;\">Perm</span><br />Population: 2138486<br />VP: 1"}
+},
+"Poltava":
+{
+value: "1444345",
+tooltip: {content: "<span style=\"font-weight:bold;\">Poltava</span><br />Population: 1444345<br />VP: 3"}
+},
+"Pskov":
+{
+value: "640368",
+tooltip: {content: "<span style=\"font-weight:bold;\">Pskov</span><br />Population: 640368<br />VP: 3"}
+},
+"Roslavl":
+{
+value: "576913",
+tooltip: {content: "<span style=\"font-weight:bold;\">Roslavl</span><br />Population: 576913<br />VP: 1"}
+},
+"Rostov":
+{
+value: "1502908",
+tooltip: {content: "<span style=\"font-weight:bold;\">Rostov</span><br />Population: 1502908<br />VP: 15"}
+},
+"Ryazan":
+{
+value: "1826347",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ryazan</span><br />Population: 1826347<br />VP: 1"}
+},
+"Rzhev":
+{
+value: "1026710",
+tooltip: {content: "<span style=\"font-weight:bold;\">Rzhev</span><br />Population: 1026710<br />VP: 1"}
+},
+"Salekhard":
+{
+value: "45540",
+tooltip: {content: "<span style=\"font-weight:bold;\">Salekhard</span><br />Population: 45540<br />VP: 1"}
+},
+"Saratov":
+{
+value: "1227585",
+tooltip: {content: "<span style=\"font-weight:bold;\">Saratov</span><br />Population: 1227585<br />VP: 5"}
+},
+"Semipalatinsk":
+{
+value: "429737",
+tooltip: {content: "<span style=\"font-weight:bold;\">Semipalatinsk</span><br />Population: 429737<br />VP: 1"}
+},
+"Smolensk":
+{
+value: "1301615",
+tooltip: {content: "<span style=\"font-weight:bold;\">Smolensk</span><br />Population: 1301615<br />VP: 15"}
+},
+"Sochi":
+{
+value: "388464",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sochi</span><br />Population: 388464<br />VP: 1"}
+},
+"Stalinabad":
+{
+value: "230281",
+tooltip: {content: "<span style=\"font-weight:bold;\">Stalinabad</span><br />Population: 230281<br />VP: 1"}
+},
+"Stalingrad":
+{
+value: "1136456",
+tooltip: {content: "<span style=\"font-weight:bold;\">Stalingrad</span><br />Population: 1136456<br />VP: 30"}
+},
+"Stalino":
+{
+value: "3771935",
+tooltip: {content: "<span style=\"font-weight:bold;\">Stalino</span><br />Population: 3771935<br />VP: 10"}
+},
+"Stavropol":
+{
+value: "1318123",
+tooltip: {content: "<span style=\"font-weight:bold;\">Stavropol</span><br />Population: 1318123<br />VP: 3"}
+},
+"Sumy":
+{
+value: "1339914",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sumy</span><br />Population: 1339914<br />VP: 4"}
+},
+"Surgut":
+{
+value: "29335",
+tooltip: {content: "<span style=\"font-weight:bold;\">Surgut</span><br />Population: 29335<br />VP: "}
+},
+"Sverdlovsk":
+{
+value: "2164289",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sverdlovsk</span><br />Population: 2164289<br />VP: 5"}
+},
+"Syktyvkar":
+{
+value: "137370",
+tooltip: {content: "<span style=\"font-weight:bold;\">Syktyvkar</span><br />Population: 137370<br />VP: 1"}
+},
+"Tambov":
+{
+value: "1781755",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tambov</span><br />Population: 1781755<br />VP: 1"}
+},
+"Tashauz":
+{
+value: "133227",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tashauz</span><br />Population: 133227<br />VP: 1"}
+},
+"Tashkent":
+{
+value: "4142961",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tashkent</span><br />Population: 4142961<br />VP: 4"}
+},
+"Tikhvin":
+{
+value: "185786",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tikhvin</span><br />Population: 185786<br />VP: 1"}
+},
+"Tobolsk":
+{
+value: "88234",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tobolsk</span><br />Population: 88234<br />VP: 1"}
+},
+"Tomsk":
+{
+value: "610048",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tomsk</span><br />Population: 610048<br />VP: 1"}
+},
+"Tula":
+{
+value: "1637546",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tula</span><br />Population: 1637546<br />VP: 3"}
+},
+"Tyumen":
+{
+value: "940213",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tyumen</span><br />Population: 940213<br />VP: 1"}
+},
+"Udachny":
+{
+value: "12197",
+tooltip: {content: "<span style=\"font-weight:bold;\">Udachny</span><br />Population: 12197<br />VP: "}
+},
+"Udmurtia":
+{
+value: "1326552",
+tooltip: {content: "<span style=\"font-weight:bold;\">Udmurtia</span><br />Population: 1326552<br />VP: 1"}
+},
+"Ufa":
+{
+value: "2555190",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ufa</span><br />Population: 2555190<br />VP: 6"}
+},
+"Ulyanovsky":
+{
+value: "1632514",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ulyanovsky</span><br />Population: 1632514<br />VP: 1"}
+},
+"Uralsk":
+{
+value: "268900",
+tooltip: {content: "<span style=\"font-weight:bold;\">Uralsk</span><br />Population: 268900<br />VP: 1"}
+},
+"Ust_Urt":
+{
+value: "245432",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ust Urt</span><br />Population: 245432<br />VP: 1"}
+},
+"Verkhoyansk":
+{
+value: "13071",
+tooltip: {content: "<span style=\"font-weight:bold;\">Verkhoyansk</span><br />Population: 13071<br />VP: 1"}
+},
+"Vinnytsia":
+{
+value: "1895702",
+tooltip: {content: "<span style=\"font-weight:bold;\">Vinnytsia</span><br />Population: 1895702<br />VP: 3"}
+},
+"Vitebsk":
+{
+value: "1219341",
+tooltip: {content: "<span style=\"font-weight:bold;\">Vitebsk</span><br />Population: 1219341<br />VP: 5"}
+},
+"Vladivostok":
+{
+value: "842492",
+tooltip: {content: "<span style=\"font-weight:bold;\">Vladivostok</span><br />Population: 842492<br />VP: 15"}
+},
+"Volgodonsk":
+{
+value: "557357",
+tooltip: {content: "<span style=\"font-weight:bold;\">Volgodonsk</span><br />Population: 557357<br />VP: 1"}
+},
+"Volkhov":
+{
+value: "195563",
+tooltip: {content: "<span style=\"font-weight:bold;\">Volkhov</span><br />Population: 195563<br />VP: 1"}
+},
+"Vologda":
+{
+value: "2354971",
+tooltip: {content: "<span style=\"font-weight:bold;\">Vologda</span><br />Population: 2354971<br />VP: 3"}
+},
+"Voronezh":
+{
+value: "2571118",
+tooltip: {content: "<span style=\"font-weight:bold;\">Voronezh</span><br />Population: 2571118<br />VP: 5"}
+},
+"Voroshilovgrad":
+{
+value: "2170057",
+tooltip: {content: "<span style=\"font-weight:bold;\">Voroshilovgrad</span><br />Population: 2170057<br />VP: 1"}
+},
+"Yakutsk":
+{
+value: "408364",
+tooltip: {content: "<span style=\"font-weight:bold;\">Yakutsk</span><br />Population: 408364<br />VP: 1"}
+},
+"Yamalia":
+{
+value: "22001",
+tooltip: {content: "<span style=\"font-weight:bold;\">Yamalia</span><br />Population: 22001<br />VP: "}
+},
+"Yaroslavl":
+{
+value: "1666573",
+tooltip: {content: "<span style=\"font-weight:bold;\">Yaroslavl</span><br />Population: 1666573<br />VP: 5"}
+},
+"Yeniseisk":
+{
+value: "117338",
+tooltip: {content: "<span style=\"font-weight:bold;\">Yeniseisk</span><br />Population: 117338<br />VP: "}
+},
+"Zaporozhe":
+{
+value: "1295662",
+tooltip: {content: "<span style=\"font-weight:bold;\">Zaporozhe</span><br />Population: 1295662<br />VP: 1"}
+},
+"Zhytomyr":
+{
+value: "1419565",
+tooltip: {content: "<span style=\"font-weight:bold;\">Zhytomyr</span><br />Population: 1419565<br />VP: 3"}
+},
+"Zlatoust":
+{
+value: "557357",
+tooltip: {content: "<span style=\"font-weight:bold;\">Zlatoust</span><br />Population: 557357<br />VP: 1"}
+},
+"Asturias":
+{
+value: "1198713",
+tooltip: {content: "<span style=\"font-weight:bold;\">Asturias</span><br />Population: 1198713<br />VP: 3"}
+},
+"Burgos":
+{
+value: "740663",
+tooltip: {content: "<span style=\"font-weight:bold;\">Burgos</span><br />Population: 740663<br />VP: 3"}
+},
+"Cataluña":
+{
+value: "3040244",
+tooltip: {content: "<span style=\"font-weight:bold;\">Cataluña</span><br />Population: 3040244<br />VP: 32"}
+},
+"Ciudad_Real":
+{
+value: "527546",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ciudad Real</span><br />Population: 527546<br />VP: 1"}
+},
+"Córdoba":
+{
+value: "1430257",
+tooltip: {content: "<span style=\"font-weight:bold;\">Córdoba</span><br />Population: 1430257<br />VP: 3"}
+},
+"Eastern_Aragón":
+{
+value: "387839",
+tooltip: {content: "<span style=\"font-weight:bold;\">Eastern Aragón</span><br />Population: 387839<br />VP: 1"}
+},
+"Equatorial_Guinea":
+{
+value: "185226",
+tooltip: {content: "<span style=\"font-weight:bold;\">Equatorial Guinea</span><br />Population: 185226<br />VP: 1"}
+},
+"Extremadura":
+{
+value: "1419383",
+tooltip: {content: "<span style=\"font-weight:bold;\">Extremadura</span><br />Population: 1419383<br />VP: 1"}
+},
+"Galicia":
+{
+value: "2297887",
+tooltip: {content: "<span style=\"font-weight:bold;\">Galicia</span><br />Population: 2297887<br />VP: 8"}
+},
+"Granada":
+{
+value: "1664321",
+tooltip: {content: "<span style=\"font-weight:bold;\">Granada</span><br />Population: 1664321<br />VP: 9"}
+},
+"Guadalajara":
+{
+value: "528341",
+tooltip: {content: "<span style=\"font-weight:bold;\">Guadalajara</span><br />Population: 528341<br />VP: 1"}
+},
+"Islas_Baleares":
+{
+value: "365946",
+tooltip: {content: "<span style=\"font-weight:bold;\">Islas Baleares</span><br />Population: 365946<br />VP: 1"}
+},
+"Islas_Canarias":
+{
+value: "562032",
+tooltip: {content: "<span style=\"font-weight:bold;\">Islas Canarias</span><br />Population: 562032<br />VP: 1"}
+},
+"León":
+{
+value: "749955",
+tooltip: {content: "<span style=\"font-weight:bold;\">León</span><br />Population: 749955<br />VP: 1"}
+},
+"Madrid":
+{
+value: "2067179",
+tooltip: {content: "<span style=\"font-weight:bold;\">Madrid</span><br />Population: 2067179<br />VP: 31"}
+},
+"Murcia":
+{
+value: "1008835",
+tooltip: {content: "<span style=\"font-weight:bold;\">Murcia</span><br />Population: 1008835<br />VP: 3"}
+},
+"Navarra":
+{
+value: "360319",
+tooltip: {content: "<span style=\"font-weight:bold;\">Navarra</span><br />Population: 360319<br />VP: 1"}
+},
+"País_Vasco":
+{
+value: "929227",
+tooltip: {content: "<span style=\"font-weight:bold;\">País Vasco</span><br />Population: 929227<br />VP: 10"}
+},
+"Rio_de_Oro":
+{
+value: "21082",
+tooltip: {content: "<span style=\"font-weight:bold;\">Rio de Oro</span><br />Population: 21082<br />VP: 1"}
+},
+"Salamanca":
+{
+value: "365046",
+tooltip: {content: "<span style=\"font-weight:bold;\">Salamanca</span><br />Population: 365046<br />VP: 1"}
+},
+"Sevilla":
+{
+value: "1748782",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sevilla</span><br />Population: 1748782<br />VP: 13"}
+},
+"Sidi_Ifni":
+{
+value: "11056",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sidi Ifni</span><br />Population: 11056<br />VP: 1"}
+},
+"Spanish_Africa":
+{
+value: "744908",
+tooltip: {content: "<span style=\"font-weight:bold;\">Spanish Africa</span><br />Population: 744908<br />VP: 6"}
+},
+"Valencia":
+{
+value: "1981710",
+tooltip: {content: "<span style=\"font-weight:bold;\">Valencia</span><br />Population: 1981710<br />VP: 13"}
+},
+"Valladolid":
+{
+value: "714499",
+tooltip: {content: "<span style=\"font-weight:bold;\">Valladolid</span><br />Population: 714499<br />VP: 3"}
+},
+"Western_Aragón":
+{
+value: "669181",
+tooltip: {content: "<span style=\"font-weight:bold;\">Western Aragón</span><br />Population: 669181<br />VP: 5"}
+},
+"Afar":
+{
+value: "560684",
+tooltip: {content: "<span style=\"font-weight:bold;\">Afar</span><br />Population: 560684<br />VP: 2"}
+},
+"Bohuslän":
+{
+value: "96329",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bohuslän</span><br />Population: 96329<br />VP: 1"}
+},
+"Dalarna":
+{
+value: "250022",
+tooltip: {content: "<span style=\"font-weight:bold;\">Dalarna</span><br />Population: 250022<br />VP: 1"}
+},
+"Gävleborg":
+{
+value: "933093",
+tooltip: {content: "<span style=\"font-weight:bold;\">Gävleborg</span><br />Population: 933093<br />VP: 3"}
+},
+"Gotland":
+{
+value: "57058",
+tooltip: {content: "<span style=\"font-weight:bold;\">Gotland</span><br />Population: 57058<br />VP: 1"}
+},
+"Jämtland":
+{
+value: "65079",
+tooltip: {content: "<span style=\"font-weight:bold;\">Jämtland</span><br />Population: 65079<br />VP: 1"}
+},
+"Norrbotten":
+{
+value: "100344",
+tooltip: {content: "<span style=\"font-weight:bold;\">Norrbotten</span><br />Population: 100344<br />VP: 5"}
+},
+"Östergötland":
+{
+value: "505843",
+tooltip: {content: "<span style=\"font-weight:bold;\">Östergötland</span><br />Population: 505843<br />VP: 3"}
+},
+"Skåne":
+{
+value: "1048980",
+tooltip: {content: "<span style=\"font-weight:bold;\">Skåne</span><br />Population: 1048980<br />VP: 7"}
+},
+"Småland":
+{
+value: "390843",
+tooltip: {content: "<span style=\"font-weight:bold;\">Småland</span><br />Population: 390843<br />VP: 4"}
+},
+"Södermalm":
+{
+value: "1489998",
+tooltip: {content: "<span style=\"font-weight:bold;\">Södermalm</span><br />Population: 1489998<br />VP: 23"}
+},
+"Värmland":
+{
+value: "297015",
+tooltip: {content: "<span style=\"font-weight:bold;\">Värmland</span><br />Population: 297015<br />VP: 1"}
+},
+"Västerbotten":
+{
+value: "315490",
+tooltip: {content: "<span style=\"font-weight:bold;\">Västerbotten</span><br />Population: 315490<br />VP: 3"}
+},
+"Västergötland":
+{
+value: "891048",
+tooltip: {content: "<span style=\"font-weight:bold;\">Västergötland</span><br />Population: 891048<br />VP: 10"}
+},
+"Eastern_Swiss_Alps":
+{
+value: "599651",
+tooltip: {content: "<span style=\"font-weight:bold;\">Eastern Swiss Alps</span><br />Population: 599651<br />VP: 1"}
+},
+"Jura_Mountains":
+{
+value: "2069820",
+tooltip: {content: "<span style=\"font-weight:bold;\">Jura Mountains</span><br />Population: 2069820<br />VP: 10"}
+},
+"Swiss_Plateau":
+{
+value: "1218323",
+tooltip: {content: "<span style=\"font-weight:bold;\">Swiss Plateau</span><br />Population: 1218323<br />VP: 25"}
+},
+"Ticino":
+{
+value: "160749",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ticino</span><br />Population: 160749<br />VP: 1"}
+},
+"Western_Swiss_Alps":
+{
+value: "178647",
+tooltip: {content: "<span style=\"font-weight:bold;\">Western Swiss Alps</span><br />Population: 178647<br />VP: "}
+},
+"Tannu_Tuva":
+{
+value: "85104",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tannu Tuva</span><br />Population: 85104<br />VP: 3"}
+},
+"Nagqu":
+{
+value: "1724102",
+tooltip: {content: "<span style=\"font-weight:bold;\">Nagqu</span><br />Population: 1724102<br />VP: "}
+},
+"Ngari":
+{
+value: "1001221",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ngari</span><br />Population: 1001221<br />VP: "}
+},
+"Shigatse":
+{
+value: "1001221",
+tooltip: {content: "<span style=\"font-weight:bold;\">Shigatse</span><br />Population: 1001221<br />VP: 5"}
+},
+"Afyon":
+{
+value: "1300128",
+tooltip: {content: "<span style=\"font-weight:bold;\">Afyon</span><br />Population: 1300128<br />VP: 9"}
+},
+"Amasya":
+{
+value: "531820",
+tooltip: {content: "<span style=\"font-weight:bold;\">Amasya</span><br />Population: 531820<br />VP: 8"}
+},
+"Ankara":
+{
+value: "811273",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ankara</span><br />Population: 811273<br />VP: 21"}
+},
+"Antalya":
+{
+value: "363132",
+tooltip: {content: "<span style=\"font-weight:bold;\">Antalya</span><br />Population: 363132<br />VP: 5"}
+},
+"Bursa":
+{
+value: "1079169",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bursa</span><br />Population: 1079169<br />VP: 15"}
+},
+"Diyarbakır":
+{
+value: "572633",
+tooltip: {content: "<span style=\"font-weight:bold;\">Diyarbakır</span><br />Population: 572633<br />VP: 7"}
+},
+"Edirne":
+{
+value: "364391",
+tooltip: {content: "<span style=\"font-weight:bold;\">Edirne</span><br />Population: 364391<br />VP: 5"}
+},
+"Hakkari":
+{
+value: "262415",
+tooltip: {content: "<span style=\"font-weight:bold;\">Hakkari</span><br />Population: 262415<br />VP: 3"}
+},
+"Istanbul":
+{
+value: "1043548",
+tooltip: {content: "<span style=\"font-weight:bold;\">Istanbul</span><br />Population: 1043548<br />VP: 25"}
+},
+"Izmir":
+{
+value: "1403600",
+tooltip: {content: "<span style=\"font-weight:bold;\">Izmir</span><br />Population: 1403600<br />VP: 20"}
+},
+"Izmit":
+{
+value: "808646",
+tooltip: {content: "<span style=\"font-weight:bold;\">Izmit</span><br />Population: 808646<br />VP: 2"}
+},
+"Kastamonu":
+{
+value: "861640",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kastamonu</span><br />Population: 861640<br />VP: 13"}
+},
+"Kayseri":
+{
+value: "859500",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kayseri</span><br />Population: 859500<br />VP: 5"}
+},
+"Konya":
+{
+value: "850490",
+tooltip: {content: "<span style=\"font-weight:bold;\">Konya</span><br />Population: 850490<br />VP: 9"}
+},
+"Malatya":
+{
+value: "1083102",
+tooltip: {content: "<span style=\"font-weight:bold;\">Malatya</span><br />Population: 1083102<br />VP: 33"}
+},
+"Mersin":
+{
+value: "412301",
+tooltip: {content: "<span style=\"font-weight:bold;\">Mersin</span><br />Population: 412301<br />VP: 6"}
+},
+"Samsun":
+{
+value: "1153269",
+tooltip: {content: "<span style=\"font-weight:bold;\">Samsun</span><br />Population: 1153269<br />VP: 10"}
+},
+"Sivas":
+{
+value: "593545",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sivas</span><br />Population: 593545<br />VP: 3"}
+},
+"Trabzon":
+{
+value: "1032388",
+tooltip: {content: "<span style=\"font-weight:bold;\">Trabzon</span><br />Population: 1032388<br />VP: 26"}
+},
+"Tunceli":
+{
+value: "524176",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tunceli</span><br />Population: 524176<br />VP: 3"}
+},
+"Van":
+{
+value: "365936",
+tooltip: {content: "<span style=\"font-weight:bold;\">Van</span><br />Population: 365936<br />VP: 6"}
+},
+"Aberdeenshire":
+{
+value: "746376",
+tooltip: {content: "<span style=\"font-weight:bold;\">Aberdeenshire</span><br />Population: 746376<br />VP: 6"}
+},
+"Abu_Dhabi":
+{
+value: "170408",
+tooltip: {content: "<span style=\"font-weight:bold;\">Abu Dhabi</span><br />Population: 170408<br />VP: 1"}
+},
+"Aden":
+{
+value: "872265",
+tooltip: {content: "<span style=\"font-weight:bold;\">Aden</span><br />Population: 872265<br />VP: 1"}
+},
+"Alexandria":
+{
+value: "3863950",
+tooltip: {content: "<span style=\"font-weight:bold;\">Alexandria</span><br />Population: 3863950<br />VP: 11"}
+},
+"Andaman":
+{
+value: "29536",
+tooltip: {content: "<span style=\"font-weight:bold;\">Andaman</span><br />Population: 29536<br />VP: "}
+},
+"Ascension":
+{
+value: "459",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ascension</span><br />Population: 459<br />VP: "}
+},
+"Aswan":
+{
+value: "4229673",
+tooltip: {content: "<span style=\"font-weight:bold;\">Aswan</span><br />Population: 4229673<br />VP: 5"}
+},
+"Bahr_al_Ghazal":
+{
+value: "550671",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bahr al Ghazal</span><br />Population: 550671<br />VP: "}
+},
+"Bechuanaland":
+{
+value: "234286",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bechuanaland</span><br />Population: 234286<br />VP: 1"}
+},
+"Benue":
+{
+value: "1165095",
+tooltip: {content: "<span style=\"font-weight:bold;\">Benue</span><br />Population: 1165095<br />VP: "}
+},
+"Bermuda":
+{
+value: "37562",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bermuda</span><br />Population: 37562<br />VP: 1"}
+},
+"Blue_Nile":
+{
+value: "661909",
+tooltip: {content: "<span style=\"font-weight:bold;\">Blue Nile</span><br />Population: 661909<br />VP: "}
+},
+"Borno":
+{
+value: "166443",
+tooltip: {content: "<span style=\"font-weight:bold;\">Borno</span><br />Population: 166443<br />VP: "}
+},
+"British_Guyana":
+{
+value: "309377",
+tooltip: {content: "<span style=\"font-weight:bold;\">British Guyana</span><br />Population: 309377<br />VP: 1"}
+},
+"British_Honduras":
+{
+value: "51062",
+tooltip: {content: "<span style=\"font-weight:bold;\">British Honduras</span><br />Population: 51062<br />VP: 1"}
+},
+"British_Somaliland":
+{
+value: "345121",
+tooltip: {content: "<span style=\"font-weight:bold;\">British Somaliland</span><br />Population: 345121<br />VP: 2"}
+},
+"Cairo":
+{
+value: "6462744",
+tooltip: {content: "<span style=\"font-weight:bold;\">Cairo</span><br />Population: 6462744<br />VP: 28"}
+},
+"Ceylon":
+{
+value: "5506714",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ceylon</span><br />Population: 5506714<br />VP: 3"}
+},
+"Christmas_Island":
+{
+value: "1627",
+tooltip: {content: "<span style=\"font-weight:bold;\">Christmas Island</span><br />Population: 1627<br />VP: "}
+},
+"Cocos_Islands":
+{
+value: "42",
+tooltip: {content: "<span style=\"font-weight:bold;\">Cocos Islands</span><br />Population: 42<br />VP: "}
+},
+"Cumbria":
+{
+value: "746011",
+tooltip: {content: "<span style=\"font-weight:bold;\">Cumbria</span><br />Population: 746011<br />VP: 3"}
+},
+"Cyprus":
+{
+value: "348384",
+tooltip: {content: "<span style=\"font-weight:bold;\">Cyprus</span><br />Population: 348384<br />VP: 8"}
+},
+"Diego_Garcia":
+{
+value: "2150",
+tooltip: {content: "<span style=\"font-weight:bold;\">Diego Garcia</span><br />Population: 2150<br />VP: "}
+},
+"East_Anglia":
+{
+value: "1364838",
+tooltip: {content: "<span style=\"font-weight:bold;\">East Anglia</span><br />Population: 1364838<br />VP: 5"}
+},
+"East_Midlands":
+{
+value: "2214721",
+tooltip: {content: "<span style=\"font-weight:bold;\">East Midlands</span><br />Population: 2214721<br />VP: 13"}
+},
+"Eastern_Desert":
+{
+value: "2197",
+tooltip: {content: "<span style=\"font-weight:bold;\">Eastern Desert</span><br />Population: 2197<br />VP: 1"}
+},
+"Ellice_Islands":
+{
+value: "494",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ellice Islands</span><br />Population: 494<br />VP: "}
+},
+"Falkland_Islands":
+{
+value: "2466",
+tooltip: {content: "<span style=\"font-weight:bold;\">Falkland Islands</span><br />Population: 2466<br />VP: 1"}
+},
+"Fiji":
+{
+value: "180220",
+tooltip: {content: "<span style=\"font-weight:bold;\">Fiji</span><br />Population: 180220<br />VP: 1"}
+},
+"Gambia":
+{
+value: "199764",
+tooltip: {content: "<span style=\"font-weight:bold;\">Gambia</span><br />Population: 199764<br />VP: 1"}
+},
+"Garissa":
+{
+value: "611305",
+tooltip: {content: "<span style=\"font-weight:bold;\">Garissa</span><br />Population: 611305<br />VP: "}
+},
+"Ghana":
+{
+value: "3167462",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ghana</span><br />Population: 3167462<br />VP: 1"}
+},
+"Gibraltar":
+{
+value: "21398",
+tooltip: {content: "<span style=\"font-weight:bold;\">Gibraltar</span><br />Population: 21398<br />VP: 10"}
+},
+"Gilbert_Islands":
+{
+value: "1036",
+tooltip: {content: "<span style=\"font-weight:bold;\">Gilbert Islands</span><br />Population: 1036<br />VP: 1"}
+},
+"Gloucestershire":
+{
+value: "1802813",
+tooltip: {content: "<span style=\"font-weight:bold;\">Gloucestershire</span><br />Population: 1802813<br />VP: 5"}
+},
+"Greater_London_Area":
+{
+value: "9836289",
+tooltip: {content: "<span style=\"font-weight:bold;\">Greater London Area</span><br />Population: 9836289<br />VP: 50"}
+},
+"Hong_Kong":
+{
+value: "1144912",
+tooltip: {content: "<span style=\"font-weight:bold;\">Hong Kong</span><br />Population: 1144912<br />VP: 3"}
+},
+"Isle_of_Man":
+{
+value: "51062",
+tooltip: {content: "<span style=\"font-weight:bold;\">Isle of Man</span><br />Population: 51062<br />VP: 1"}
+},
+"Jamaica":
+{
+value: "1076312",
+tooltip: {content: "<span style=\"font-weight:bold;\">Jamaica</span><br />Population: 1076312<br />VP: 1"}
+},
+"Jordan":
+{
+value: "933138",
+tooltip: {content: "<span style=\"font-weight:bold;\">Jordan</span><br />Population: 933138<br />VP: 2"}
+},
+"Kassala":
+{
+value: "512026",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kassala</span><br />Population: 512026<br />VP: 1"}
+},
+"Khartoum":
+{
+value: "822005",
+tooltip: {content: "<span style=\"font-weight:bold;\">Khartoum</span><br />Population: 822005<br />VP: 3"}
+},
+"Kurdufan":
+{
+value: "1804332",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kurdufan</span><br />Population: 1804332<br />VP: "}
+},
+"Kuwait":
+{
+value: "80098",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kuwait</span><br />Population: 80098<br />VP: 1"}
+},
+"Labrador":
+{
+value: "22206",
+tooltip: {content: "<span style=\"font-weight:bold;\">Labrador</span><br />Population: 22206<br />VP: "}
+},
+"Lagos":
+{
+value: "19781117",
+tooltip: {content: "<span style=\"font-weight:bold;\">Lagos</span><br />Population: 19781117<br />VP: 1"}
+},
+"Lanark":
+{
+value: "2260479",
+tooltip: {content: "<span style=\"font-weight:bold;\">Lanark</span><br />Population: 2260479<br />VP: 16"}
+},
+"Lancashire":
+{
+value: "5777498",
+tooltip: {content: "<span style=\"font-weight:bold;\">Lancashire</span><br />Population: 5777498<br />VP: 35"}
+},
+"Leeward_Islands":
+{
+value: "25709",
+tooltip: {content: "<span style=\"font-weight:bold;\">Leeward Islands</span><br />Population: 25709<br />VP: "}
+},
+"Lothian":
+{
+value: "1433372",
+tooltip: {content: "<span style=\"font-weight:bold;\">Lothian</span><br />Population: 1433372<br />VP: 11"}
+},
+"Malawi":
+{
+value: "1605933",
+tooltip: {content: "<span style=\"font-weight:bold;\">Malawi</span><br />Population: 1605933<br />VP: 1"}
+},
+"Maldives":
+{
+value: "79397",
+tooltip: {content: "<span style=\"font-weight:bold;\">Maldives</span><br />Population: 79397<br />VP: 1"}
+},
+"Malta":
+{
+value: "241916",
+tooltip: {content: "<span style=\"font-weight:bold;\">Malta</span><br />Population: 241916<br />VP: 5"}
+},
+"Matrouh":
+{
+value: "52620",
+tooltip: {content: "<span style=\"font-weight:bold;\">Matrouh</span><br />Population: 52620<br />VP: 3"}
+},
+"Mauritius":
+{
+value: "404952",
+tooltip: {content: "<span style=\"font-weight:bold;\">Mauritius</span><br />Population: 404952<br />VP: "}
+},
+"Mombasa":
+{
+value: "1018842",
+tooltip: {content: "<span style=\"font-weight:bold;\">Mombasa</span><br />Population: 1018842<br />VP: 1"}
+},
+"Nairobi":
+{
+value: "1086765",
+tooltip: {content: "<span style=\"font-weight:bold;\">Nairobi</span><br />Population: 1086765<br />VP: 2"}
+},
+"Nauru":
+{
+value: "5792",
+tooltip: {content: "<span style=\"font-weight:bold;\">Nauru</span><br />Population: 5792<br />VP: 1"}
+},
+"Newfoundland":
+{
+value: "255371",
+tooltip: {content: "<span style=\"font-weight:bold;\">Newfoundland</span><br />Population: 255371<br />VP: 2"}
+},
+"North_Darfur":
+{
+value: "8153",
+tooltip: {content: "<span style=\"font-weight:bold;\">North Darfur</span><br />Population: 8153<br />VP: "}
+},
+"Northern_Bahamas":
+{
+value: "40049",
+tooltip: {content: "<span style=\"font-weight:bold;\">Northern Bahamas</span><br />Population: 40049<br />VP: 1"}
+},
+"Northern_Ireland":
+{
+value: "1200000",
+tooltip: {content: "<span style=\"font-weight:bold;\">Northern Ireland</span><br />Population: 1200000<br />VP: 6"}
+},
+"Northumberland":
+{
+value: "2131459",
+tooltip: {content: "<span style=\"font-weight:bold;\">Northumberland</span><br />Population: 2131459<br />VP: 8"}
+},
+"Nyanza_Rift_Valley":
+{
+value: "679228",
+tooltip: {content: "<span style=\"font-weight:bold;\">Nyanza_Rift_Valley</span><br />Population: 679228<br />VP: "}
+},
+"Palestine":
+{
+value: "934281",
+tooltip: {content: "<span style=\"font-weight:bold;\">Palestine</span><br />Population: 934281<br />VP: 3"}
+},
+"Pitcairn_Island":
+{
+value: "40",
+tooltip: {content: "<span style=\"font-weight:bold;\">Pitcairn Island</span><br />Population: 40<br />VP: "}
+},
+"Qatar":
+{
+value: "51663",
+tooltip: {content: "<span style=\"font-weight:bold;\">Qatar</span><br />Population: 51663<br />VP: 3"}
+},
+"Rhodesia":
+{
+value: "1172766",
+tooltip: {content: "<span style=\"font-weight:bold;\">Rhodesia</span><br />Population: 1172766<br />VP: 1"}
+},
+"Saint_Helena":
+{
+value: "2488",
+tooltip: {content: "<span style=\"font-weight:bold;\">Saint Helena</span><br />Population: 2488<br />VP: "}
+},
+"Scottish_Highlands":
+{
+value: "248176",
+tooltip: {content: "<span style=\"font-weight:bold;\">Scottish Highlands</span><br />Population: 248176<br />VP: 4"}
+},
+"Seychelles":
+{
+value: "126858",
+tooltip: {content: "<span style=\"font-weight:bold;\">Seychelles</span><br />Population: 126858<br />VP: "}
+},
+"Shetland_Islands":
+{
+value: "18022",
+tooltip: {content: "<span style=\"font-weight:bold;\">Shetland Islands</span><br />Population: 18022<br />VP: "}
+},
+"Sierra_Leone":
+{
+value: "1770659",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sierra Leone</span><br />Population: 1770659<br />VP: 1"}
+},
+"Sinai":
+{
+value: "15378",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sinai</span><br />Population: 15378<br />VP: 4"}
+},
+"Socotra":
+{
+value: "21329",
+tooltip: {content: "<span style=\"font-weight:bold;\">Socotra</span><br />Population: 21329<br />VP: "}
+},
+"Sokoto":
+{
+value: "332885",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sokoto</span><br />Population: 332885<br />VP: "}
+},
+"South_Darfur":
+{
+value: "302389",
+tooltip: {content: "<span style=\"font-weight:bold;\">South Darfur</span><br />Population: 302389<br />VP: "}
+},
+"South_Georgia":
+{
+value: "30",
+tooltip: {content: "<span style=\"font-weight:bold;\">South Georgia</span><br />Population: 30<br />VP: "}
+},
+"South_West_England":
+{
+value: "1222503",
+tooltip: {content: "<span style=\"font-weight:bold;\">South_West England</span><br />Population: 1222503<br />VP: 11"}
+},
+"Southern_Bahamas":
+{
+value: "15018",
+tooltip: {content: "<span style=\"font-weight:bold;\">Southern Bahamas</span><br />Population: 15018<br />VP: "}
+},
+"Suez":
+{
+value: "131893",
+tooltip: {content: "<span style=\"font-weight:bold;\">Suez</span><br />Population: 131893<br />VP: 8"}
+},
+"Sussex":
+{
+value: "3197281",
+tooltip: {content: "<span style=\"font-weight:bold;\">Sussex</span><br />Population: 3197281<br />VP: 35"}
+},
+"Tanganyika":
+{
+value: "5305469",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tanganyika</span><br />Population: 5305469<br />VP: 1"}
+},
+"Trinidad":
+{
+value: "413623",
+tooltip: {content: "<span style=\"font-weight:bold;\">Trinidad</span><br />Population: 413623<br />VP: 1"}
+},
+"Uganda":
+{
+value: "3519917",
+tooltip: {content: "<span style=\"font-weight:bold;\">Uganda</span><br />Population: 3519917<br />VP: 1"}
+},
+"Upper_Nile":
+{
+value: "1041391",
+tooltip: {content: "<span style=\"font-weight:bold;\">Upper Nile</span><br />Population: 1041391<br />VP: 1"}
+},
+"Wales":
+{
+value: "2312049",
+tooltip: {content: "<span style=\"font-weight:bold;\">Wales</span><br />Population: 2312049<br />VP: 9"}
+},
+"West_Midlands":
+{
+value: "3689734",
+tooltip: {content: "<span style=\"font-weight:bold;\">West Midlands</span><br />Population: 3689734<br />VP: 25"}
+},
+"Western_Desert":
+{
+value: "18562",
+tooltip: {content: "<span style=\"font-weight:bold;\">Western Desert</span><br />Population: 18562<br />VP: "}
+},
+"Windward_Islands":
+{
+value: "76578",
+tooltip: {content: "<span style=\"font-weight:bold;\">Windward Islands</span><br />Population: 76578<br />VP: 1"}
+},
+"Yorkshire":
+{
+value: "4768309",
+tooltip: {content: "<span style=\"font-weight:bold;\">Yorkshire</span><br />Population: 4768309<br />VP: 30"}
+},
+"Zambia":
+{
+value: "1381774",
+tooltip: {content: "<span style=\"font-weight:bold;\">Zambia</span><br />Population: 1381774<br />VP: 1"}
+},
+"Alabama":
+{
+value: "2649477",
+tooltip: {content: "<span style=\"font-weight:bold;\">Alabama</span><br />Population: 2649477<br />VP: 2"}
+},
+"Alaska":
+{
+value: "67582",
+tooltip: {content: "<span style=\"font-weight:bold;\">Alaska</span><br />Population: 67582<br />VP: 4"}
+},
+"Arizona":
+{
+value: "436104",
+tooltip: {content: "<span style=\"font-weight:bold;\">Arizona</span><br />Population: 436104<br />VP: 3"}
+},
+"Arkansas":
+{
+value: "1856745",
+tooltip: {content: "<span style=\"font-weight:bold;\">Arkansas</span><br />Population: 1856745<br />VP: 1"}
+},
+"Attu_Island":
+{
+value: "20",
+tooltip: {content: "<span style=\"font-weight:bold;\">Attu Island</span><br />Population: 20<br />VP: 1"}
+},
+"California":
+{
+value: "5684178",
+tooltip: {content: "<span style=\"font-weight:bold;\">California</span><br />Population: 5684178<br />VP: 71"}
+},
+"Colorado":
+{
+value: "1037054",
+tooltip: {content: "<span style=\"font-weight:bold;\">Colorado</span><br />Population: 1037054<br />VP: 5"}
+},
+"Florida":
+{
+value: "1470002",
+tooltip: {content: "<span style=\"font-weight:bold;\">Florida</span><br />Population: 1470002<br />VP: 5"}
+},
+"Georgia":
+{
+value: "2912054",
+tooltip: {content: "<span style=\"font-weight:bold;\">Georgia</span><br />Population: 2912054<br />VP: 10"}
+},
+"Guam":
+{
+value: "75245",
+tooltip: {content: "<span style=\"font-weight:bold;\">Guam</span><br />Population: 75245<br />VP: 1"}
+},
+"Hawaii":
+{
+value: "368786",
+tooltip: {content: "<span style=\"font-weight:bold;\">Hawaii</span><br />Population: 368786<br />VP: 18"}
+},
+"Idaho":
+{
+value: "445574",
+tooltip: {content: "<span style=\"font-weight:bold;\">Idaho</span><br />Population: 445574<br />VP: 1"}
+},
+"Illinois":
+{
+value: "7639966",
+tooltip: {content: "<span style=\"font-weight:bold;\">Illinois</span><br />Population: 7639966<br />VP: 30"}
+},
+"Indiana":
+{
+value: "3242454",
+tooltip: {content: "<span style=\"font-weight:bold;\">Indiana</span><br />Population: 3242454<br />VP: 5"}
+},
+"Iowa":
+{
+value: "2473954",
+tooltip: {content: "<span style=\"font-weight:bold;\">Iowa</span><br />Population: 2473954<br />VP: 3"}
+},
+"Johnston_Atoll":
+{
+value: "100",
+tooltip: {content: "<span style=\"font-weight:bold;\">Johnston Atoll</span><br />Population: 100<br />VP: "}
+},
+"Kansas":
+{
+value: "1883294",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kansas</span><br />Population: 1883294<br />VP: 4"}
+},
+"Kentucky":
+{
+value: "2617780",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kentucky</span><br />Population: 2617780<br />VP: 1"}
+},
+"Line_Islands":
+{
+value: "5374",
+tooltip: {content: "<span style=\"font-weight:bold;\">Line Islands</span><br />Population: 5374<br />VP: "}
+},
+"Louisiana":
+{
+value: "2104157",
+tooltip: {content: "<span style=\"font-weight:bold;\">Louisiana</span><br />Population: 2104157<br />VP: 10"}
+},
+"Maryland":
+{
+value: "2120980",
+tooltip: {content: "<span style=\"font-weight:bold;\">Maryland</span><br />Population: 2120980<br />VP: 45"}
+},
+"Michigan":
+{
+value: "4848234",
+tooltip: {content: "<span style=\"font-weight:bold;\">Michigan</span><br />Population: 4848234<br />VP: 20"}
+},
+"Midway_Island":
+{
+value: "2162",
+tooltip: {content: "<span style=\"font-weight:bold;\">Midway Island</span><br />Population: 2162<br />VP: 1"}
+},
+"Minnesota":
+{
+value: "2567082",
+tooltip: {content: "<span style=\"font-weight:bold;\">Minnesota</span><br />Population: 2567082<br />VP: 5"}
+},
+"Mississippi":
+{
+value: "2012273",
+tooltip: {content: "<span style=\"font-weight:bold;\">Mississippi</span><br />Population: 2012273<br />VP: 1"}
+},
+"Missouri":
+{
+value: "3633795",
+tooltip: {content: "<span style=\"font-weight:bold;\">Missouri</span><br />Population: 3633795<br />VP: 21"}
+},
+"Montana":
+{
+value: "538261",
+tooltip: {content: "<span style=\"font-weight:bold;\">Montana</span><br />Population: 538261<br />VP: 1"}
+},
+"Nebraska":
+{
+value: "1379644",
+tooltip: {content: "<span style=\"font-weight:bold;\">Nebraska</span><br />Population: 1379644<br />VP: 1"}
+},
+"Nevada":
+{
+value: "91168",
+tooltip: {content: "<span style=\"font-weight:bold;\">Nevada</span><br />Population: 91168<br />VP: "}
+},
+"New_England":
+{
+value: "8414973",
+tooltip: {content: "<span style=\"font-weight:bold;\">New England</span><br />Population: 8414973<br />VP: 22"}
+},
+"New_Jersey":
+{
+value: "4046265",
+tooltip: {content: "<span style=\"font-weight:bold;\">New Jersey</span><br />Population: 4046265<br />VP: 5"}
+},
+"New_Mexico":
+{
+value: "423833",
+tooltip: {content: "<span style=\"font-weight:bold;\">New Mexico</span><br />Population: 423833<br />VP: 1"}
+},
+"New_York":
+{
+value: "12603427",
+tooltip: {content: "<span style=\"font-weight:bold;\">New York</span><br />Population: 12603427<br />VP: 33"}
+},
+"North_Carolina":
+{
+value: "3174144",
+tooltip: {content: "<span style=\"font-weight:bold;\">North Carolina</span><br />Population: 3174144<br />VP: 3"}
+},
+"North_Dakota":
+{
+value: "681675",
+tooltip: {content: "<span style=\"font-weight:bold;\">North Dakota</span><br />Population: 681675<br />VP: 1"}
+},
+"Ohio":
+{
+value: "6654808",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ohio</span><br />Population: 6654808<br />VP: 15"}
+},
+"Oklahoma":
+{
+value: "2398964",
+tooltip: {content: "<span style=\"font-weight:bold;\">Oklahoma</span><br />Population: 2398964<br />VP: 1"}
+},
+"Oregon":
+{
+value: "954949",
+tooltip: {content: "<span style=\"font-weight:bold;\">Oregon</span><br />Population: 954949<br />VP: 1"}
+},
+"Panamá_Canal":
+{
+value: "39515",
+tooltip: {content: "<span style=\"font-weight:bold;\">Panamá Canal</span><br />Population: 39515<br />VP: 5"}
+},
+"Pennsylvania":
+{
+value: "9643103",
+tooltip: {content: "<span style=\"font-weight:bold;\">Pennsylvania</span><br />Population: 9643103<br />VP: 35"}
+},
+"Phoenix_Island":
+{
+value: "24",
+tooltip: {content: "<span style=\"font-weight:bold;\">Phoenix Island</span><br />Population: 24<br />VP: "}
+},
+"Puerto_Rico":
+{
+value: "1545798",
+tooltip: {content: "<span style=\"font-weight:bold;\">Puerto Rico</span><br />Population: 1545798<br />VP: 1"}
+},
+"South_Carolina":
+{
+value: "1740887",
+tooltip: {content: "<span style=\"font-weight:bold;\">South Carolina</span><br />Population: 1740887<br />VP: 1"}
+},
+"South_Dakota":
+{
+value: "693695",
+tooltip: {content: "<span style=\"font-weight:bold;\">South Dakota</span><br />Population: 693695<br />VP: 1"}
+},
+"Tennessee":
+{
+value: "2619749",
+tooltip: {content: "<span style=\"font-weight:bold;\">Tennessee</span><br />Population: 2619749<br />VP: 3"}
+},
+"Texas":
+{
+value: "5831822",
+tooltip: {content: "<span style=\"font-weight:bold;\">Texas</span><br />Population: 5831822<br />VP: 21"}
+},
+"Utah":
+{
+value: "508466",
+tooltip: {content: "<span style=\"font-weight:bold;\">Utah</span><br />Population: 508466<br />VP: 1"}
+},
+"Virginia":
+{
+value: "2251825",
+tooltip: {content: "<span style=\"font-weight:bold;\">Virginia</span><br />Population: 2251825<br />VP: 25"}
+},
+"Wake_Island":
+{
+value: "150",
+tooltip: {content: "<span style=\"font-weight:bold;\">Wake Island</span><br />Population: 150<br />VP: 1"}
+},
+"Washington":
+{
+value: "1565303",
+tooltip: {content: "<span style=\"font-weight:bold;\">Washington</span><br />Population: 1565303<br />VP: 11"}
+},
+"West_Virginia":
+{
+value: "1904296",
+tooltip: {content: "<span style=\"font-weight:bold;\">West Virginia</span><br />Population: 1904296<br />VP: 3"}
+},
+"Wisconsin":
+{
+value: "2942592",
+tooltip: {content: "<span style=\"font-weight:bold;\">Wisconsin</span><br />Population: 2942592<br />VP: 5"}
+},
+"Wyoming":
+{
+value: "225839",
+tooltip: {content: "<span style=\"font-weight:bold;\">Wyoming</span><br />Population: 225839<br />VP: "}
+},
+"Cerro_Largo":
+{
+value: "500841",
+tooltip: {content: "<span style=\"font-weight:bold;\">Cerro Largo</span><br />Population: 500841<br />VP: 1"}
+},
+"Montevideo":
+{
+value: "914885",
+tooltip: {content: "<span style=\"font-weight:bold;\">Montevideo</span><br />Population: 914885<br />VP: 10"}
+},
+"Paysandú":
+{
+value: "320391",
+tooltip: {content: "<span style=\"font-weight:bold;\">Paysandú</span><br />Population: 320391<br />VP: 3"}
+},
+"Bolivar":
+{
+value: "245942",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bolivar</span><br />Population: 245942<br />VP: 1"}
+},
+"Miranda":
+{
+value: "1336640",
+tooltip: {content: "<span style=\"font-weight:bold;\">Miranda</span><br />Population: 1336640<br />VP: 5"}
+},
+"Zulia":
+{
+value: "1578297",
+tooltip: {content: "<span style=\"font-weight:bold;\">Zulia</span><br />Population: 1578297<br />VP: 1"}
+},
+"Gannan":
+{
+value: "3003662",
+tooltip: {content: "<span style=\"font-weight:bold;\">Gannan</span><br />Population: 3003662<br />VP: 1"}
+},
+"Gansu":
+{
+value: "3709923",
+tooltip: {content: "<span style=\"font-weight:bold;\">Gansu</span><br />Population: 3709923<br />VP: 3"}
+},
+"Golog":
+{
+value: "400488",
+tooltip: {content: "<span style=\"font-weight:bold;\">Golog</span><br />Population: 400488<br />VP: 10"}
+},
+"Haixi":
+{
+value: "1001221",
+tooltip: {content: "<span style=\"font-weight:bold;\">Haixi</span><br />Population: 1001221<br />VP: "}
+},
+"Jiuquan":
+{
+value: "1001221",
+tooltip: {content: "<span style=\"font-weight:bold;\">Jiuquan</span><br />Population: 1001221<br />VP: "}
+},
+"Ningxia":
+{
+value: "2080136",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ningxia</span><br />Population: 2080136<br />VP: 2"}
+},
+"Qinghai":
+{
+value: "1197560",
+tooltip: {content: "<span style=\"font-weight:bold;\">Qinghai</span><br />Population: 1197560<br />VP: "}
+},
+"Yemen":
+{
+value: "2492539",
+tooltip: {content: "<span style=\"font-weight:bold;\">Yemen</span><br />Population: 2492539<br />VP: 3"}
+},
+"Bosnia":
+{
+value: "1912532",
+tooltip: {content: "<span style=\"font-weight:bold;\">Bosnia</span><br />Population: 1912532<br />VP: 8"}
+},
+"Croatia":
+{
+value: "2227115",
+tooltip: {content: "<span style=\"font-weight:bold;\">Croatia</span><br />Population: 2227115<br />VP: 3"}
+},
+"Dalmatia":
+{
+value: "1433448",
+tooltip: {content: "<span style=\"font-weight:bold;\">Dalmatia</span><br />Population: 1433448<br />VP: 6"}
+},
+"Herzegovina":
+{
+value: "547868",
+tooltip: {content: "<span style=\"font-weight:bold;\">Herzegovina</span><br />Population: 547868<br />VP: 3"}
+},
+"Kosovo":
+{
+value: "616752",
+tooltip: {content: "<span style=\"font-weight:bold;\">Kosovo</span><br />Population: 616752<br />VP: 3"}
+},
+"Ljubljana":
+{
+value: "333657",
+tooltip: {content: "<span style=\"font-weight:bold;\">Ljubljana</span><br />Population: 333657<br />VP: 3"}
+},
+"Macedonia":
+{
+value: "1375877",
+tooltip: {content: "<span style=\"font-weight:bold;\">Macedonia</span><br />Population: 1375877<br />VP: 5"}
+},
+"Montenegro":
+{
+value: "896593",
+tooltip: {content: "<span style=\"font-weight:bold;\">Montenegro</span><br />Population: 896593<br />VP: 4"}
+},
+"Morava":
+{
+value: "707863",
+tooltip: {content: "<span style=\"font-weight:bold;\">Morava</span><br />Population: 707863<br />VP: 3"}
+},
+"North_Slovenia":
+{
+value: "812040",
+tooltip: {content: "<span style=\"font-weight:bold;\">North Slovenia</span><br />Population: 812040<br />VP: 1"}
+},
+"Serbia":
+{
+value: "1280682",
+tooltip: {content: "<span style=\"font-weight:bold;\">Serbia</span><br />Population: 1280682<br />VP: 15"}
+},
+"Southern_Serbia":
+{
+value: "210256",
+tooltip: {content: "<span style=\"font-weight:bold;\">Southern Serbia</span><br />Population: 210256<br />VP: 1"}
+},
+"Vojvodina":
+{
+value: "839645",
+tooltip: {content: "<span style=\"font-weight:bold;\">Vojvodina</span><br />Population: 839645<br />VP: 3"}
+},
+"West_Banat":
+{
+value: "586294",
+tooltip: {content: "<span style=\"font-weight:bold;\">West Banat</span><br />Population: 586294<br />VP: 1"}
+},
+"Dali":
+{
+value: "1001221",
+tooltip: {content: "<span style=\"font-weight:bold;\">Dali</span><br />Population: 1001221<br />VP: 3"}
+},
+"Yunnan":
+{
+value: "11007921",
+tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan</span><br />Population: 11007921<br />VP: 10"}
+},
+
+                }
+            });
+        });
+    </script>
+	</head>
+<body>
+
+<h1>Hello</h1>
+<p></p>
+
+<p>
+  <ul>
+    <li><b>v0.1.4</b> hey it works</li>
+  </ul>
+  </p>
+  
+  <div class="container">
+
+    <div class="mapcontainer">
+        <div class="map">
+            <span>Alternative content for the map</span>
+        </div>
+        <div class="areaLegend">
+            <span>Alternative content for the legend</span>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
