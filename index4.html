@@ -17,11 +17,15 @@
 
         .mapcontainer,
 		.mapcontainer2 {
-            width: 90%;
-			overflow: hidden;
+            /*width: 90%;*/
+			/*overflow: hidden;*/
 			max-width: 1600px;
             margin: auto;
 			float: left;
+        }
+        
+		p {
+            clear:both;
         }
 
         /* Specific mapael css class are below
@@ -108,7 +112,7 @@
 	<!--<script src="./mapsvg/js/jquery.mousewheel.min.js"></script>-->
 	<!--<script src="./mapsvg/js/jquery.nanoscroller.min.js"></script>-->
 	
-	<script src="./mapsvg/js/mapsvg.min.js"></script>
+	<!--<script src="./mapsvg/js/mapsvg.min.js"></script>-->
 
 <title>Hearts of Iron IV map thing</title>
 
@@ -5023,7 +5027,6 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan (Yunnan)</span><br 
 },
                 }
             });
-        });
 
 				/*var $mapcontainer2 = $(".mapcontainer2");*/
 				$(".mapcontainer2").mapael({
@@ -5087,7 +5090,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan (Yunnan)</span><br 
                      ]
                  }
              },
-                
+                areas: {
 "Herat":
 {
 value: "0",
@@ -9935,7 +9938,8 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan (Yunnan)</span><br 
 },
               
 			  });			
-
+		});
+	});
     </script>
 	</head>
 <body>
