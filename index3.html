@@ -107,9 +107,10 @@
             charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js" charset="utf-8"></script>
 
+	<script src="./mapsvg/js/jquery.mapael.js" charset="utf-8"></script>
+	
 	<script src="https://rawgit.com/aterrien/jQuery-Knob/master/dist/jquery.knob.min.js" charset="utf-8"></script>
 	
-	<script src="./mapsvg/js/jquery.mapael.js" charset="utf-8"></script>
 	<script src="./mapsvg/js/maps/hoi4map.js"></script>
 	
 	<!--<script src="./mapsvg/js/jquery.js"></script>-->
@@ -122,67 +123,67 @@
 
 <script type="text/javascript">
         $(function () {
-            $(".mapcontainer").mapael({
-                map: {
-                    name: "hoi4map",
-					// Enable zoom on the map
-                    zoom: {
-                        enabled: true,
-                        maxLevel: 10
-                    },
-					
-                    defaultArea: {
-                        attrs: {
-                            stroke: "#fff",
-                            "stroke-width": 0.5
-                        },
-                        attrsHover: {
-                            "stroke-width": 0.7
-                        }
-                    }
-                },
-                legend: {
-                    area: {
-                        title: "Population per State",
-                        <!--exclusive: true,-->
-                        slices: [
-                            {
-                                max: 100000,
-                                attrs: {
-                                    fill: "#97e766"
-                                },
-                                label: "<100k population",
-                                <!--clicked: true-->
-                            },
-                            {
-                                min: 100000,
-                                max: 500000,
-                                attrs: {
-                                    fill: "#7fd34d"
-                                },
-                                label: "Between 100 000 and 500 000"
-								<!--clicked: true-->
-                            },
-                            {
-                                min: 500000,
-                                max: 1000000,
-                                attrs: {
-                                    fill: "#5faa32"
-                                },
-                                label: "Between 500 000 and 1 000 000",
-                                <!--clicked: true-->
-                            },
-                            {
-                                min: 1000000,
-                                attrs: {
-                                    fill: "#3f7d1a"
-                                },
-                                label: "More than 1 million",
-                                <!--clicked: true-->
-                            }
-                        ]
-                    }
-                },
+            //.mapcontainer").mapael({
+            // map: {
+            //     name: "hoi4map",
+			//	// Enable zoom on the map
+            //     zoom: {
+            //         enabled: true,
+            //         maxLevel: 10
+            //     },
+			//	
+            //     defaultArea: {
+            //         attrs: {
+            //             stroke: "#fff",
+            //             "stroke-width": 0.5
+            //         },
+            //         attrsHover: {
+            //             "stroke-width": 0.7
+            //         }
+            //     }
+            // },
+            // legend: {
+            //     area: {
+            //         title: "Population per State",
+            //         <!--exclusive: true,-->
+            //         slices: [
+            //             {
+            //                 max: 100000,
+            //                 attrs: {
+            //                     fill: "#97e766"
+            //                 },
+            //                 label: "<100k population",
+            //                 <!--clicked: true-->
+            //             },
+            //             {
+            //                 min: 100000,
+            //                 max: 500000,
+            //                 attrs: {
+            //                     fill: "#7fd34d"
+            //                 },
+            //                 label: "Between 100 000 and 500 000"
+			//				<!--clicked: true-->
+            //             },
+            //             {
+            //                 min: 500000,
+            //                 max: 1000000,
+            //                 attrs: {
+            //                     fill: "#5faa32"
+            //                 },
+            //                 label: "Between 500 000 and 1 000 000",
+            //                 <!--clicked: true-->
+            //             },
+            //             {
+            //                 min: 1000000,
+            //                 attrs: {
+            //                     fill: "#3f7d1a"
+            //                 },
+            //                 label: "More than 1 million",
+            //                 <!--clicked: true-->
+            //             }
+            //         ]
+            //     }
+            // },
                 var data = {
 				"1" : {
 				"areas": {
@@ -9886,7 +9887,7 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan (Yunnan)</span><br 
 		// Knob initialisation (for selecting a year)
             $(".knob").knob({
                 release: function (value) {
-                    $(".world").trigger('update', [{
+                    $(".hoi4map").trigger('update', [{
                         mapOptions: data[value],
                         animDuration: 300
                     }]);
@@ -9894,10 +9895,10 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan (Yunnan)</span><br 
             });
 
             // Mapael initialisation
-            $world = $(".world");
-            $world.mapael({
+            $hoi4map = $(".hoi4map");
+            $hoi4map.mapael({
                 map: {
-                    name: "world_countries",
+                    name: "hoi4map",
                     defaultArea: {
                         attrs: {
                             fill: "#fff",
@@ -9926,38 +9927,42 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan (Yunnan)</span><br 
                 legend: {
                     area: {
                         display: true,
-                        title: "Country population",
+                        title: "State population",
                         marginBottom: 7,
                         slices: [
                             {
-                                max: 5000,
+                                max: 100000,
                                 attrs: {
-                                    fill: "#6ECBD4"
+                                    fill: "#97e766"
                                 },
-                                label: "Less than 5M"
+                                label: "<100k population",
+                                <!--clicked: true-->
                             },
                             {
-                                min: 5000,
-                                max: 10000,
+                                min: 100000,
+                                max: 500000,
                                 attrs: {
-                                    fill: "#3EC7D4"
+                                    fill: "#7fd34d"
                                 },
-                                label: "Between 5M and 10M"
+                                label: "Between 100 000 and 500 000"
+								<!--clicked: true-->
                             },
                             {
-                                min: 10000,
-                                max: 50000,
+                                min: 500000,
+                                max: 1000000,
                                 attrs: {
-                                    fill: "#028E9B"
+                                    fill: "#5faa32"
                                 },
-                                label: "Between 10M and 50M"
+                                label: "Between 500 000 and 1 000 000",
+                                <!--clicked: true-->
                             },
                             {
-                                min: 50000,
+                                min: 1000000,
                                 attrs: {
-                                    fill: "#01565E"
+                                    fill: "#3f7d1a"
                                 },
-                                label: "More than 50M"
+                                label: "More than 1 million",
+                                <!--clicked: true-->
                             }
                         ]
                     },
