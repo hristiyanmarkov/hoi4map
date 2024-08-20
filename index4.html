@@ -16,11 +16,10 @@
         }
 
         .mapcontainer,
-		.mapcontainer2 {
-            /*width: 90%;*/
-			/*overflow: hidden;*/
-			background: url(
-'https://hoi4.paradoxwikis.com/images/5/5e/Default_map_nogui.jpg');
+		.mapcontainer2,
+		.mapcontainer3 {
+            width: 90%;
+			overflow: hidden;
 			max-width: 1600px;
             margin: auto;
 			float: left;
@@ -9941,7 +9940,5888 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan (Yunnan)</span><br 
               
 			  }			
 		});
+		
+				$(".mapcontainer3").mapael({
+				map: {
+                 name: "hoi4map",
+				// Enable zoom on the map
+                 zoom: {
+                     enabled: true,
+                     maxLevel: 10
+                 },
+				
+                 defaultArea: {
+                     attrs: {
+                         stroke: "#fff",
+                         "stroke-width": 0.5
+                     },
+                     attrsHover: {
+                         "stroke-width": 0.7
+                     }
+                 }
+             },
+             legend: {
+                 area: {
+                     title: "Alum per State",
+                     <!--exclusive: true,-->
+                     slices: [
+                         {
+                             max: 0,
+                             attrs: {
+                                 fill: "#f8f9fa"
+                             },
+                             label: "0 Aluminium",
+                             <!--clicked: true-->
+                         },
+                         {
+                             min: 1,
+                             max: 10,
+                             attrs: {
+                                 fill: "#dee2e6"
+                             },
+                             label: "Between 1 and 10"
+							<!--clicked: true-->
+                         },
+                         {
+                             min: 11,
+                             max: 50,
+                             attrs: {
+                                 fill: "#6c757d"
+                             },
+                             label: "Between 11 and 50",
+                             <!--clicked: true-->
+                         },
+                         {
+                             min: 51,
+                             attrs: {
+                                 fill: "#343a40"
+                             },
+                             label: "More than 50",
+                             <!--clicked: true-->
+                         }
+                     ]
+                 }
+             },	
+
+			areas: {
+			"Herat": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Herat (Afghanistan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kabul": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kabul (Afghanistan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Albania": {
+    value: "1",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Albania (Albania)</span><br />Base Alum: 1<br />Infra Alum: 1.4"
+    }
+},
+"Northern_Epirus": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Northern Epirus (Albania)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Shkodër": {
+    value: "1",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Shkodër (Albania)</span><br />Base Alum: 1<br />Infra Alum: 1.4"
+    }
+},
+"Buenos_Aires": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Buenos Aires (Argentina)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Chaco_Austral": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Chaco Austral (Argentina)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Chubut": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Chubut (Argentina)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Formosa": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Formosa (Argentina)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Los_Andes": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Los Andes (Argentina)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Mendoza": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Mendoza (Argentina)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Región_Mesopotámica": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Región Mesopotámica (Argentina)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Río_Negro": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Río Negro (Argentina)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"San_Juan_y_La_Rioja": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">San Juan y La Rioja (Argentina)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"San_Luis_y_La_Pampa": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">San Luis y La Pampa (Argentina)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Santa_Cruz_AR": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Santa_Cruz_AR (Argentina)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Santa_Fe": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Santa Fe (Argentina)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tierra_del_Fuego": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tierra del Fuego (Argentina)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tucumán": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tucumán (Argentina)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Bismarck": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bismarck (Australia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Central_Australia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Central Australia (Australia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"New_South_Wales": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">New South Wales (Australia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"North_Queensland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">North Queensland (Australia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"North_West_Australia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">North West Australia (Australia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Northern_Territory": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Northern Territory (Australia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Papua": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Papua (Australia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Queensland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Queensland (Australia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Solomon_Islands": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Solomon Islands (Australia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"South_Australia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">South Australia (Australia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"South_West_Australia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">South West Australia (Australia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Southwest_Queensland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Southwest_Queensland (Australia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tasmania": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tasmania (Australia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Victoria": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Victoria (Australia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Western_Australia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Western Australia (Australia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Lower_Austria": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Lower Austria (Austria)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tyrol": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tyrol (Austria)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Upper_Austria": {
+    value: "1",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Upper Austria (Austria)</span><br />Base Alum: 1<br />Infra Alum: 1.6"
+    }
+},
+"Vorarlberg": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Vorarlberg (Austria)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Burundi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Burundi (Belgium)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Coquilhatville": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Coquilhatville (Belgium)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Costermansville": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Costermansville (Belgium)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Elisabethville": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Elisabethville (Belgium)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Leopoldville": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Leopoldville (Belgium)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Lusambo": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Lusambo (Belgium)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Rwanda": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Rwanda (Belgium)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Stanleyville": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Stanleyville (Belgium)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Vlaanderen": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Vlaanderen (Belgium)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Wallonie": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Wallonie (Belgium)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Bhutan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bhutan (Bhutan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"La_Paz": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">La Paz (Bolivian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Santa_Cruz": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Santa Cruz (Bolivian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"North_Borneo": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">North Borneo (British Malaya)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Singapore": {
+    value: "15",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Singapore (British Malaya)</span><br />Base Alum: 15<br />Infra Alum: 21"
+    }
+},
+"Arunachal_Pradesh": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Arunachal Pradesh (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Assam": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Assam (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Baluchistan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Baluchistan (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Bihar": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bihar (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Bombay": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bombay (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Burma": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Burma (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Delhi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Delhi (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"East_Bengal": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">East Bengal (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Gujarat": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Gujarat (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Hyderabad": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Hyderabad (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Indore": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Indore (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Jabalpur": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Jabalpur (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kashmir": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kashmir (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Lucknow": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Lucknow (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Madras": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Madras (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Madurai": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Madurai (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Mandalay": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Mandalay (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Mysore": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Mysore (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Northern_Kashmir": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Northern Kashmir (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Orissa": {
+    value: "1",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Orissa (British Raj)</span><br />Base Alum: 1<br />Infra Alum: 1.4"
+    }
+},
+"Peshawar": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Peshawar (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Punjab": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Punjab (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Quetta": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Quetta (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Rajahsthan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Rajahsthan (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sind": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sind (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"West_Bengal": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">West Bengal (British Raj)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Burgas": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Burgas (Bulgaria)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Moesia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Moesia (Bulgaria)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Plovdiv": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Plovdiv (Bulgaria)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sofia": {
+    value: "2",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sofia (Bulgaria)</span><br />Base Alum: 2<br />Infra Alum: 3.2"
+    }
+},
+"Antofagasta": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Antofagasta (Chile)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Araucanía": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Araucanía (Chile)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Arica_y_Tarapacá": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Arica y Tarapacá (Chile)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Atacama": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Atacama (Chile)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Aysén": {
+    value: "1",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Aysén (Chile)</span><br />Base Alum: 1<br />Infra Alum: 1.2"
+    }
+},
+"Easter_Island": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Easter Island (Chile)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Magallanes": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Magallanes (Chile)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Santiago": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Santiago (Chile)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Anhui": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Anhui (China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Beijing": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Beijing (China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Changde": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Changde (China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Fujian": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Fujian (China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ganzi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ganzi (China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Guizhou": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Guizhou (China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Hebei": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Hebei (China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Henan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Henan (China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Huangshan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Huangshan (China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Hubei": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Hubei (China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Hunan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Hunan (China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Jiangsu": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Jiangsu (China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Jiangxi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Jiangxi (China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Liangshan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Liangshan (China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Qingdao": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Qingdao (China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Shandong": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Shandong (China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Shanghai": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Shanghai (China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sichuan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sichuan (China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Xian": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Xian (China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Xikang": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Xikang (China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Zhejiang": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Zhejiang (China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Zunyi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Zunyi (China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Cundinamarca": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Cundinamarca (Colombia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"La_Libertad": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">La Libertad (Colombia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Meta": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Meta (Colombia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Shaanxi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Shaanxi (Communist China)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Costa_Rica": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Costa Rica (Costa Rica)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Cuba": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Cuba (Cuba)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Bohemia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bohemia (Czechoslovakia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Carpathian_Ruthenia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Carpathian Ruthenia (Czechoslovakia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Eastern_Slovakia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Eastern Slovakia (Czechoslovakia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Eastern_Sudetenland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Eastern Sudetenland (Czechoslovakia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Moravia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Moravia (Czechoslovakia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Southern_Slovakia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Southern Slovakia (Czechoslovakia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sudetenland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sudetenland (Czechoslovakia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Western_Slovakia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Western Slovakia (Czechoslovakia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Zaolzie": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Zaolzie (Czechoslovakia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Bornholm": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bornholm (Denmark)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Faroe_Islands": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Faroe Islands (Denmark)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Fyn": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Fyn (Denmark)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Greenland": {
+    value: "10",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Greenland (Denmark)</span><br />Base Alum: 10<br />Infra Alum: 12"
+    }
+},
+"Jylland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Jylland (Denmark)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sjaelland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sjaelland (Denmark)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sønderjylland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sønderjylland (Denmark)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Dominican_Republic": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Dominican Republic (Dominican Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Alberta": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Alberta (Dominion of Canada)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"British_Columbia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">British Columbia (Dominion of Canada)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Cote_Nord": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Cote_Nord (Dominion of Canada)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Districts_of_Ontario": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Districts of Ontario (Dominion of Canada)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Haida_Gwaii": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Haida Gwaii (Dominion of Canada)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Manitoba": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Manitoba (Dominion of Canada)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Maurice": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Maurice (Dominion of Canada)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"New_Brunswick": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">New Brunswick (Dominion of Canada)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Nord_du_Quebec": {
+    value: "4",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Nord du Quebec (Dominion of Canada)</span><br />Base Alum: 4<br />Infra Alum: 4.8"
+    }
+},
+"Northern_Manitoba": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Northern Manitoba (Dominion of Canada)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Northern_Ontario": {
+    value: "9",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Northern Ontario (Dominion of Canada)</span><br />Base Alum: 9<br />Infra Alum: 14.4"
+    }
+},
+"Northern_Saskatchewan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Northern Saskatchewan (Dominion of Canada)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Northwest_Territories": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Northwest Territories (Dominion of Canada)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Nova_Scotia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Nova Scotia (Dominion of Canada)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Nunavut": {
+    value: "7",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Nunavut (Dominion of Canada)</span><br />Base Alum: 7<br />Infra Alum: 8.4"
+    }
+},
+"Ouest_du_Quebec": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ouest du Quebec (Dominion of Canada)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Saguenay": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Saguenay (Dominion of Canada)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Saint_Lawrence": {
+    value: "3",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Saint Lawrence (Dominion of Canada)</span><br />Base Alum: 3<br />Infra Alum: 4.8"
+    }
+},
+"Saskatchewan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Saskatchewan (Dominion of Canada)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Southern_Ontario": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Southern Ontario (Dominion of Canada)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Upper_British_Columbia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Upper British Columbia (Dominion of Canada)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Vancouver_Island": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Vancouver Island (Dominion of Canada)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Yukon_Territory": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Yukon Territory (Dominion of Canada)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Aru_Islands": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Aru Islands (Dutch East Indies)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Java": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Java (Dutch East Indies)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kalimantan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kalimantan (Dutch East Indies)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Lesser_Sunda_Islands": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Lesser Sunda Islands (Dutch East Indies)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sulawesi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sulawesi (Dutch East Indies)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sumatra": {
+    value: "28",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sumatra (Dutch East Indies)</span><br />Base Alum: 28<br />Infra Alum: 39.2"
+    }
+},
+"The_Moluccas": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">The Moluccas (Dutch East Indies)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"West_Papua": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">West Papua (Dutch East Indies)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ecuador": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ecuador (Ecuador)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Galapagos_Islands": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Galapagos Islands (Ecuador)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Pastaza": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Pastaza (Ecuador)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"El_Salvador": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">El Salvador (El Salvador)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Harju": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Harju (Estonia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Pärnu": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Pärnu (Estonia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Saaremaa": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Saaremaa (Estonia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tartu": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tartu (Estonia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Virumaa": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Virumaa (Estonia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Bale": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bale (Ethiopia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Begemder": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Begemder (Ethiopia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Gojjam": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Gojjam (Ethiopia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Hararghe": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Hararghe (Ethiopia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Illubabor_Kaffa": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Illubabor_Kaffa (Ethiopia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Shewa": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Shewa (Ethiopia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sidamo": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sidamo (Ethiopia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tigray": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tigray (Ethiopia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Welega": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Welega (Ethiopia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Wello": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Wello (Ethiopia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Åland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Åland (Finland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Häme": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Häme (Finland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Karjala": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Karjala (Finland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kuopio": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kuopio (Finland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kymi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kymi (Finland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Lappi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Lappi (Finland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Mikkeli": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Mikkeli (Finland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Oulu": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Oulu (Finland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Petsamo": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Petsamo (Finland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Salla": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Salla (Finland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Turku": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Turku (Finland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Uusimaa": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Uusimaa (Finland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Vaasa": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Vaasa (Finland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Aleppo": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Aleppo (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Algerian_Desert": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Algerian Desert (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Algiers": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Algiers (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Alpes": {
+    value: "30",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Alpes (France)</span><br />Base Alum: 30<br />Infra Alum: 42"
+    }
+},
+"Alsace_Lorraine": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Alsace_Lorraine (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Aquitaine": {
+    value: "11",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Aquitaine (France)</span><br />Base Alum: 11<br />Infra Alum: 17.6"
+    }
+},
+"Auvergne": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Auvergne (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Borkou_Ennedi_Tibesti": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Borkou_Ennedi_Tibesti (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Bamako": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bamako (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Bouches_du_Rhone": {
+    value: "60",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bouches_du_Rhone (France)</span><br />Base Alum: 60<br />Infra Alum: 96"
+    }
+},
+"Bourgogne": {
+    value: "11",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bourgogne (France)</span><br />Base Alum: 11<br />Infra Alum: 19.8"
+    }
+},
+"Brittany": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Brittany (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Cambodia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Cambodia (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Cameroon": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Cameroon (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Casablanca": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Casablanca (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Centre": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Centre (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Centre_Sud": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Centre_Sud (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Chad": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Chad (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Champagne": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Champagne (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Comoro_Islands": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Comoro Islands (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Constantine": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Constantine (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Corsica": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Corsica (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Dahomey": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Dahomey (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Damascus": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Damascus (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Deir_az_Zur": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Deir_az_Zur (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Equatorial_Africa": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Equatorial Africa (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Franche_Comte": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Franche_Comte (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"French_Caribbean": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">French Caribbean (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"French_Guiana": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">French Guiana (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"French_India": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">French India (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"French_Somaliland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">French Somaliland (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Gabès": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Gabès (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Gabon": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Gabon (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Gao": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Gao (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Guangzhouwan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Guangzhouwan (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Guinea": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Guinea (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Hatay": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Hatay (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ile_de_France": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ile de France (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ivory_Coast": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ivory Coast (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kayes_Koulikoro": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kayes_Koulikoro (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kerguelen": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kerguelen (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Languedoc": {
+    value: "50",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Languedoc (France)</span><br />Base Alum: 50<br />Infra Alum: 80"
+    }
+},
+"Laos": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Laos (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Lebanon": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Lebanon (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Limousin": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Limousin (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Loire": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Loire (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Madagascar": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Madagascar (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Marrakech": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Marrakech (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Mauritania": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Mauritania (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Mauritanian_Desert": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Mauritanian Desert (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Middle_Congo": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Middle Congo (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Midi_Pyrenees": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Midi Pyrenees (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Nendo": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Nendo (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"New_Caledonia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">New Caledonia (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Niger": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Niger (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Nord_Pas_de_Calais": {
+    value: "8",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Nord_Pas_de_Calais (France)</span><br />Base Alum: 8<br />Infra Alum: 14.4"
+    }
+},
+"Normandy": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Normandy (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Picardy": {
+    value: "4",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Picardy (France)</span><br />Base Alum: 4<br />Infra Alum: 7.2"
+    }
+},
+"Poitou": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Poitou (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Pyrénées_Atlantiques": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Pyrénées_Atlantiques (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Reunion": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Reunion (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Rhone": {
+    value: "35",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Rhone (France)</span><br />Base Alum: 35<br />Infra Alum: 63"
+    }
+},
+"Savoy": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Savoy (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Senegal": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Senegal (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Southern_Indochina": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Southern Indochina (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Southern_Sahara": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Southern Sahara (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"St_Pierre_and_Miquelon": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">St Pierre and Miquelon (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tahiti": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tahiti (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tlemcen": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tlemcen (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Togo": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Togo (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tombouctou": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tombouctou (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tonkin": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tonkin (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tunisia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tunisia (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Upper_Volta": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Upper Volta (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Var": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Var (France)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Brandenburg": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Brandenburg (German Reich)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ermland_Masuren": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ermland_Masuren (German Reich)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Franken": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Franken (German Reich)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Hannover": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Hannover (German Reich)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Hessen": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Hessen (German Reich)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Hinterpommern": {
+    value: "6",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Hinterpommern (German Reich)</span><br />Base Alum: 6<br />Infra Alum: 9.6"
+    }
+},
+"Holstein": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Holstein (German Reich)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Königsberg": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Königsberg (German Reich)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Mecklenburg": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Mecklenburg (German Reich)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Moselland": {
+    value: "14",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Moselland (German Reich)</span><br />Base Alum: 14<br />Infra Alum: 25.2"
+    }
+},
+"Niederbayern": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Niederbayern (German Reich)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Niederschlesien": {
+    value: "16",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Niederschlesien (German Reich)</span><br />Base Alum: 16<br />Infra Alum: 25.6"
+    }
+},
+"Oberbayern": {
+    value: "18",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Oberbayern (German Reich)</span><br />Base Alum: 18<br />Infra Alum: 32.4"
+    }
+},
+"Oberschlesien": {
+    value: "6",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Oberschlesien (German Reich)</span><br />Base Alum: 6<br />Infra Alum: 9.6"
+    }
+},
+"Ostmark": {
+    value: "15",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ostmark (German Reich)</span><br />Base Alum: 15<br />Infra Alum: 24"
+    }
+},
+"Rhineland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Rhineland (German Reich)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sachsen": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sachsen (German Reich)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Schleswig": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Schleswig (German Reich)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Thüringen": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Thüringen (German Reich)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Vorpommern": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Vorpommern (German Reich)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Weser_Ems": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Weser_Ems (German Reich)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Westfalen": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Westfalen (German Reich)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Württemberg": {
+    value: "6",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Württemberg (German Reich)</span><br />Base Alum: 6<br />Infra Alum: 10.8"
+    }
+},
+"Guangdong": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Guangdong (Guangxi Clique)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Guangxi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Guangxi (Guangxi Clique)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Guangzhou": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Guangzhou (Guangxi Clique)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Hainan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Hainan (Guangxi Clique)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Nanning": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Nanning (Guangxi Clique)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Guatemala": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Guatemala (Guatemala)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Haiti": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Haiti (Haiti)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Honduras": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Honduras (Honduras)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Iceland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Iceland (Iceland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Fars": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Fars (Iran)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Gilan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Gilan (Iran)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Hamadan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Hamadan (Iran)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Isfahan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Isfahan (Iran)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kerman": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kerman (Iran)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Khorasan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Khorasan (Iran)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Khuzestan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Khuzestan (Iran)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kurdistan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kurdistan (Iran)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Semnan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Semnan (Iran)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sistan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sistan (Iran)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tehran": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tehran (Iran)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tibriz": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tibriz (Iran)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Al_Hajara": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Al Hajara (Iraq)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Baghdad": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Baghdad (Iraq)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Mosul": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Mosul (Iraq)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Connaught": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Connaught (Ireland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Leinster": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Leinster (Ireland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Munster": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Munster (Ireland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Abruzzo": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Abruzzo (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Alto_Adige": {
+    value: "14",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Alto Adige (Italy)</span><br />Base Alum: 14<br />Infra Alum: 19.6"
+    }
+},
+"Benghasi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Benghasi (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Calabria": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Calabria (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Campania": {
+    value: "10",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Campania (Italy)</span><br />Base Alum: 10<br />Infra Alum: 16"
+    }
+},
+"Cyrenaica": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Cyrenaica (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Derna": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Derna (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Dodecanese": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Dodecanese (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"El_Agheila": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">El Agheila (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Emilia_Romagna": {
+    value: "9",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Emilia Romagna (Italy)</span><br />Base Alum: 9<br />Infra Alum: 16.2"
+    }
+},
+"Eritrea": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Eritrea (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Istria": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Istria (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Jubaland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Jubaland (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Lazio": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Lazio (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Libyan_Desert": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Libyan Desert (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Litorale": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Litorale (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Lombardia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Lombardia (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Piemonte": {
+    value: "16",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Piemonte (Italy)</span><br />Base Alum: 16<br />Infra Alum: 28.8"
+    }
+},
+"Puglia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Puglia (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sardegna": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sardegna (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sicilia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sicilia (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sirte": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sirte (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Somaliland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Somaliland (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Toscana": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Toscana (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Trentino": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Trentino (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tripoli": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tripoli (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tripolitania": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tripolitania (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Veneto": {
+    value: "11",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Veneto (Italy)</span><br />Base Alum: 11<br />Infra Alum: 17.6"
+    }
+},
+"Zara": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Zara (Italy)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Caroline_Islands": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Caroline Islands (Japan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Chugoku": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Chugoku (Japan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Dalian": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Dalian (Japan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"East_Hebei": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">East Hebei (Japan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Hokkaido": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Hokkaido (Japan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Hokuriku": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Hokuriku (Japan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Iwo_Jima": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Iwo Jima (Japan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kansai": {
+    value: "3",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kansai (Japan)</span><br />Base Alum: 3<br />Infra Alum: 5.4"
+    }
+},
+"Kanto": {
+    value: "1",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kanto (Japan)</span><br />Base Alum: 1<br />Infra Alum: 1.8"
+    }
+},
+"Koshinetsu": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Koshinetsu (Japan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kuril_Islands": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kuril Islands (Japan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kyushu": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kyushu (Japan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Marcus_Island": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Marcus Island (Japan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Marshall_Islands": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Marshall Islands (Japan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"North_Korea": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">North Korea (Japan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Okinawa": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Okinawa (Japan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Palau": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Palau (Japan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Saipan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Saipan (Japan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Shikoku": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Shikoku (Japan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"South_Korea": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">South Korea (Japan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"South_Sakhalin": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">South Sakhalin (Japan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Taiwan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Taiwan (Japan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tohoku": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tohoku (Japan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tokai": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tokai (Japan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Aegean_Islands": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Aegean Islands (Kingdom of Greece)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Attica": {
+    value: "30",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Attica (Kingdom of Greece)</span><br />Base Alum: 30<br />Infra Alum: 42"
+    }
+},
+"Central_Macedonia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Central Macedonia (Kingdom of Greece)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Crete": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Crete (Kingdom of Greece)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Epirus": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Epirus (Kingdom of Greece)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Peloponnese": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Peloponnese (Kingdom of Greece)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Thrace": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Thrace (Kingdom of Greece)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Alföld": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Alföld (Kingdom of Hungary)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Northern_Hungary": {
+    value: "40",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Northern Hungary (Kingdom of Hungary)</span><br />Base Alum: 40<br />Infra Alum: 64"
+    }
+},
+"Transdanubia": {
+    value: "60",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Transdanubia (Kingdom of Hungary)</span><br />Base Alum: 60<br />Infra Alum: 96"
+    }
+},
+"Kurzeme": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kurzeme (Latvia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Latgale": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Latgale (Latvia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Rīga": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Rīga (Latvia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Vidzeme": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Vidzeme (Latvia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Zemgale": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Zemgale (Latvia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Liberia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Liberia (Liberia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Aukštaitija": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Aukštaitija (Lithuania)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kaunas": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kaunas (Lithuania)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Memel": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Memel (Lithuania)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sūduva": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sūduva (Lithuania)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Žemaitija": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Žemaitija (Lithuania)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Luxembourg": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Luxembourg (Luxembourg)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Heilungkiang": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Heilungkiang (Manchukuo)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Hulunbuir": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Hulunbuir (Manchukuo)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Jehol": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Jehol (Manchukuo)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kirin": {
+    value: "7",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kirin (Manchukuo)</span><br />Base Alum: 7<br />Infra Alum: 9.8"
+    }
+},
+"Liaoning": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Liaoning (Manchukuo)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Liaotung": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Liaotung (Manchukuo)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sungkiang": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sungkiang (Manchukuo)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Chahar": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Chahar (Mengkukuo)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"South_Chahar": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">South Chahar (Mengkukuo)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Baja_California": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Baja California (Mexico)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Chiapas": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Chiapas (Mexico)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Chihuahua": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Chihuahua (Mexico)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Coahuila": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Coahuila (Mexico)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Durango": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Durango (Mexico)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Guerrero": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Guerrero (Mexico)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Jalisco": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Jalisco (Mexico)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Mexico_City": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Mexico City (Mexico)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Oaxaca": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Oaxaca (Mexico)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sonora": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sonora (Mexico)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tamaulipas": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tamaulipas (Mexico)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Veracruz": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Veracruz (Mexico)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Yucatan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Yucatan (Mexico)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Dornod": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Dornod (Mongolia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Gobi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Gobi (Mongolia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Khovd": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Khovd (Mongolia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Khövsgöl": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Khövsgöl (Mongolia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ulaanbaatar": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ulaanbaatar (Mongolia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Nepal": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Nepal (Nepal)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Brabant": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Brabant (Netherlands)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Curaçao": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Curaçao (Netherlands)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Friesland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Friesland (Netherlands)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Holland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Holland (Netherlands)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Suriname": {
+    value: "60",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Suriname (Netherlands)</span><br />Base Alum: 60<br />Infra Alum: 84"
+    }
+},
+"North_Island": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">North Island (New Zealand)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Samoa": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Samoa (New Zealand)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"South_Island": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">South Island (New Zealand)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Nicaragua": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Nicaragua (Nicaragua)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Agder": {
+    value: "5",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Agder (Norway)</span><br />Base Alum: 5<br />Infra Alum: 8"
+    }
+},
+"Finnmark": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Finnmark (Norway)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Helgeland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Helgeland (Norway)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Jan_Mayen": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Jan Mayen (Norway)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Nordland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Nordland (Norway)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Opplandene": {
+    value: "5",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Opplandene (Norway)</span><br />Base Alum: 5<br />Infra Alum: 7"
+    }
+},
+"Oslofjord": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Oslofjord (Norway)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Telemark": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Telemark (Norway)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Troms": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Troms (Norway)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Trøndelag": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Trøndelag (Norway)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Vestlandet": {
+    value: "10",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Vestlandet (Norway)</span><br />Base Alum: 10<br />Infra Alum: 16"
+    }
+},
+"Oman": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Oman (Oman)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Panamá": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Panamá (Panama)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Arequipa": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Arequipa (Peru)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Lima": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Lima (Peru)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Loreto": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Loreto (Peru)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tacna_Moquegua": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tacna_Moquegua (Peru)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ucayali": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ucayali (Peru)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Cebu": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Cebu (Philippines)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Central_islands": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Central islands (Philippines)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Luzon": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Luzon (Philippines)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Manila": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Manila (Philippines)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Mindanao": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Mindanao (Philippines)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Palawan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Palawan (Philippines)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Samar": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Samar (Philippines)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Białystok": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Białystok (Poland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Danzig": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Danzig (Poland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Gdynia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Gdynia (Poland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Katowice": {
+    value: "7",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Katowice (Poland)</span><br />Base Alum: 7<br />Infra Alum: 11.2"
+    }
+},
+"Kielce": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kielce (Poland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kraków": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kraków (Poland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Lodz": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Lodz (Poland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Lublin": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Lublin (Poland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Lwów": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Lwów (Poland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Nowogródek": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Nowogródek (Poland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Płock": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Płock (Poland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Polesie": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Polesie (Poland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Poznan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Poznan (Poland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Stanisławów": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Stanisławów (Poland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Warszawa": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Warszawa (Poland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Wilejka": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Wilejka (Poland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Wilno": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Wilno (Poland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Wołyn": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Wołyn (Poland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Azores": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Azores (Portugal)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Beja": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Beja (Portugal)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Cape_Verde": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Cape Verde (Portugal)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Goa": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Goa (Portugal)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Guarda": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Guarda (Portugal)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Lisbon": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Lisbon (Portugal)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Lourenço_Marques": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Lourenço Marques (Portugal)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Luanda": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Luanda (Portugal)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Macau": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Macau (Portugal)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Madeira": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Madeira (Portugal)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Manica_e_Sofala": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Manica e Sofala (Portugal)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"North_Angola": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">North Angola (Portugal)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Porto": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Porto (Portugal)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Portuguese_Guinea": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Portuguese Guinea (Portugal)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Portuguese_Timor": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Portuguese Timor (Portugal)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Santarém": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Santarém (Portugal)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sao_Tome": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sao Tome (Portugal)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"South_West_Angola": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">South West Angola (Portugal)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Zambesi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Zambesi (Portugal)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Zambezia_Mosambique": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Zambezia_Mosambique (Portugal)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Chaco_Boreal": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Chaco Boreal (Republic of Paraguay)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Paraguay": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Paraguay (Republic of Paraguay)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Banat": {
+    value: "4",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Banat (Romania)</span><br />Base Alum: 4<br />Infra Alum: 6.4"
+    }
+},
+"Bessarabia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bessarabia (Romania)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Bucovina": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bucovina (Romania)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Crisana": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Crisana (Romania)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Dobrudja": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Dobrudja (Romania)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Moldova": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Moldova (Romania)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Muntenia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Muntenia (Romania)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"North_Transylvania": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">North Transylvania (Romania)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Oltenia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Oltenia (Romania)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Southern_Bessarabia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Southern Bessarabia (Romania)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Transylvania": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Transylvania (Romania)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Al_Qassim": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Al_Qassim (Saudi Arabia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Asir_Makkah": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Asir_Makkah (Saudi Arabia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Dammam": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Dammam (Saudi Arabia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Jawf": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Jawf (Saudi Arabia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Madinah": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Madinah (Saudi Arabia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Najiran": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Najiran (Saudi Arabia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Nejd": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Nejd (Saudi Arabia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Rub_al_Khali": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Rub al Khali (Saudi Arabia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tabuk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tabuk (Saudi Arabia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Acre": {
+    value: "6",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Acre (Second Brazilian Republic)</span><br />Base Alum: 6<br />Infra Alum: 7.2"
+    }
+},
+"Amapá": {
+    value: "4",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Amapá (Second Brazilian Republic)</span><br />Base Alum: 4<br />Infra Alum: 4.8"
+    }
+},
+"Amazon_impassable_1": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Amazon impassable 1 (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Amazon_impassable_2": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Amazon impassable 2 (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Amazon_impassable_3": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Amazon impassable 3 (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Amazon_impassable_4": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Amazon impassable 4 (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Amazon_impassable_5": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Amazon impassable 5 (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Amazon_impassable_6": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Amazon impassable 6 (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Amazon_impassable_7": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Amazon impassable 7 (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Amazon_impassable_8": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Amazon impassable 8 (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Amazonas": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Amazonas (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Bahia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bahia (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ceará": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ceará (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Espírito_Santo": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Espírito Santo (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Goiás": {
+    value: "3",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Goiás (Second Brazilian Republic)</span><br />Base Alum: 3<br />Infra Alum: 3.6"
+    }
+},
+"Guaporé": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Guaporé (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Maranhão": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Maranhão (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Mato_Grosso": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Mato Grosso (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Minas_Gerais": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Minas Gerais (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Pará": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Pará (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Paraná": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Paraná (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Pernambuco": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Pernambuco (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Piauí": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Piauí (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Punta_Porá": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Punta Porá (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Rio_Branco": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Rio Branco (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Rio_de_Janeiro": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Rio de Janeiro (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Rio_Grande_do_Norte": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Rio Grande do Norte (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Rio_Grande_do_Sul": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Rio Grande do Sul (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Santa_Catarina": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Santa Catarina (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"São_Paulo": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">São Paulo (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tocantins": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tocantins (Second Brazilian Republic)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ordos": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ordos (Shanxi)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Shanxi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Shanxi (Shanxi)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Suiyuan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Suiyuan (Shanxi)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Isan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Isan (Siam)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Lanna": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Lanna (Siam)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Northern_Malay": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Northern Malay (Siam)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Siam": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Siam (Siam)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Dabancheng": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Dabancheng (Sinkiang)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Dzungaria": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Dzungaria (Sinkiang)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kunlun_Shan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kunlun Shan (Sinkiang)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Taklamakan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Taklamakan (Sinkiang)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Urumqi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Urumqi (Sinkiang)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Yarkand": {
+    value: "2",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Yarkand (Sinkiang)</span><br />Base Alum: 2<br />Infra Alum: 2.8"
+    }
+},
+"Cape": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Cape (South Africa)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Karas": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Karas (South Africa)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Khomas": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Khomas (South Africa)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kunene": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kunene (South Africa)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Natal": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Natal (South Africa)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Otjozondjupa": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Otjozondjupa (South Africa)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Transvaal": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Transvaal (South Africa)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Abkhazia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Abkhazia (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Akhtubinsk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Akhtubinsk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Akmolinsk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Akmolinsk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Alma_Ata": {
+    value: "10",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Alma_Ata (Soviet Union)</span><br />Base Alum: 10<br />Infra Alum: 14"
+    }
+},
+"Altai_Krai": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Altai Krai (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Amur": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Amur (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Arkhangelsk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Arkhangelsk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Armenia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Armenia (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ashkhabad": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ashkhabad (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Astrakhan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Astrakhan (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ayaguz": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ayaguz (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Azerbaijan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Azerbaijan (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Balakovo": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Balakovo (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Balta_Tiraspol": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Balta_Tiraspol (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Belgorod": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Belgorod (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Birobidzhan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Birobidzhan (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Bobruysk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bobruysk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Bodaybo": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bodaybo (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Bratsk": {
+    value: "26",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bratsk (Soviet Union)</span><br />Base Alum: 26<br />Infra Alum: 36.4"
+    }
+},
+"Bryansk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bryansk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Bukhara": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bukhara (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Buryatia": {
+    value: "4",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Buryatia (Soviet Union)</span><br />Base Alum: 4<br />Infra Alum: 5.6"
+    }
+},
+"Chechnya_Ingushetia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Chechnya_Ingushetia (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Chelyabinsk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Chelyabinsk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Cherkasy": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Cherkasy (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Chernigov": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Chernigov (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Chita": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Chita (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Chukchi_Peninsula": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Chukchi Peninsula (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Chukotka": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Chukotka (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Chuvashia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Chuvashia (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Crimea": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Crimea (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Dagestan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Dagestan (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Dnipropetrovsk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Dnipropetrovsk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Dudinka": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Dudinka (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Engels_Marxstadt": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Engels_Marxstadt (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Georgia_US": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Georgia_US (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Gomel": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Gomel (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Gorky": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Gorky (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Guryev": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Guryev (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Irkutsk": {
+    value: "7",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Irkutsk (Soviet Union)</span><br />Base Alum: 7<br />Infra Alum: 9.8"
+    }
+},
+"Ivanovo": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ivanovo (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kabardino_Balkaria": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kabardino_Balkaria (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kalinin": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kalinin (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kalmykia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kalmykia (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kaluga": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kaluga (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kamchatka": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kamchatka (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Karagandy": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Karagandy (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Karakalpakstan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Karakalpakstan (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kargopol": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kargopol (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kazan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kazan (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Khabarovsk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Khabarovsk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Khakassia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Khakassia (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kharkov": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kharkov (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Khatangsky": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Khatangsky (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kherson": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kherson (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Khiva": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Khiva (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Khmelnytskyi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Khmelnytskyi (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kyiv": {
+    value: "7",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kyiv (Soviet Union)</span><br />Base Alum: 7<br />Infra Alum: 12.6"
+    }
+},
+"Kirensk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kirensk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kirov": {
+    value: "14",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kirov (Soviet Union)</span><br />Base Alum: 14<br />Infra Alum: 19.6"
+    }
+},
+"Kolyma": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kolyma (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kostanay": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kostanay (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kotlas": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kotlas (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Krasnodar": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Krasnodar (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Krasnoyarsk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Krasnoyarsk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kursk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kursk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kuybyshev": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kuybyshev (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kyzyl_Orda": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kyzyl Orda (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Leningrad": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Leningrad (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Lipetsk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Lipetsk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Luga": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Luga (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Magadan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Magadan (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Magnitogorsk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Magnitogorsk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Mari_El": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Mari El (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Mikhaylovka": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Mikhaylovka (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Millerovo": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Millerovo (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Minsk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Minsk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Moscow": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Moscow (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Mozyr": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Mozyr (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Murmansk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Murmansk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Mykolaiv": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Mykolaiv (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Navoi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Navoi (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Nenets": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Nenets (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Nevel": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Nevel (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Nikolayevsk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Nikolayevsk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"North_Ossetia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">North Ossetia (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"North_Sakhalin": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">North Sakhalin (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Northern_Urals": {
+    value: "27",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Northern Urals (Soviet Union)</span><br />Base Alum: 27<br />Infra Alum: 32.4"
+    }
+},
+"Novgorod": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Novgorod (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Novosibirsk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Novosibirsk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Odessa": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Odessa (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Okhotsk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Okhotsk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Olonets": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Olonets (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Omsk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Omsk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Onega": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Onega (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Orel": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Orel (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Orenburg": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Orenburg (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Oyrot_Region": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Oyrot Region (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Pamir": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Pamir (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Pavlodar": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Pavlodar (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Pechora": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Pechora (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Penza": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Penza (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Perm": {
+    value: "6",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Perm (Soviet Union)</span><br />Base Alum: 6<br />Infra Alum: 9.6"
+    }
+},
+"Poltava": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Poltava (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Pskov": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Pskov (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Roslavl": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Roslavl (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Rostov": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Rostov (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ryazan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ryazan (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Rzhev": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Rzhev (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Salekhard": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Salekhard (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Saratov": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Saratov (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Semipalatinsk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Semipalatinsk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Smolensk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Smolensk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sochi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sochi (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Stalinabad": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Stalinabad (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Stalingrad": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Stalingrad (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Stalino": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Stalino (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Stavropol": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Stavropol (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sumy": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sumy (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Surgut": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Surgut (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sverdlovsk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sverdlovsk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Syktyvkar": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Syktyvkar (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tambov": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tambov (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tashauz": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tashauz (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tashkent": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tashkent (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tikhvin": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tikhvin (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tobolsk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tobolsk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tomsk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tomsk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tula": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tula (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tyumen": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tyumen (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Udachny": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Udachny (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Udmurtia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Udmurtia (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ufa": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ufa (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ulyanovsky": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ulyanovsky (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Uralsk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Uralsk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ust_Urt": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ust Urt (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Verkhoyansk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Verkhoyansk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Vinnytsia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Vinnytsia (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Vitebsk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Vitebsk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Vladivostok": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Vladivostok (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Volgodonsk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Volgodonsk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Volkhov": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Volkhov (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Vologda": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Vologda (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Voronezh": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Voronezh (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Voroshilovgrad": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Voroshilovgrad (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Yakutsk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Yakutsk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Yamalia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Yamalia (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Yaroslavl": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Yaroslavl (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Yeniseisk": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Yeniseisk (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Zaporozhe": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Zaporozhe (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Zhytomyr": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Zhytomyr (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Zlatoust": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Zlatoust (Soviet Union)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Asturias": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Asturias (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Burgos": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Burgos (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Cataluña": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Cataluña (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ciudad_Real": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ciudad Real (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Córdoba": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Córdoba (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Eastern_Aragón": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Eastern Aragón (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Equatorial_Guinea": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Equatorial Guinea (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Extremadura": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Extremadura (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Galicia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Galicia (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Granada": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Granada (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Guadalajara": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Guadalajara (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Islas_Baleares": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Islas Baleares (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Islas_Canarias": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Islas Canarias (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"León": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">León (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Madrid": {
+    value: "1",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Madrid (Spain)</span><br />Base Alum: 1<br />Infra Alum: 1.6"
+    }
+},
+"Murcia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Murcia (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Navarra": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Navarra (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"País_Vasco": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">País Vasco (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Rio_de_Oro": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Rio de Oro (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Salamanca": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Salamanca (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sevilla": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sevilla (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sidi_Ifni": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sidi Ifni (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Spanish_Africa": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Spanish Africa (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Valencia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Valencia (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Valladolid": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Valladolid (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Western_Aragón": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Western Aragón (Spain)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Afar": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Afar (Sultanate of Aussa)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Bohuslän": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bohuslän (Sweden)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Dalarna": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Dalarna (Sweden)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Gävleborg": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Gävleborg (Sweden)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Gotland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Gotland (Sweden)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Jämtland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Jämtland (Sweden)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Norrbotten": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Norrbotten (Sweden)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Östergötland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Östergötland (Sweden)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Skåne": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Skåne (Sweden)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Småland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Småland (Sweden)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Södermalm": {
+    value: "2",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Södermalm (Sweden)</span><br />Base Alum: 2<br />Infra Alum: 3.6"
+    }
+},
+"Värmland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Värmland (Sweden)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Västerbotten": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Västerbotten (Sweden)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Västergötland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Västergötland (Sweden)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Eastern_Swiss_Alps": {
+    value: "15",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Eastern Swiss Alps (Switzerland)</span><br />Base Alum: 15<br />Infra Alum: 18"
+    }
+},
+"Jura_Mountains": {
+    value: "18",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Jura Mountains (Switzerland)</span><br />Base Alum: 18<br />Infra Alum: 28.8"
+    }
+},
+"Swiss_Plateau": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Swiss Plateau (Switzerland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ticino": {
+    value: "15",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ticino (Switzerland)</span><br />Base Alum: 15<br />Infra Alum: 21"
+    }
+},
+"Western_Swiss_Alps": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Western Swiss Alps (Switzerland)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tannu_Tuva": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tannu Tuva (Tannu Tuva)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Nagqu": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Nagqu (Tibet)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ngari": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ngari (Tibet)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Shigatse": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Shigatse (Tibet)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Afyon": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Afyon (Turkey)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Amasya": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Amasya (Turkey)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ankara": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ankara (Turkey)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Antalya": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Antalya (Turkey)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Bursa": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bursa (Turkey)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Diyarbakır": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Diyarbakır (Turkey)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Edirne": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Edirne (Turkey)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Hakkari": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Hakkari (Turkey)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Istanbul": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Istanbul (Turkey)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Izmir": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Izmir (Turkey)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Izmit": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Izmit (Turkey)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kastamonu": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kastamonu (Turkey)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kayseri": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kayseri (Turkey)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Konya": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Konya (Turkey)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Malatya": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Malatya (Turkey)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Mersin": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Mersin (Turkey)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Samsun": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Samsun (Turkey)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sivas": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sivas (Turkey)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Trabzon": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Trabzon (Turkey)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tunceli": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tunceli (Turkey)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Van": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Van (Turkey)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Aberdeenshire": {
+    value: "3",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Aberdeenshire (United Kingdom)</span><br />Base Alum: 3<br />Infra Alum: 4.8"
+    }
+},
+"Abu_Dhabi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Abu Dhabi (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Aden": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Aden (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Alexandria": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Alexandria (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Andaman": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Andaman (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ascension": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ascension (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Aswan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Aswan (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Bahr_al_Ghazal": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bahr al Ghazal (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Bechuanaland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bechuanaland (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Benue": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Benue (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Bermuda": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bermuda (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Blue_Nile": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Blue Nile (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Borno": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Borno (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"British_Guyana": {
+    value: "64",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">British Guyana (United Kingdom)</span><br />Base Alum: 64<br />Infra Alum: 76.8"
+    }
+},
+"British_Honduras": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">British Honduras (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"British_Somaliland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">British Somaliland (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Cairo": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Cairo (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ceylon": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ceylon (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Christmas_Island": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Christmas Island (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Cocos_Islands": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Cocos Islands (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Cumbria": {
+    value: "5",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Cumbria (United Kingdom)</span><br />Base Alum: 5<br />Infra Alum: 8"
+    }
+},
+"Cyprus": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Cyprus (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Diego_Garcia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Diego Garcia (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"East_Anglia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">East Anglia (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"East_Midlands": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">East Midlands (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Eastern_Desert": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Eastern Desert (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ellice_Islands": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ellice Islands (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Falkland_Islands": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Falkland Islands (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Fiji": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Fiji (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Gambia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Gambia (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Garissa": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Garissa (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ghana": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ghana (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Gibraltar": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Gibraltar (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Gilbert_Islands": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Gilbert Islands (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Gloucestershire": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Gloucestershire (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Greater_London_Area": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Greater London Area (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Hong_Kong": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Hong Kong (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Isle_of_Man": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Isle of Man (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Jamaica": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Jamaica (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Jordan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Jordan (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kassala": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kassala (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Khartoum": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Khartoum (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kurdufan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kurdufan (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kuwait": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kuwait (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Labrador": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Labrador (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Lagos": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Lagos (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Lanark": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Lanark (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Lancashire": {
+    value: "2",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Lancashire (United Kingdom)</span><br />Base Alum: 2<br />Infra Alum: 3.6"
+    }
+},
+"Leeward_Islands": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Leeward Islands (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Lothian": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Lothian (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Malawi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Malawi (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Maldives": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Maldives (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Malta": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Malta (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Matrouh": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Matrouh (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Mauritius": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Mauritius (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Mombasa": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Mombasa (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Nairobi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Nairobi (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Nauru": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Nauru (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Newfoundland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Newfoundland (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"North_Darfur": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">North Darfur (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Northern_Bahamas": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Northern Bahamas (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Northern_Ireland": {
+    value: "2",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Northern Ireland (United Kingdom)</span><br />Base Alum: 2<br />Infra Alum: 3.2"
+    }
+},
+"Northumberland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Northumberland (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Nyanza_Rift_Valley": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Nyanza_Rift_Valley (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Palestine": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Palestine (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Pitcairn_Island": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Pitcairn Island (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Qatar": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Qatar (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Rhodesia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Rhodesia (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Saint_Helena": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Saint Helena (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Scottish_Highlands": {
+    value: "9",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Scottish Highlands (United Kingdom)</span><br />Base Alum: 9<br />Infra Alum: 12.6"
+    }
+},
+"Seychelles": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Seychelles (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Shetland_Islands": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Shetland Islands (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sierra_Leone": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sierra Leone (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sinai": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sinai (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Socotra": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Socotra (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sokoto": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sokoto (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"South_Darfur": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">South Darfur (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"South_Georgia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">South Georgia (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"South_West_England": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">South_West England (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Southern_Bahamas": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Southern Bahamas (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Suez": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Suez (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Sussex": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Sussex (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tanganyika": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tanganyika (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Trinidad": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Trinidad (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Uganda": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Uganda (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Upper_Nile": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Upper Nile (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Wales": {
+    value: "3",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Wales (United Kingdom)</span><br />Base Alum: 3<br />Infra Alum: 4.8"
+    }
+},
+"West_Midlands": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">West Midlands (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Western_Desert": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Western Desert (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Windward_Islands": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Windward Islands (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Yorkshire": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Yorkshire (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Zambia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Zambia (United Kingdom)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Alabama": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Alabama (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Alaska": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Alaska (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Arizona": {
+    value: "8",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Arizona (United States)</span><br />Base Alum: 8<br />Infra Alum: 11.2"
+    }
+},
+"Arkansas": {
+    value: "14",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Arkansas (United States)</span><br />Base Alum: 14<br />Infra Alum: 19.6"
+    }
+},
+"Attu_Island": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Attu Island (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"California": {
+    value: "8",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">California (United States)</span><br />Base Alum: 8<br />Infra Alum: 12.8"
+    }
+},
+"Colorado": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Colorado (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Florida": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Florida (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Georgia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Georgia (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Guam": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Guam (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Hawaii": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Hawaii (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Idaho": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Idaho (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Illinois": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Illinois (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Indiana": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Indiana (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Iowa": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Iowa (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Johnston_Atoll": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Johnston Atoll (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kansas": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kansas (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Kentucky": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kentucky (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Line_Islands": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Line Islands (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Louisiana": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Louisiana (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Maryland": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Maryland (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Michigan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Michigan (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Midway_Island": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Midway Island (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Minnesota": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Minnesota (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Mississippi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Mississippi (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Missouri": {
+    value: "12",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Missouri (United States)</span><br />Base Alum: 12<br />Infra Alum: 19.2"
+    }
+},
+"Montana": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Montana (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Nebraska": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Nebraska (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Nevada": {
+    value: "25",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Nevada (United States)</span><br />Base Alum: 25<br />Infra Alum: 35"
+    }
+},
+"New_England": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">New England (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"New_Jersey": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">New Jersey (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"New_Mexico": {
+    value: "30",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">New Mexico (United States)</span><br />Base Alum: 30<br />Infra Alum: 42"
+    }
+},
+"New_York": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">New York (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"North_Carolina": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">North Carolina (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"North_Dakota": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">North Dakota (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ohio": {
+    value: "9",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ohio (United States)</span><br />Base Alum: 9<br />Infra Alum: 16.2"
+    }
+},
+"Oklahoma": {
+    value: "20",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Oklahoma (United States)</span><br />Base Alum: 20<br />Infra Alum: 28"
+    }
+},
+"Oregon": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Oregon (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Panamá_Canal": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Panamá Canal (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Pennsylvania": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Pennsylvania (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Phoenix_Island": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Phoenix Island (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Puerto_Rico": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Puerto Rico (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"South_Carolina": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">South Carolina (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"South_Dakota": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">South Dakota (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Tennessee": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Tennessee (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Texas": {
+    value: "50",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Texas (United States)</span><br />Base Alum: 50<br />Infra Alum: 80"
+    }
+},
+"Utah": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Utah (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Virginia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Virginia (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Wake_Island": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Wake Island (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Washington": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Washington (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"West_Virginia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">West Virginia (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Wisconsin": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Wisconsin (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Wyoming": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Wyoming (United States)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Cerro_Largo": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Cerro Largo (Uruguay)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Montevideo": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Montevideo (Uruguay)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Paysandú": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Paysandú (Uruguay)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Bolivar": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bolivar (Venezuela)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Miranda": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Miranda (Venezuela)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Zulia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Zulia (Venezuela)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Gannan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Gannan (Xibei San Ma)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Gansu": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Gansu (Xibei San Ma)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Golog": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Golog (Xibei San Ma)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Haixi": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Haixi (Xibei San Ma)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Jiuquan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Jiuquan (Xibei San Ma)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ningxia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ningxia (Xibei San Ma)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Qinghai": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Qinghai (Xibei San Ma)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Yemen": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Yemen (Yemen)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Bosnia": {
+    value: "7",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Bosnia (Yugoslavia)</span><br />Base Alum: 7<br />Infra Alum: 11.2"
+    }
+},
+"Croatia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Croatia (Yugoslavia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Dalmatia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Dalmatia (Yugoslavia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Herzegovina": {
+    value: "7",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Herzegovina (Yugoslavia)</span><br />Base Alum: 7<br />Infra Alum: 9.8"
+    }
+},
+"Kosovo": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Kosovo (Yugoslavia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Ljubljana": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Ljubljana (Yugoslavia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Macedonia": {
+    value: "16",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Macedonia (Yugoslavia)</span><br />Base Alum: 16<br />Infra Alum: 22.4"
+    }
+},
+"Montenegro": {
+    value: "70",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Montenegro (Yugoslavia)</span><br />Base Alum: 70<br />Infra Alum: 98"
+    }
+},
+"Morava": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Morava (Yugoslavia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"North_Slovenia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">North Slovenia (Yugoslavia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Serbia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Serbia (Yugoslavia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Southern_Serbia": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Southern Serbia (Yugoslavia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Vojvodina": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Vojvodina (Yugoslavia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"West_Banat": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">West Banat (Yugoslavia)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Dali": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Dali (Yunnan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+"Yunnan": {
+    value: "0",
+    tooltip: {
+        content: "<span style=\"font-weight:bold;\">Yunnan (Yunnan)</span><br />Base Alum: 0<br />Infra Alum: 0"
+    }
+},
+		}
 	});
+
+});
     </script>
 	</head>
 <body>
@@ -9966,8 +15846,22 @@ tooltip: {content: "<span style=\"font-weight:bold;\">Yunnan (Yunnan)</span><br 
 			</div>
 			<div class="map"></div>		
 		</div>
-
+		
+		<p></p>
+		
 		<div class="mapcontainer2">
+			<div class="hoi4map">
+							
+				<div class="areaLegend"></div>
+				<!--<div class="plotLegend"></div>-->
+				
+			</div>
+			<div class="map"></div>		
+		</div>
+		
+		<p></p>
+		
+		<div class="mapcontainer3">
 			<div class="hoi4map">
 							
 				<div class="areaLegend"></div>
