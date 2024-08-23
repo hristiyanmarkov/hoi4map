@@ -2582,7 +2582,7 @@
                     },
                     attrsHover: {
                         fill: "#f38a03",
-                        animDuration: 300
+                        animDuration: 200
                     },
                     text: {
                         position: "inner",
@@ -2610,7 +2610,7 @@
                     },
                     attrsHover: {
                         "stroke-width": 3,
-                        animDuration: 300
+                        animDuration: 200
                     },
                     text: {
                         position: "right",
@@ -2621,7 +2621,7 @@
                         },
                         attrsHover: {
                             fill: "#eaeaea",
-                            animDuration: 300
+                            animDuration: 200
                         }
                     },
                     target: "_self",
@@ -2634,7 +2634,7 @@
                         "stroke-width": 2
                     },
                     attrsHover: {
-                        animDuration: 300
+                        animDuration: 200
                     },
                     text: {
                         position: "inner",
@@ -2645,7 +2645,7 @@
                         },
                         attrsHover: {
                             fill: "#eaeaea",
-                            animDuration: 300
+                            animDuration: 200
                         }
                     },
                     target: "_self",
@@ -2711,12 +2711,12 @@
                 },
                 labelAttrsHover: {
                     fill: "#787878",
-                    animDuration: 300
+                    animDuration: 200
                 },
                 hideElemsOnClick: {
                     enabled: true,
                     opacity: 0.2,
-                    animDuration: 300
+                    animDuration: 200
                 },
                 slices: [],
                 mode: "vertical"
@@ -2741,12 +2741,12 @@
                 },
                 labelAttrsHover: {
                     fill: "#787878",
-                    animDuration: 300
+                    animDuration: 200
                 },
                 hideElemsOnClick: {
                     enabled: true,
                     opacity: 0.2,
-                    animDuration: 300
+                    animDuration: 200
                 },
                 slices: [],
                 mode: "vertical"

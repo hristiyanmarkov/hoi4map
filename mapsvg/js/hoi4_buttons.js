@@ -48799,7 +48799,7 @@ $(function () {
 
             });
             /* Slider for Legend */
-
+            /*
             slider = noUiSlider.create($(".slider")[0], {
               start: [0, 500],
               step: 1,
@@ -48831,7 +48831,7 @@ $(function () {
           });
 
           $(slider).trigger("set");
-
+            */
           /* Clear all legends button */
             var all_hidden = 'show';
 
@@ -48860,8 +48860,29 @@ $(function () {
     
             $maparea2.trigger('zoom', {level: 30, area: input});
             });
+            
+            $('#refresh').on('click', function () {
+
+              // Update some plots and areas attributes ...
+              var updatedOptions = {'areas': {}};
+              updatedOptions.areas["Sofia"] = {
+                  tooltip: {
+                      content: "Morbihan (56) (2)"
+                  },
+                  attrs: {
+                      fill: "#000000"
+                  },
+                  text: {content: "56 (2)"}
+              };
 
 
+              $(".mapcontainer").trigger('update', [{
+                mapOptions: updatedOptions,
+                animDuration: 1000
+            
+              }]);
+
+            });
 
 
 
